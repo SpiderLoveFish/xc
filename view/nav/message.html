@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/list.css" />
+		<link rel="stylesheet" href="../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<style type="text/css">
+			/*.mui-slider .mui-slider-group .mui-slider-item img {
+				height: 250px;
+			}*/
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<h1 class="mui-title">首页</h1>
+		</header>
+		<div class="mui-content container">
+			<div class="mui-content nav_message">
+				<div id="slider" class="mui-slider h">
+					<div id="bannerList" class="mui-slider-group mui-slider-loop">
+						<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+						<!--<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="../../images/ScApp/nav/yuantiao.jpg">
+								<p class="mui-slider-title">静静看这世界</p>
+							</a>
+						</div>-->
+					</div>
+					<div id="sliderBtn" class="mui-slider-indicator mui-text-right">
+
+					</div>
+				</div>
+
+				<div class="index_mess_list" style="display:none;">
+					<ul>
+						<li id="approve" class="flexbox index_right mui-table-view-cell">
+							<div class="index_mess_appr index_mess_1">
+								<i id="approveCount" class="newsremind_badge h"></i>
+								<lable class="index_mess_label">审批</lable>
+								<span class="index_mess_span">包含工时、请假、加班以及通用审批</span>
+							</div>
+						</li>
+						<li id="new" class="flexbox index_right mui-table-view-cell">
+							<div class="index_mess_appr index_mess_2">
+								<i id="newCount" class="newsremind_badge h"></i>
+								<lable class="index_mess_label">企业公告</lable>
+								<span class="index_mess_span">企业动态、通知公告、员工动态</span>
+							</div>
+						</li>
+						<li id="survey" class="flexbox index_right  mui-table-view-cell">
+							<div class="index_mess_appr index_mess_3">
+								<i id="surveyCount" class="newsremind_badge h"></i>
+								<lable class="index_mess_label">调查问卷</lable>
+								<span class="index_mess_span">在线参与企业问卷</span>
+							</div>
+						</li>
+						<li id="activity" class="flexbox index_right  mui-table-view-cell">
+							<div class="index_mess_appr index_mess_4">
+								<i id="activityCount" class="newsremind_badge h"></i>
+								<lable class="index_mess_label">活动报名</lable>
+								<span class="index_mess_span">随时随地发布、参与活动</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="menu_icon" id="btnShortcuts" style="display:none;">
+				<div data-role="widget" data-widget="menu_4" class="menu_4">
+					<div class="widget_wrap">
+						<a class="menu_4_menu" href="javascript:;"><span>&nbsp;</span></a>
+					</div>
+					<div class="menu_4_con">
+						<div class="message-box" id="btnToUrl">
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</body>
+	<script type="text/javascript" src="../../js/mui/mui.min.js"></script>
+	<script type="text/javascript" src="../../js/common/zepto.min.js"></script>
+	<script src="../../js/nav/message.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/controllers/common.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		function getData() {
+			//开始：zjl 2016-02-25 修改代码
+			if (plus.networkinfo.getCurrentType() == 1) {
+				document.getElementsByClassName("index_mess_list")[0].style.display = "";
+				return;
+			}
+			//结束：zjl 2016-02-25 修改代码
+			var data = {
+				SelectType: 'IndexMsg',
+				startIndex: '0',
+				endIndex: '5'
+			};
+			//获取数据
+			common.postApi('GetMessage', data, function(response) {
+				var s = eval(response.data);
+					var trace={
+			"html":'message.html',
+			"js":'',
+			"url":'GetMessage',
+			"urldata":JSON.stringify(data),
+			"returndata":JSON.stringify(response.data)
+		}
+		 common.postTraceApi(trace);
+				var dataArray = s[0];
+				if (dataArray.length <= 0) {
+					$('#slider').hide();
+					document.getElementsByClassName("index_mess_list")[0].style.display = "";
+					return;
+				}
+				$('#slider').show();
+				document.getElementById("bannerList").innerHTML = '';
+				document.getElementById("sliderBtn").innerHTML = '';
+				//banner
+				var temp = '<div id="@id" listtype="@listtype" class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="@picurl"><p class="mui-slider-title">@title</p></a></div>';
+				if (dataArray.length > 0) {
+					//额外增加的一个节点(循环轮播：第一个节点是最后一张轮播)
+					document.getElementById("bannerList").innerHTML += temp.replace('@id', dataArray[dataArray.length - 1].ID).replace('@picurl', dataArray[dataArray.length - 1].IsHostPic).replace('@title', dataArray[dataArray.length - 1].ReleaseTime + ' ' + substringAddPoint(dataArray[dataArray.length - 1].Title, 9));
+					//主循环
+					for (var i = 0; i < dataArray.length; i++) {
+						var obj = dataArray[i];
+						document.getElementById("bannerList").innerHTML += temp.replace('@id', obj.ID).replace('@picurl', obj.IsHostPic).replace('@title', obj.ReleaseTime + ' ' + substringAddPoint(obj.Title, 9)).replace('@listtype', obj.ListType);
+						if (i == 0) {
+							document.getElementById("sliderBtn").innerHTML += '<div class="mui-indicator mui-active"></div>';
+						} else {
+							document.getElementById("sliderBtn").innerHTML += '<div class="mui-indicator"></div>';
+						}
+					}
+					//额外增加的一个节点(循环轮播：最后一个节点是第一张轮播)
+					document.getElementById("bannerList").innerHTML += temp.replace('@id', dataArray[0].ID).replace('@picurl', dataArray[0].IsHostPic).replace('@title', dataArray[0].ReleaseTime + ' ' + substringAddPoint(dataArray[0].Title, 9));
+				}
+				//轮播
+				var slider = mui("#slider");
+				slider.slider({
+					interval: 3000
+				});
+				//审批
+				setBadgeNumber('approveCount', s[1].length);
+				//document.getElementById("approveCount").innerText = s[1].length;
+				//新闻
+				setBadgeNumber('newCount', s[2].length);
+				//document.getElementById("newCount").innerText = s[2].length;
+				//调查问卷
+				setBadgeNumber('surveyCount', s[3].length);
+				//document.getElementById("surveyCount").innerText = s[3].length;
+				//活动
+				setBadgeNumber('activityCount', s[4].length);
+				//document.getElementById("activityCount").innerText = s[4].length;
+				document.getElementsByClassName("index_mess_list")[0].style.display = "";
+			}, 'json');
+		}
+		/**
+		 * 
+		 * @param {保存名称} setName
+		 */
+		function getShortcuts(setName) {
+			//获取快捷键
+			var shortcuts = JSON.parse(localStorage.getItem(setName) || "[]");
+			return shortcuts;
+		}
+		/**
+		 * 
+		 * @param {名称} setName
+		 * @param {对象} shortcuts_Name
+		 */
+		function setShortcuts(setName, shortcuts_Name) {
+			//设置快捷键
+			localStorage.setItem(setName, JSON.stringify(shortcuts_Name));
+		}
+
+		function showButton() {
+			var isShortcuts = localStorage.getItem('$shortcuts_switch');
+			if (isShortcuts == "true") {
+				$("#btnShortcuts").show();
+			} else {
+				$("#btnShortcuts").hide();
+			}
+			$('#btnToUrl').html('');
+			var shortcuts_one = getShortcuts("$shortcuts_one");
+			var shortcuts_two = getShortcuts("$shortcuts_two");
+			var shortcuts_three = getShortcuts("$shortcuts_three");
+			var shortcuts_four = getShortcuts("$shortcuts_four");
+			var shortcutsCount = 0;
+			if (shortcuts_one == '[]' || shortcuts_one == '' || shortcuts_one == null || shortcuts_one == undefined) {
+				shortcutsCount++;
+			} else {
+				var tmp = '<div class="shortcut11" id="@id"><a href="javascript:;" ><img src="@imgUrl" alt="" /></a><input type="hidden" value="@url"/></div>';
+				tmp = tmp.replace('@id', 'shortcuts1').replace('@imgUrl', shortcuts_one.imgUrl).replace('@url', shortcuts_one.openUrl);
+				$('#btnToUrl').append(tmp);
+				common.click("shortcuts1", function() {
+					var openUrl = document.getElementById("shortcuts1").querySelector("input").value;
+					//alert(openUrl);
+					$(".menu_4_menu span").click();
+					common.getTemplate('page2', openUrl);
+				});
+			}
+			if (shortcuts_two == '[]' || shortcuts_two == '' || shortcuts_two == null || shortcuts_two == undefined) {
+				shortcutsCount++;
+			} else {
+				var tmp = '<div class="shortcut12" id="@id"><a href="javascript:;"><img src="@imgUrl" alt="" /></a><input type="hidden" value="@url"/></div>';
+				tmp = tmp.replace('@id', 'shortcuts2').replace('@imgUrl', shortcuts_two.imgUrl).replace('@url', shortcuts_two.openUrl);
+				$('#btnToUrl').append(tmp);
+				common.click("shortcuts2", function() {
+					var openUrl = document.getElementById("shortcuts2").querySelector("input").value;
+					//alert(openUrl);
+					$(".menu_4_menu span").click();
+					common.getTemplate('page2', openUrl);
+					//common.loadUrl(openUrl);
+				});
+			}
+			if (shortcuts_three == '[]' || shortcuts_three == '' || shortcuts_three == null || shortcuts_three == undefined) {
+				shortcutsCount++;
+			} else {
+				var tmp = '<div class="shortcut13" id="@id"><a href="javascript:;"><img src="@imgUrl" alt="" /></a><input type="hidden" value="@url"/></div>';
+				tmp = tmp.replace('@id', 'shortcuts3').replace('@imgUrl', shortcuts_three.imgUrl).replace('@url', shortcuts_three.openUrl);
+				$('#btnToUrl').append(tmp);
+				common.click("shortcuts3", function() {
+					var openUrl = document.getElementById("shortcuts3").querySelector("input").value;
+					//alert(openUrl);
+					$(".menu_4_menu span").click();
+					common.getTemplate('page2', openUrl);
+					//common.loadUrl(openUrl);
+				});
+			}
+			if (shortcuts_four == '[]' || shortcuts_four == '' || shortcuts_four == null || shortcuts_four == undefined) {
+				shortcutsCount++;
+			} else {
+				var tmp = '<div class="shortcut14" id="@id"><a href="javascript:;"><img src="@imgUrl" alt="" /></a><input type="hidden" value="@url"/></div>';
+				tmp = tmp.replace('@id', 'shortcuts4').replace('@imgUrl', shortcuts_four.imgUrl).replace('@url', shortcuts_four.openUrl);
+				$('#btnToUrl').append(tmp);
+				common.click("shortcuts4", function() {
+					var openUrl = document.getElementById("shortcuts4").querySelector("input").value;
+					//alert(openUrl);
+					$(".menu_4_menu span").click();
+					common.getTemplate('page2', openUrl);
+					//common.loadUrl(openUrl);
+				});
+			}
+			if (shortcutsCount == 4) {
+				$("#btnShortcuts").hide();
+			}
+		}
+
+		function setBadgeNumber(id, num) {
+			if (!num || num <= 0) {
+				$('#' + id).hide();
+			} else {
+				$('#' + id).show();
+				$('#' + id).text(num);
+			}
+		}
+		mui.plusReady(function() {
+			common.click('approve', function() {
+				common.getTemplate('page2', '../approve/list/list_waitforme.html');
+			});
+			common.click('new', function() {
+				common.loadUrl('../news/newlist.html');
+			});
+			common.click('survey', function() {
+				common.loadUrl('../questionnaire/questionnairelist.html');
+			});
+			common.click('activity', function() {
+				common.loadUrl('../activity/activity_list.html');
+			});
+			getData();
+			showButton();
+			//热点点击事件
+			mui('#bannerList').on('tap', '.mui-slider-item', function() {
+				var id = this.getAttribute("id");
+				var type = this.getAttribute('listtype');
+				if (type == "news") {
+					common.loadUrl("../news/newdetail.html?id=" + id);
+				} else if (type == "activity") {
+					common.loadUrl("../activity/activity_detail.html?id=" + id);
+				} else if (type == "surveys") {
+					common.loadUrl("../questionnaire/questionnairedetail.html?id=" + id);
+				}
+				//如果点击未读的热点 更新BadgeNumber
+				setTimeout(function() {
+					getData(); //延迟500是避免点击之后立即刷新热点图片 
+				}, 500);
+			});
+			var type = common.getQueryString("type"); //获取用户ID
+			$(".menu_4_menu span").click(function() {
+				$(".menu_4_menu").toggleClass("btn-rotate");
+				$(".menu_4_con").toggleClass("a2");
+			});
+		});
+		$(".menu_4_menu span").click(function() {
+			$(".widget_wrap").toggleClass("btn-rotate");
+			$(".message-box>.shortcut11").toggleClass("shortcuts_01");
+			$(".message-box>.shortcut12").toggleClass("shortcuts_02");
+			$(".message-box>.shortcut13").toggleClass("shortcuts_03");
+			$(".message-box>.shortcut14").toggleClass("shortcuts_04");
+		});
+	</script>
+
+</html>

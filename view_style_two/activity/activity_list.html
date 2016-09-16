@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>活动报名</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css" />
+		<link rel="stylesheet" href="../../css/list.css" />
+		<link rel="stylesheet" href="../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">活动报名</h1>
+			<i class="btn_post_activ">发布活动</i>
+		</header>
+		<div class="mui-content">
+			<div class="container">
+				<div class="list_news">
+					<div class="news_title activ_title">
+						<ul>
+							<li class="unread read_active" id="NRed">未读<i class="news_hint h"></i></li>
+							<li class="all_acti">所有活动</li>
+							<li class="mine_acti">我发布的</li>
+						</ul>
+					</div>
+					<div id="pullrefresh" class="mui-scroll-wrapper activity ">
+						<div class="mui-scroll">
+							<div id='list' class="sc_cells sc_cells_access activ_content">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</body>
+	<script type="text/javascript" src="../../js_style_two/mui/mui.js"></script>
+	<script type="text/javascript" src="../../js_style_two/common/zepto.min.js"></script>
+	<script type="text/javascript" src="../../js_style_two/controllers/common.js"></script>
+	<script type="text/javascript" src="../../js_style_two/controllers/activity/activity_list.js"></script>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/list.css" />
+		<link rel="stylesheet" href="../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<title>工作台</title>
+	</head>
+
+	<body class="nav_workstand">
+		<header class="mui-bar mui-bar-nav">
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<h1 class="mui-title">工作台</h1>
+		</header>
+		<div class="mui-content container work_stand">
+			<div class="list_news">
+				<div class="approve_nav">
+					<div class="approve_module">
+						<a>
+							<div id="shenpi" class="approve_list workstand_list1">
+								<p>审批</p>
+							</div>
+						</a>
+						<a>
+							<div id="news" class="approve_list workstand_list2">
+								<p>企业公告</p>
+							</div>
+						</a>
+						<a>
+							<div id="questionnaire" class="approve_list workstand_list3">
+								<p>调查问卷</p>
+							</div>
+						</a>
+						<a>
+							<div id="activity" class="approve_list workstand_list4">
+								<p>活动报名</p>
+							</div>
+						</a>
+						<a>
+							<div id="calendar" class="approve_list workstand_list5">
+								<p>日程管理</p>
+							</div>
+						</a>
+						<a>
+							<div id="payment" class="approve_list workstand_list6">
+								<p>爱心捐赠</p>
+							</div>
+						</a>
+						<!--<a>
+							<div id="test" class="approve_list workstand_list6">
+								<p>新增</p>
+							</div>
+						</a>-->
+						<a>
+							<div id="more" class="approve_list approve_list7">
+								<p class="approve_addmore">添加更多</p>
+							</div>
+						</a>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js_style_two/mui/mui.min.js"></script>
+		<script type="text/javascript" src="../../js_style_two/common/zepto.min.js"></script>
+		<script type="text/javascript" src="../../js_style_two/controllers/common.js"></script>
+		<script type="text/javascript">
+			document.getElementById("shenpi").addEventListener('tap', function() {
+				common.loadUrl('../approve/approve_nav.html');
+			});
+			document.getElementById("news").addEventListener('tap', function() {
+				common.loadUrl('../news/newlist.html');
+			});
+			document.getElementById("questionnaire").addEventListener('tap', function() {
+				common.loadUrl('../questionnaire/questionnairelist.html');
+			});
+			document.getElementById("activity").addEventListener('tap', function() {
+				common.loadUrl('../activity/activity_list.html');
+			});
+			document.getElementById("calendar").addEventListener('tap', function() {
+				//common.loadUrl('../calendar/calendar_list.html');
+				common.getTemplate('page2', '../calendar/calendar_list.html');
+			});
+			document.getElementById("payment").addEventListener('tap', function() {
+				common.loadUrl('../payment/payment.html');
+			});
+//			document.getElementById("test").addEventListener('tap', function() {
+//				common.loadUrl('test.html');
+//			});
+			document.getElementById("more").addEventListener('tap', function() {
+				common.toast('更多功能请联系服务提供商');
+			});
+		</script>
+	</body>
+
+</html>

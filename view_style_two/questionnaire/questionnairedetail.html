@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/list.css" />
+		<link rel="stylesheet" href="../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+	 <link rel="stylesheet" type="text/css" href="../../css/preview_image.css"/>
+		<title>问卷详情</title>
+		 
+	</head>
+
+	<body>
+
+		<body>
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">问卷详情</h1>
+			</header>
+			<div class="mui-content">
+				<div class="mui-scroll">
+					<div class="container">
+						<div class="news_container">
+							<div class="news_container_1 bs">
+								<div class="news_container_detial">
+									<div class="head_top">
+										<span class="left" id='ReleaseTime'></span>
+										<span class="right" id='canyusum'></span>
+									</div>
+									<div class="news_detial">
+										<h4 id="STheme"></h4>
+										<div class="apply_deadline" id='EndTime'>参与截至:</div>
+										<p>发布人:
+											<label id='ReleaseName'></label>
+										</p>
+										<div class="clear_float"></div>
+									</div>
+									<div class="news_body" id='SContext'>
+
+									</div>
+									<div class="ques_info">
+										<label class="ques_info_label1">题目数量：</label><i id='surveyscount'></i></div>
+									<div class="ques_info">
+										<label class="ques_info_label2">问卷类型：</label><i id='ISAnonymityType'></i></div>
+									<div class="ques_info">
+										<label class="ques_info_label3">参与对象：</label><i id='SendType'></i></div>
+									<div class="ques_info">
+										<label class="ques_info_label4">查看权限：</label><i id='ISLookOverTpye'></i></div>
+								</div>
+								<div class="active_apply_btn">
+									<div class="btn_woapply btn_large" id="selectquestionlist" style="display: none;">查看调查结果</div>
+								</div>
+							</div>
+							<div class="ques_detail bs" style="display: none;">
+								<div id="list">
+									 
+								</div>
+								<div class="btn_woapply" id="commit">立即提交</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</body>
+		<script src="../../js_style_two/mui/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js_style_two/mui/mui.zoom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js_style_two/mui/mui.previewimage.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js_style_two/controllers/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js_style_two/common/zepto.min.js"></script>
+		<script src="../../js_style_two/questionnaire/questionnairedetail.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script src="../../js_style_two/common/app_gqe.js"></script>
+	</body>
+
+</html>

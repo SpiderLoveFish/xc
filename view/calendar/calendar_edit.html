@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css" />
+		<link rel="stylesheet" href="../../css/list.css" />
+		<link rel="stylesheet" href="../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/preview_image.css" />
+		<style>
+			.RichengZt {
+				background: url(../../images/ScApp/icon/RichengZt.png) left center no-repeat;
+				color: #555;
+			}
+			.Sfchaosong {
+				background: url(../../images/ScApp/icon/Sfchaosong.png) left center no-repeat;
+				color: #555;
+			}
+			.SfGongkai {
+				background: url(../../images/ScApp/icon/SfGongkai.png) left center no-repeat;
+				color: #555;
+			}
+			.SfQuantian {
+				background: url(../../images/ScApp/icon/SfQuantian.png) left center no-repeat;
+				color: #555;
+			}
+			.SfTixing {
+				background: url(../../images/ScApp/icon/SfTixing.png) left center no-repeat;
+				color: #555;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">日程编辑</h1>
+		</header>
+		<div class="mui-content">
+			<div class="container">
+				<div class="news_container">
+					<div class="news_container_1 bs">
+						<div class="activ_input_edit">
+							<div class="activ_content_edit">
+								<textarea style="height: 100px;" type="" class="" name="" id="Remark" value="" placeholder="请输入日程备注"></textarea>
+							</div>
+							<ul>
+
+								<li class="activ_input_list  flexbox">
+									<span class="RichengZt">日程状态</span>
+									<p class="flexItem join_object leave_type">
+										<select id="sltType" class="" placeholder="请选择">
+											<option value="0">待办</option>
+											<option value="1">紧急</option>
+											<option value="2">已完成</option>
+										</select>
+									</p>
+								</li>
+								<li class="activ_input_list flexbox">
+									<span class="SfQuantian">是否全天</span>
+									<div class="flexItem">
+										<div id="toggleAllDay" class="mui-switch mui-switch-mini ">
+											<div class="mui-switch-handle"></div>
+										</div>
+									</div>
+								</li>
+								<li class="activ_input_list flexbox">
+									<span class="activ_input_label2">日程开始时间</span>
+									<p id="pickStartP" class="activ_time flexItem">
+										<span id="pickStart" type="button">开始时间</span>
+									</p>
+								</li>
+								<li class="activ_input_list flexbox">
+									<span class="activ_input_label2">日程结束时间</span>
+									<p id="pickEndP" class="activ_time flexItem">
+										<span id="pickEnd" type="button">结束时间</span>
+									</p>
+								</li>
+								<li class="activ_input_list flexbox">
+									<span class="SfGongkai">是否公开</span>
+									<div class="flexItem">
+										<div id="toggleOpen" class="mui-switch mui-switch-mini ">
+											<div class="mui-switch-handle"></div>
+										</div>
+									</div>
+								</li>
+								<li class="activ_input_list flexbox">
+									<span class="Sfchaosong">是否抄送</span>
+									<div class="flexItem">
+										<div id="isCopy" class="mui-switch mui-switch-mini ">
+											<div class="mui-switch-handle"></div>
+										</div>
+									</div>
+								</li>
+								<li id="icon-ccUser" class="activ_input_list flexbox approve_pri_li h">
+									<span class="activ_input_label11 approve_pri">相关人</span>
+									<p id="ccUser" class="flexItem join_object text_right approve_per"></p>
+								</li>
+								<li class="activ_input_list flexbox">
+									<span class="SfTixing">是否提醒</span>
+									<div class="flexItem">
+										<div id="toggleRemind" class="mui-switch mui-switch-mini ">
+											<div class="mui-switch-handle"></div>
+										</div>
+									</div>
+								</li>
+								<li id="liRemindDate" class="activ_input_list flexbox">
+									<span class="activ_input_label1">提醒日期</span>
+									<p class="flexItem">
+										<span id="pickDateBtn" type="button">请开启提醒</span>
+									</p>
+								</li>
+							</ul>
+						</div>
+						<div class="btn_woapply" id="btnSubmit">保存</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js/mui/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/controllers/common.js"></script>
+		<script type="text/javascript" src="../../js/calendar/calendar_edit.js"></script>
+	</body>
+
+</html>

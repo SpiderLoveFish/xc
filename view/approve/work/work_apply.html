@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../../css/list.css" />
+		<link rel="stylesheet" href="../../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../../css/reset.css" />
+		<style>
+			.work_reason {
+				height: auto;
+				width: 100%;
+				padding: 10px;
+				border-bottom: 1px solid #eee;
+			}
+			
+			.work_reason textarea {
+				height: 30px;
+				font-size: 1.4rem;
+			}
+		</style>
+		<title>加班申请</title>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">加班申请</h1>
+		</header>
+		<div class="mui-content container">
+			<div class="news_container">
+				<div class="news_container_1 bs approve_general">
+					<div class="activ_input_edit">
+						<ul>
+							<li class="activ_input_list  flexbox">
+								<span class="activ_input_label15">加班类型</span>
+								<p class="flexItem join_object leave_type">
+									<select id="sltWorkType" class="" placeholder="请选择">
+										<option value="平日加班">平日加班</option>
+										<option value="周末加班">周末加班</option>
+										<option value="节日加班">节日加班</option>
+									</select>
+								</p>
+							</li>
+							<li class="activ_input_list flexbox">
+								<span class="activ_input_label7">选择项目</span>
+								<p class="flexItem join_object leave_type">
+									<select id="sltProject" class="" placeholder="请选择">
+									</select>
+								</p>
+							</li>
+							<div class="leave_reason">
+								<textarea id="workContent" rows="" placeholder="请输入加班内容"></textarea>
+
+							</div>
+							<div class="clear_float"></div>
+							<li class="activ_input_list  flexbox">
+								<span class="activ_input_label2">加班日期</span>
+								<p id="pickDateBtnClick" class="flexItem">
+									<span id="pickDateBtn" type="button">请选择日期</span>
+								</p>
+							</li>
+							<li class="activ_input_list flexbox">
+								<span class="activ_input_label9">加班时间</span>
+								<p class="activ_time flexItem overtime_p">
+									<span id="pickTimeBtn" type="button">开始</span> ~
+									<span id="pickTimeBtnEnd" type="button">结束</span>
+									<span id="" type="button" class="overtime_sum">共计<i><input type="number" name="" id="workHour" value="" />小时</i> </span>
+								</p>
+							</li>
+							<div class="overtime_allowance">
+								<div class="overtime_allowance1 activ_input_label16">加班补助</div>
+								<div class="eat_allo choose_eat_allow">
+									<p>用餐补助</p><i id="iEat" class="selective">1</i></div>
+								<div id="divTraffic" class="traffic_allo">
+									<p>交通补助</p><i id="iTraffic"></i></div>
+								<!--<div class="other_allo choose_other_allow">
+									<p>其他补助</p><i id="iOther"></i></div>-->
+							</div>
+							<div class="work_reason">
+								<textarea id="remark" rows="" style="height: 30px!important;" placeholder="在这里填写其他补助及金额说明"></textarea>
+
+							</div>
+							<li id="icon-toUser" class="activ_input_list flexbox approve_pri_li">
+								<span class="activ_input_label10  approve_pri">负责人</span>
+								<p id="toUser" class="flexItem join_object text_right approve_per">
+								</p>
+							</li>
+							<li id="icon-ccUser" class="activ_input_list flexbox approve_pri_li">
+								<span class="activ_input_label11  approve_pri">相关人</span>
+								<p id="ccUser" class="flexItem join_object text_right approve_per">
+								</p>
+							</li>
+						</ul>
+					</div>
+
+					<div id="btnSubmit" class="btn_woapply">提交审批</div>
+				</div>
+			</div>
+		</div>
+		<div id="diolog_shade" class="diolog_shade hide"></div>
+
+		<!--<div id="other_diolog" class="diolog_agree p br bs hide pb15">
+			<div class="other_allowance_diolog">
+				<h4 id="">其他补助</h4>
+				<p class="other_money">
+					<input id="otherRmb" name="" placeholder="请填写金额" type="number"></input>元
+				</p>
+				<textarea id="remark" placeholder="请填写备注"></textarea>
+				<div class="m">
+					<div class="diolog_btn-refuse l tc oClose">取消</div>
+					<div id="divConfirm" class="diolog_btn-agree l tc">确认</div>
+				</div>
+			</div>
+		</div>-->
+
+		<div id="eat_diolog" class="diolog_agree p br bs hide">
+			<div class="eat_allowance_diolog">
+				<h4 id="">用餐补助</h4>
+				<div class="eat_close oClose"></div>
+				<p id="pNone" class="">无</p>
+				<p id="pOne" class="choose_eattime">一次</p>
+				<p id="pTwo" class="">二次</p>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../../js/common/zepto.min.js"></script>
+	<script type="text/javascript" src="../../../js/common/app_gqe.js"></script>
+	<script type="text/javascript" src="../../../js/mui/mui.min.js"></script>
+	<script type="text/javascript" src="../../../js/controllers/common.js"></script>
+	<script type="text/javascript" src="../../../js/controllers/approve/work/work_apply.js"></script>
+
+</html>

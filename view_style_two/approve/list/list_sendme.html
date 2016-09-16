@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>抄送我的列表</title>
+		<link rel="stylesheet" href="../../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../../css/list.css" />
+		<link rel="stylesheet" href="../../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../../css/reset.css" />
+		<style type="text/css"> 
+			.inner a.hover { background: red; -webkit-tap-highlight-color: rgba(255,0,0,0.5); }
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">抄送我的</h1>
+		</header>
+		<div class="mui-content">
+			<div class="container list_launched">
+				<div class="list_news">
+					<div class="news_title">
+						<div class="filtrate_btn">筛选
+							<i class="pulldown_menu">全部</i>
+							<ul class="drop_menu" id="drop_menu" style="">
+								<div class="triangle-up"></div>
+								<li listtype='all'>全部</li>
+								<li listtype='work'>加班</li>
+								<li listtype='leave'>请假</li>
+								<li listtype='projecthour'>工时</li>
+								<li listtype='generalapprove'>其他</li>
+							</ul>
+						</div>
+					</div>
+					<div id="pullrefresh" class="mui-scroll-wrapper ">
+						<div class="mui-scroll">
+							<div id="list" class="sc_cells sc_cells_access approve_overtime">
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../../js_style_two/common/zepto.min.js"></script>
+		<script src="../../../js_style_two/common/app_gqe.js"></script>
+		<script type="text/javascript" src="../../../js_style_two/mui/mui.js"></script>
+		<script type="text/javascript" src="../../../js_style_two/controllers/common.js"></script>
+		<script type="text/javascript" src="../../../js_style_two/controllers/approve/list/list_sendme.js"></script>
+		<script type="text/javascript">
+			//请选引用jquery
+			 
+			$(function () {
+				$(".inner a").click(function(){
+				  	$(".inner a").removeClass("hover");
+				});
+				$(".inner a").attr('ontouchstart', 'hover(this)');
+				//hover效果
+				$(".inner a").attr('ontouchend', 'mouseout(this)');
+				//秒除hover
+			})
+			
+			function hover(obj) {
+				var aaa=obj.className;
+				console.log(aaa);
+				obj.className =aaa+" hover";
+	//			$(".inner a").addClass("hover");
+			}
+			function mouseout(obj) {
+				var aaa=obj.className;
+				if(aaa.indexOf("hover") > 0 ){
+					aaa = aaa.replace(" hover","");
+				    obj.className=aaa;
+				}
+				
+			}
+			
+		</script>
+	</body>
+
+</html>

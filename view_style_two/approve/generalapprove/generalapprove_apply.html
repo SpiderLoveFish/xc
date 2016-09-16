@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../../css/list.css" />
+		<link rel="stylesheet" href="../../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../../css/reset.css" />
+		<link rel="stylesheet" href="../../../css/preview_image.css" />
+		<title>通用审批</title>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">通用审批</h1>
+		</header>
+		<div class="mui-content container">
+			<div class="news_container">
+				<div class="news_container_1 bs approve_general">
+					<div class="activ_input_edit">
+						<ul>
+							<li class="activ_input_list app_general_label flexbox">
+								<input class="activ_input_label14 " type="text" name="" id="leaveTitle" value="" placeholder="请填写标题" />
+							</li>
+							<div class="leave_reason">
+								<textarea id="leaveContent" rows="" placeholder="请填写审批内容"></textarea>
+								<div class="leave_uploadimg">
+									<div id="imglist">
+									<!--	<img src="http://shp.qpic.cn/bizmp/ibqxmticiaNq4HALuKiavZkfxun63icnjefpsP9Ja8mIYVCa4cTk3mFZdcw/" data-preview-src="" data-preview-group="1">-->
+										
+									</div>
+									<div id="uploadFile" class="btn_uploadimg">上传图片</div>
+								</div>
+							</div>
+							<div class="clear_float"></div>
+							<li id="icon-toUser" class="activ_input_list flexbox approve_pri_li">
+								<span class="activ_input_label10  approve_pri">负责人</span>
+								<p id="toUser" class="flexItem join_object text_right approve_per">
+								</p>
+							</li>
+							<li id="icon-ccUser" class="activ_input_list flexbox approve_pri_li">
+								<span class="activ_input_label11  approve_pri">相关人</span>
+								<p id="ccUser" class="flexItem join_object text_right approve_per">
+								</p>
+							</li>
+						</ul>
+					</div>
+
+					<div id="btnSubmit" class="btn_woapply">提交审批</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../../js_style_two/mui/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js_style_two/mui/mui.zoom.js"></script>
+		<script type="text/javascript" src="../../../js_style_two/mui/mui.previewimage.js"></script>
+		<script type="text/javascript" src="../../../js_style_two/common/zepto.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../../../js_style_two/common/app_gqe.js"></script>
+		<script type="text/javascript" src="../../../js_style_two/controllers/common.js"></script>
+		<script type="text/javascript" src="../../../js_style_two/common/canvasResize.js"></script>
+		<script type="text/javascript" src="../../../js_style_two/common/binaryajax.js"></script>
+		<script type="text/javascript" src="../../../js_style_two/common/exif.js"></script>
+		<script src="../../../js_style_two/controllers/approve/generalapprove/generalapprove_apply.js" type="text/javascript" charset="utf-8"></script>
+
+	</body>
+
+</html>

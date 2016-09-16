@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../../css/list.css" />
+		<link rel="stylesheet" href="../../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../../css/reset.css" />
+		<title>工时填报</title>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">工时填报</h1>
+		</header>
+		<div class="mui-content container">
+			<div class="news_container">
+				<div class="news_container_1 bs approve_general">
+					<div class="activ_input_edit">
+						<ul>
+							<li class="activ_input_list  flexbox">
+								<span class="activ_input_label12">工作日期</span>
+								<p id="pickDateBtn" class="flexItem join_object text_right"></p>
+							</li>
+							<li class="activ_input_list  flexbox">
+								<span class="activ_input_label7">选择项目</span>
+								<p class="flexItem join_object leave_type">
+									<select id="sltType" class="" placeholder="请选择">
+									</select>
+								</p>
+							</li>
+							<div class="leave_reason">
+								<textarea id="WorkContent" rows="" placeholder="请输入工作内容"></textarea>
+
+							</div>
+							<div class="clear_float"></div>
+							<li class="activ_input_list flexbox">
+								<span class="activ_input_label13">基本工时</span>
+								<p class="flexItem">
+									<span id="" type="button" class="leave_sum r proj_sum">
+										<i><input type="number" name="" id="WorkHour" placeholder="0" value="8">小时</i>
+									</span>
+								</p>
+							</li>
+							<li id="icon-toUser" class="activ_input_list flexbox approve_pri_li">
+								<span class="activ_input_label10  approve_pri">负责人</span>
+								<p id="toUser" class="flexItem join_object text_right approve_per">
+								</p>
+							</li>
+							<li id="icon-ccUser" class="activ_input_list flexbox approve_pri_li">
+								<span class="activ_input_label11  approve_pri">相关人</span>
+								<p id="ccUser" class="flexItem join_object text_right approve_per">
+								</p>
+							</li>
+						</ul>
+					</div>
+
+					<div id="btnSubmit" class="btn_woapply">提交审批</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../../js_style_two/mui/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js_style_two/common/zepto.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../../../js_style_two/common/app_gqe.js" ></script>
+		<script type="text/javascript" src="../../../js_style_two/controllers/common.js"></script>
+		<script src="../../../js_style_two/controllers/approve/projecthour/projecthour_apply.js" type="text/javascript" charset="utf-8"></script>
+
+	</body>
+
+</html>

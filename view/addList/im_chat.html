@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/list.css" />
+		<link rel="stylesheet" href="../../css/style_sc.css" />
+		<link href="../../css/mui.imageviewer.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../css/preview_image.css" />
+		<style>
+			html,
+			body {
+				height: 100%;
+				margin: 0px;
+				padding: 0px;
+				overflow: hidden;
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+			}
+			
+			footer {
+				position: fixed;
+				width: 100%;
+				height: 50px;
+				min-height: 50px;
+				border-top: solid 1px #eee;
+				left: 0px;
+				bottom: 0px;
+				overflow: hidden;
+				padding: 0px 50px;
+				background-color: #fff;
+			}
+			.footer{
+				position: fixed;
+			    width: 100%;
+			    height: 50px;
+			    min-height: 50px;
+			    border-top: solid 1px #eee;
+			    left: 0px;
+			    bottom: 0px;
+			    overflow: hidden;
+			    padding: 0px 50px;
+			    background-color: #fff;
+			}
+			.footerbottom {
+				bottom: 150px;
+			}
+			
+			.footer-left {
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				left: 0px;
+				bottom: 0px;
+				text-align: center;
+				vertical-align: middle;
+				line-height: 100%;
+				padding: 12px 4px;
+			}
+			
+			.footer-right {
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				right: 0px;
+				bottom: 0px;
+				text-align: center;
+				vertical-align: middle;
+				line-height: 100%;
+				/*padding: 12px 5px;*/
+				display: inline-block;
+			}
+			
+			.footer-center {
+				height: 100%;
+				padding: 5px 0px;
+			}
+			
+			.footer-center [class*=input] {
+				width: 100%;
+				height: 100%;
+				border-radius: 5px;
+			}
+			
+			.footer-center .input-text {
+				position: relative;
+				background: #fff;
+				border-bottom: solid 1px #ddd;
+				padding: 10px 30px 5px 10px !important;
+				font-size: 15px !important;
+				line-height: 18px !important;
+				font-family: verdana !important;
+				overflow: hidden;
+				border-radius: 0;
+				letter-spacing: .4px;
+			}
+			
+			.footer-center .input-text:focus {
+				border-bottom: solid 1px #55C9C3;
+			}
+			
+			.btn_face {
+				position: absolute;
+				height: 30px;
+				width: 30px;
+				background: url(../../images/ScApp/addlist/smile-1.png) no-repeat center bottom;
+				background-size: 24px;
+				bottom: 13px;
+				right: 48px;
+			}
+			
+			.btn_face_active {
+				background: url(../../images/ScApp/addlist/smile-01.png) no-repeat center bottom;
+				background-size: 24px;
+			}
+			
+			.footer-center .input-sound {
+				background-color: #55c9c3;
+				color: #fff;
+				font-size: 1.6rem;
+				border: 1px solid #eee;
+			}
+			
+			.footer-center .input-sound:active {
+				background-color: #4bada6;
+			}
+			
+			.mui-content {
+				height: 100%;
+				padding: 44px 0px 50px 0px;
+				overflow: auto;
+				background-color: #eaeaea;
+			}
+			
+			#msg-list {
+				height: 100%;
+				overflow: auto;
+				-webkit-overflow-scrolling: touch;
+			}
+			
+			.msg-item {
+				padding: 8px;
+				clear: both;
+			}
+			
+			.msg-item .mui-item-clear {
+				clear: both;
+			}
+			
+			.msg-item .msg-user {
+				width: 38px;
+				height: 38px;
+				border: solid 1px #fff;
+				display: inline-block;
+				background: #fff;
+				border-radius: 3px;
+				vertical-align: top;
+				text-align: center;
+				float: left;
+				padding: 3px;
+				color: #ddd;
+			}
+			
+			.msg-item .msg-user-img {
+				width: 38px;
+				height: 38px;
+				display: inline-block;
+				border-radius: 3px;
+				vertical-align: top;
+				text-align: center;
+				float: left;
+				color: #ddd;
+			}
+			
+			.msg-item .msg-content {
+				display: inline-block;
+				border-radius: 5px;
+				border: solid 1px #fff;
+				background-color: #FFFFFF;
+				color: #55C9C3;
+				padding: 8px;
+				vertical-align: top;
+				font-size: 15px;
+				position: relative;
+				margin: 0px 8px;
+				max-width: 75%;
+				min-width: 35px;
+				float: left;
+			}
+			
+			.msg-item .msg-content .msg-content-inner {
+				overflow-x: hidden;
+			}
+			
+			.msg-item .msg-content .msg-content-arrow {
+				position: absolute;
+				border: solid 1px #fff;
+				border-right: none;
+				border-top: none;
+				background-color: #FFFFFF;
+				width: 10px;
+				height: 10px;
+				left: -5px;
+				top: 12px;
+				-webkit-transform: rotateZ(45deg);
+				transform: rotateZ(45deg);
+			}
+			
+			.msg-item-self .msg-user,
+			.msg-item-self .msg-content {
+				float: right;
+			}
+			
+			.msg-item-self .msg-content .msg-content-arrow {
+				left: auto;
+				right: -5px;
+				-webkit-transform: rotateZ(225deg);
+				transform: rotateZ(225deg);
+			}
+			.msg-item .msg-content,
+			.msg-item .msg-content .msg-content-arrow{
+				color: #333;
+			}
+			.msg-item-self .msg-content,
+			.msg-item-self .msg-content .msg-content-arrow {
+				background-color: #55C9C3;
+				color: #333;
+				border-color: #eee;
+			}
+			
+			footer .mui-icon {
+				color: #000;
+				height: 50px;
+				width: 50px;
+			}
+			
+			footer .mui-icon:active {
+				color: #55C9C3 !important;
+			}
+			
+			footer .mui-icon-paperplane:before {
+				content: "发送";
+				height: 50px;
+				width: 48px;
+				color: #55C9C3;
+				background-color: #fff!important;
+				position: absolute;
+				bottom: -2px;
+				left: 0px;
+				line-height: 50px;
+				text-align: 50px;
+			}
+			
+			footer .mui-icon-paperplane {
+				/*-webkit-transform: rotateZ(45deg);
+				transform: rotateZ(45deg);*/
+				font-size: 16px;
+				word-break: keep-all;
+				line-height: 100%;
+				padding-top: 6px;
+				color: #55C9C3;
+			}
+			
+			#msg-sound {
+				-webkit-user-select: none !important;
+				user-select: none !important;
+			}
+			
+			.rprogress {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				width: 140px;
+				height: 140px;
+				margin-left: -70px;
+				margin-top: -70px;
+				color: #fff;
+				/*background-image: url(../../images/addlist/img-01.png);*/
+				background-repeat: no-repeat;
+				background-position: center center;
+				background-size: 30px 30px;
+				background-color: rgba(0, 0, 0, 0.5);
+				border-radius: 5px;
+				display: none;
+				-webkit-transition: .15s;
+			}
+			
+			.rschedule {
+				background-color: rgba(0, 0, 0, 0);
+				border: 20px solid #ddd;
+				opacity: .9;
+				border-left: 20px solid rgba(0, 0, 0, 0);
+				border-right: 20px solid rgba(0, 0, 0, 0);
+				border-radius: 50px;
+				box-shadow: 0 0 10px #fff;
+				width: 46px;
+				height: 46px;
+				position: absolute;
+				left: 50%;
+				top: 45%;
+				margin-left: -23px;
+				margin-top: -23px;
+				-webkit-animation: spin 1s infinite linear;
+				animation: spin 1s infinite linear;
+			}
+			
+			.r-sigh {
+				display: none;
+				border-radius: 50px;
+				box-shadow: 0 0 10px #fff;
+				width: 46px;
+				height: 46px;
+				position: absolute;
+				left: 50%;
+				top: 45%;
+				margin-left: -23px;
+				margin-top: -23px;
+				text-align: center;
+				line-height: 46px;
+				font-size: 40px;
+				font-weight: bold;
+				color: #fff;
+			}
+			
+			.rprogress-sigh {
+				background-image: none !important;
+			}
+			
+			.rprogress-sigh .rschedule {
+				display: none !important;
+			}
+			
+			.rprogress-sigh .r-sigh {
+				display: block !important;
+			}
+			
+			.rsalert {
+				font-size: 12px;
+				color: #bbb;
+				text-align: center;
+				position: absolute;
+				border-radius: 5px;
+				width: 130px;
+				margin: 5px 5px;
+				padding: 5px;
+				left: 0px;
+				bottom: 0px;
+			}
+			
+			@-webkit-keyframes spin {
+				0% {
+					-webkit-transform: rotate(0deg);
+				}
+				100% {
+					-webkit-transform: rotate(360deg);
+				}
+			}
+			
+			@keyframes spin {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+			
+			#h {
+				background: #fff;
+				border: solid 1px #ddd;
+				padding: 10px !important;
+				font-size: 16px !important;
+				font-family: verdana !important;
+				line-height: 18px !important;
+				overflow: visible;
+				position: absolute;
+				left: -1000px;
+				right: 0px;
+				word-break: break-all;
+				word-wrap: break-word;
+			}
+			
+			.cancel {
+				background-color: #f6867e;
+				color: #fff;
+			}
+			
+			.footer-left {
+				padding: 0;
+			}
+			
+			.mui-icon-camera:before {
+				content: "";
+				position: absolute;
+				left: 5px;
+				top: 5px;
+				height: 40px;
+				width: 40px;
+				background: url(../../images/ScApp/addlist/img-01.png) no-repeat center;
+				background-size: 30px;
+				font-weight: 100;
+				/* background-color: #eee; */
+				border-radius: 100%;
+				line-height: 50px;
+				color: #55c9c3;
+			}
+			
+			.mui-icon-camera:active:before {
+				content: "";
+				position: absolute;
+				left: 5px;
+				top: 5px;
+				height: 40px;
+				width: 40px;
+				background: url(../../images/ScApp/addlist/img-02.png) no-repeat center;
+				background-size: 30px;
+				font-weight: 100;
+				/* background-color: #eee; */
+				border-radius: 100%;
+				line-height: 50px;
+				color: #55c9c3;
+			}
+			
+			.mui-icon-mic {
+				height: 50px;
+				width: 50px;
+				background: url(../../images/ScApp/addlist/talk-01.png) no-repeat center;
+				background-size: 30px;
+			}
+			
+			.mui-icon-mic:active {
+				height: 50px;
+				width: 50px;
+				background: url(../../images/ScApp/addlist/talk-02.png) no-repeat center;
+				background-size: 30px;
+			}
+			
+			.mui-icon-mic:before {
+				content: '';
+			}
+			
+			.play-state {
+				padding-left: 12px;
+				background: url(../../images/ScApp/addlist/voice.png) no-repeat center left;
+				background-size: 10px;
+			}
+			
+			.mui-icon-compose:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				height: 50px;
+				width: 50px;
+				background: url(../../images/ScApp/addlist/keyboard-1.png) no-repeat center;
+				background-size: 30px;
+			}
+			
+			.mui-icon-compose:active:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				height: 50px;
+				width: 50px;
+				background: url(../../images/ScApp/addlist/keyboard-2.png) no-repeat center;
+				background-size: 30px;
+			}
+			
+			.msg_face_space {
+				display: none;
+				position: fixed;
+				bottom: 0;
+				width: 100%;
+				height: 150px;
+				margin: 0 auto;
+				background-color: #fff;
+				border-top: 1px solid #eee;
+				padding: 0 4%;
+			}
+			
+			.msg_face_space span {
+				width: 11%;
+				height: 40px;
+				display: inline-block;
+				list-style: none;
+				text-align: center;
+				padding: 5px 0;
+				vertical-align: middle;
+				/*font-size: 13px;*/
+			}
+			
+			.msg_face_space .mui-slider-item li {
+				height: 150px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title" id="userName"></h1>
+		</header>
+		<pre id='h'></pre>
+		<div class="mui-content">
+			<div id='msg-list'>
+			</div>
+		</div>
+		<footer id="footerId">
+			<!--<div class="footer">-->
+				<div class="footer-left">
+					<i id='msg-image' class="mui-icon mui-icon-camera" style="font-size: 40px;"></i>
+				</div>
+				<div class="footer-center">
+					<textarea id='msg-text' type="text" class='input-text'></textarea>
+					<div id="msg_face" class="btn_face" style="display:none;"></div>
+					<button id='msg-sound' type="button" class='input-sound' style="display: none;">按住说话</button>
+				</div>
+				<label for="" class="footer-right">
+					<i id='msg-type' class="mui-icon mui-icon-mic"></i>
+				</label>
+			<!--</div>-->
+		</footer>
+		<div class="msg_face_space" id="msg_face_div">
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group">
+					<!-- 第一张 -->
+					<div class="mui-slider-item">
+						<li id="yi_page">
+						</li>
+					</div>
+					<!-- 第二张 -->
+					<div class="mui-slider-item">
+						<li id="er_page">
+						</li>
+					</div>
+					<!-- 第三张 -->
+					<div class="mui-slider-item">
+						<li id="san_page">
+						</li>
+					</div>
+					<!-- 第四张 -->
+					<div class="mui-slider-item">
+						<li id="si_page">
+						</li>
+					</div>
+
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+		</div>
+		<div id='sound-alert' class="rprogress">
+			<div class="rschedule"></div>
+			<div class="r-sigh">!</div>
+			<div id="audio_tips" class="rsalert">手指上滑，取消发送</div>
+		</div>
+		<script src="../../js/mui/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/common/zepto.min.js"></script>
+		<script src="http://res.websdk.rongcloud.cn/RongIMClient-0.9.11.min.js"></script>
+		<script src="http://cdn.ronghub.com/RongEmoji-2.0.3.min.js"></script>
+		<script src="../../js/common/arttmpl.js"></script>
+		<script type="text/javascript" src="../../js/mui/mui.zoom.js"></script>
+		<script type="text/javascript" src="../../js/mui/mui.previewimage.js"></script>
+		<script type="text/javascript" src="../../js/common/canvasResize.js"></script>
+		<script type="text/javascript" src="../../js/common/binaryajax.js"></script>
+		<script type="text/javascript" src="../../js/common/exif.js"></script>
+		<script type="text/javascript" src="../../js/controllers/common.js"></script>
+		<script src="../../js/controllers/addList/im_chat.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

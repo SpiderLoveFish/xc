@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="../../css/custom-bars.css" />
+		<link rel="stylesheet" href="../../css/component.css" />
+	</head>
+
+	<body>
+		<article id="art" class="flexy-grid ">
+			<h3 id="h3"></h3>
+			<input type="checkbox" id="bar-1">
+			<div class="flexy-column">
+				<div class="progress-factor flexy-item">
+					<div class="progress-bar">
+						<div id="progress" class="bar has-rotation has-colors cyan ruler-3" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
+							<div id="tooltip" class="tooltip white"></div>
+							<div class="bar-face face-position roof percentage"></div>
+							<div class="bar-face face-position back percentage"></div>
+							<div class="bar-face face-position floor percentage volume-lights"></div>
+							<div class="bar-face face-position left"></div>
+							<div class="bar-face face-position right"></div>
+							<div class="bar-face face-position front percentage volume-lights shine"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</body>
+	<script type="text/javascript" src="../../js/mui/mui.min.js"></script>
+	<script type="text/javascript" src="../../js/common/zepto.min.js"></script>
+	<script type="text/javascript" src="../../js/controllers/common.js"></script>
+	<script>
+		mui.plusReady(function() {
+			//			ws = plus.webview.currentWebview();
+			//			// 显示遮罩层
+			//			ws.setStyle({
+			//				mask: "rgba(0,0,0,0.5)"
+			//			}); 
+			var wgtUrl = common.getQueryString('url');
+			downWgt(wgtUrl);
+		});
+		document.getElementById("art").className.replace('h', '');
+		var h3 = document.getElementById("h3");
+
+		function downWgt(wgtUrl) {
+			var downLoader = plus.downloader.createDownload(wgtUrl, {
+				filename: "_doc/update/"
+			}, function(d, status) {
+				if (status == 200) {
+					installWgt(d.filename); // 安装wgt包
+				} else {
+					common.toast("下载资源包失败！");
+				}
+			});
+			downLoader.start();
+			downLoader.addEventListener("statechanged", function(task, status) {
+				if (!downLoader) {
+					return;
+				}
+				switch (task.state) {
+					case 1: // 开始
+						h3.innerText = '开始下载..';
+						break;
+					case 2: // 已连接到服务器
+						h3.innerText = '链接到服务器..';
+						break;
+					case 3: // 已接收到数据
+						h3.innerText = '下载数据更新:' + task.downloadedSize + "/" + task.totalSize;
+						$('#progress').attr('aria-valuenow', parseInt(task.downloadedSize / task.totalSize * 100));
+						break;
+					case 4: // 下载完成
+						h3.innerText = '下载完成,正在重启应用..';
+						$('#progress').attr('aria-valuenow', 100);
+						break;
+				}
+			});
+		}
+		// 更新应用资源
+		function installWgt(path) {
+			plus.runtime.install(path, {}, function() {
+					plus.runtime.restart();
+				},
+				function(e) {
+					common.toast("安装wgt文件失败[" + e.code + "]：" + e.message);
+				});
+		}
+	</script>
+
+</html>

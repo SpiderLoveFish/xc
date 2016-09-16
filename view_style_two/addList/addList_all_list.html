@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>通讯录</title>
+		<link href="../../css/mui.min.css" rel="stylesheet">
+		<link href="../../css/mui.indexedlist.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/style_sc.css" />
+		<style>
+			/*body {
+					height: 100%;
+					overflow: hidden;
+				}*/
+				.departColor {
+					color: #55c9c3;
+				}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a id="icon-menu" class="mui-action-menu mui-icon mui-icon-bars mui-pull-left departColor"></a>
+			<h1 class="mui-title">通讯录</h1>
+		</header> 
+		<div class="mui-content address_list"> 
+			<div id='list' class="mui-indexed-list">   
+				<div class="mui-indexed-list-search mui-input-row mui-search">
+					<input id="search" type="search" class="mui-input-clear mui-indexed-list-search-input" placeholder="搜索:姓名,手机号,职位">
+				</div>
+				<div id="headerList" class="mui-indexed-list-bar">
+				</div>
+				<div class="mui-indexed-list-alert"></div>
+				<div class="mui-indexed-list-inner">
+					<div class="mui-indexed-list-empty-alert">没有数据</div>
+					<ul id="UserList" class="mui-table-view">
+
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js_style_two/mui/mui.min.js"></script>
+		<script type="text/javascript" src="../../js_style_two/controllers/common.js"></script>
+		<script type="text/javascript" src="../../js_style_two/mui/mui.indexedlist.js"></script>
+		<script type="text/javascript" src="../../js_style_two/controllers/addList/addList_all_list.js"></script>
+		<script>
+		</script>
+	</body>
+
+</html>

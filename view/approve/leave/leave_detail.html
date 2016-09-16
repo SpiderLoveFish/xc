@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>请假详情</title>
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../../css/list.css" />
+		<link rel="stylesheet" href="../../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../../css/reset.css" />
+		<link rel="stylesheet" href="../../../css/preview_image.css" />
+	</head>
+
+	<body>
+		<div class="mui-content container">
+			<div class="work_details">
+				<div class="work_details_title bs">
+					<div class="sc_cells sc_cells_access approve_overtime">
+						<a href="javascript:;" class="sc_cell">
+							<div class="approve_left">
+								<div class="sc_cell_hd"><img id="leaveUserAvatar" src=""></div>
+								<div class="sc_cell_bd sc_cell_primary">
+									<p id="leaveUserName">姓名</p>
+									<p id="leaveTime" class="label_describe">时间</p>
+								</div>
+							</div>
+							<div class="approve_right">
+								<div id="approveState" class=""></div>
+							</div>
+						</a>
+					</div>
+					<div style="padding-left: 0px;" class="work_details_content">
+						<!--<label>请假单号：</label>
+						<p>GoMobile（G2015005）</p>-->
+						<label>请假类型：</label>
+						<p id="leaveType">请假类型</p>
+						<label>请假标题：</label>
+						<p id="leaveTitle">请假标题</p>
+						<label>请假事由：</label>
+						<p id="leaveContent">请假事由</p>
+						<label>开始时间：</label>
+						<p id="leaveStartTime">开始时间</p>
+						<label>结束时间：</label>
+						<p id="leaveEndTime">结束时间</p>
+						<label>请假时长：</label>
+						<p id="leaveDay">请假时长</p>
+						<label>上传图片：</label>
+						<p id="pic">
+							无
+							<!--<img src="../../../images/ScApp/general/placeholdimg/UploadImage.png" data-preview-src="../../../images/ScApp/general/placeholdimg/UploadImage.png" data-preview-group="1">-->
+
+						</p>
+						<!--<div class="related">
+							<label class="">负责人：</label>
+							<p id="leaveToUser">负责人</p>
+						</div>-->
+						<div class="related">
+							<label class="">相关人：</label>
+							<p id="leaveCcUser">无</p>
+						</div>
+					</div>
+				</div>
+				<div class="approve_process bs">
+					<div class="approve_process_title">审批过程</div>
+					<div class="approve_process_content">
+						<div class="approve_state">
+							<ul id="approveProcess">
+
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="approve_footer h">
+				<div id="btnState" class="btn_appr_agree h">同意</div>
+				<div id="btnNopass" class="btn_appr_refuse h">拒绝</div>
+				<div id="btnBreak" class="btn_appr_revoke h">作废单据</div>
+			</div>
+		</div>
+		</div>
+		<script type="text/javascript" src="../../../js/mui/mui.min.js"></script>
+		<script type="text/javascript" src="../../../js/controllers/extension.js" ></script>
+		<script type="text/javascript" src="../../../js/mui/mui.zoom.js"></script>
+		<script type="text/javascript" src="../../../js/mui/mui.previewimage.js"></script>
+		<script src="../../../js/common/zepto.min.js"></script>
+		<script src="../../../js/common/app_gqe.js"></script>
+		<script type="text/javascript" src="../../../js/controllers/common.js"></script>
+		<script src="../../../js/controllers/approve/leave/leave_detail.js" type="text/javascript" charset="utf-8"></script>
+
+	</body>
+
+</html>

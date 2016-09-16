@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/list.css" />
+		<link rel="stylesheet" href="../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/preview_image.css" />
+		<style>
+			.mui-popover {
+				height: 300px;
+			}
+		</style>
+		<title>通讯录详情</title>
+	</head>
+
+	<body class="addlist_detail_bg">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">通讯录详情</h1>
+		</header>
+		<div class="mui-content container">
+			<div class="addlist_detail">
+				<div class="addlist_detail_header">
+					<img id="Avatar" src="../../images/ScApp/general/placeholdimg/UploadImage.png" data-preview-src="" data-preview-group="1">
+					<h4 id="UserName">姓名</h4>
+					<span id="mobeil">电话</span>
+					<div id="sendMessage" class="addlist_detail_sendmessage">发起聊天</div>
+				</div>
+				<div class="mine_container_body addlist_detail_body">
+					<div class="addlist_detail_title">
+						<span>其他信息</span>
+						<span><!--长按信息可复制--></span>
+					</div>
+					<ul>
+						<!--<li class="flexbox">
+							<i class="mine_list_11">生日</i>
+							<span class="flexItem">2016-01-19</span>
+						</li>-->
+						<li class="flexbox">
+							<i class="mine_list_7">部门</i>
+							<span id="DepartmentName" class="flexItem"></span>
+						</li>
+						<li class="flexbox">
+							<i class="mine_list_8">职位</i>
+							<span id="Position" class="flexItem"></span>
+						</li>
+						<li class="flexbox">
+							<i class="mine_list_9">邮箱</i>
+							<span id="Email" class="flexItem"></span>
+						</li>
+						<li class="flexbox">
+							<i class="mine_list_10">地址</i>
+							<span id="Address" class="flexItem"></span>
+						</li>
+						<li class="flexbox">
+							<i class="mine_list_12">微信</i>
+							<span id="WeixinId" class="flexItem"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="../../js_style_two/mui/mui.js"></script>
+		<script type="text/javascript" src="../../js_style_two/controllers/extension.js" ></script>
+		<script type="text/javascript" src="../../js_style_two/mui/mui.zoom.js"></script>
+		<script type="text/javascript" src="../../js_style_two/mui/mui.previewimage.js"></script>
+		<script type="text/javascript" src="../../js_style_two/controllers/common.js"></script>
+		<script type="text/javascript" src="../../js_style_two/controllers/addList/addList_detail.js"></script>
+	</body>
+
+</html>

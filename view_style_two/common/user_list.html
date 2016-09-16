@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>人员列表</title>
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/mui.indexedlist.css" />
+		<link rel="stylesheet" href="../../css/style_sc.css" />
+		<style>
+			html,
+			body {
+				height: 100%;
+				overflow: hidden;
+			}
+			
+			.mui-bar {
+				-webkit-box-shadow: none;
+				box-shadow: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">选择人员</h1>
+			<a id='done' style="color: #55c9c3;" class="mui-btn mui-btn-link mui-pull-right mui-disabled "></a>
+		</header>
+
+		<div class="mui-content">
+			<div id='list' class="mui-indexed-list">
+				<div id="chooseUser" class="mui-indexed-list-search mui-input-row ">
+					<input id="checkPerson" type="search" readonly="readonly">
+				</div>
+				<div class="mui-indexed-list-search mui-input-row mui-search">
+					<!--<input id="checkPerson" type="text" readonly="readonly">-->
+					<input type="search" class="mui-input-clear mui-indexed-list-search-input" placeholder="搜索人员">
+				</div>
+				<div id="headerList" class="mui-indexed-list-bar">
+
+				</div>
+				<div class="mui-indexed-list-alert"></div>
+				<div class="mui-indexed-list-inner">
+					<div class="mui-indexed-list-empty-alert">没有数据</div>
+					<ul id="ulUserList" class="mui-table-view">
+
+					</ul>
+					<div style="height: 35px;clear: both;"></div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js_style_two/mui/mui.min.js"></script>
+		<script type="text/javascript" src="../../js_style_two/mui/mui.indexedlist.js"></script>
+		<script type="text/javascript" src="../../js_style_two/controllers/common.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			getData();
+
+			function getData() {
+				common.getUserList(getUserInfo().CorpId, duangduang);
+			}
+			//加载数据完毕之后再调用一次indexedList()
+			function duangduang() {
+				window.indexedList = new mui.IndexedList(list);
+				//mui(document.getElementById('list')).indexedList();
+			}
+			mui.ready(function() {
+				var header = document.querySelector('header.mui-bar');
+				var list = document.getElementById('list');
+				var done = document.getElementById('done');
+
+				function B(checkedValues) {
+					var webViewC = plus.webview.currentWebview().opener(); //父页面
+					//transData 是C页面自定义事件的名称
+					mui.fire(webViewC, 'transData', {
+						tableview: checkedValues
+					});
+				}
+				//calc hieght
+				list.style.height = (document.body.offsetHeight - header.offsetHeight) + 'px';
+				//create
+				window.indexedList = new mui.IndexedList(list);
+				//mui.IndexedList.init();
+				//done event
+				done.addEventListener('tap', function() {
+					//					var checkboxArray = [].slice.call(list.querySelectorAll('input[type="checkbox"]'));
+					//					var checkedValues = new Array();
+					//					checkboxArray.forEach(function(box) {
+					//						if (box.checked) {
+					//							var userId = box.parentNode.attributes["data-value"].value;
+					//							var userName = box.parentNode.innerText;
+					//							var user = new Object();
+					//							user.UserId = userId;
+					//							user.UserName = userName;
+					//							checkedValues.push(user);
+					//						}
+					//					});
+					var json = JSON.stringify(checkedValues);
+					B(json);
+					//					if (checkedValues.length > 0) {
+					//						var json = JSON.stringify(checkedValues);
+					//						//						mui.alert('你选择了: ' + checkedValues);
+					//						B(json);
+					//						//mui.currentWebview.close();
+					//					} else {
+					//						mui.alert('你没选择任何人');
+					//					}
+				}, false);
+				var checkedValues = new Array();
+				mui('#ulUserList').on('tap', '.mui-indexed-list-item', function() {
+					//点选项的时候移除搜索框焦点,防止软键盘一直弹出 提升体验
+					document.getElementsByClassName('mui-indexed-list-search-input')[0].blur();
+					var check = this.querySelector('input[type="checkbox"]');
+					if (check.checked) {
+						//点的时候是选中状态--说明点完是取消状态
+						var deleIdArray = this.getAttribute('data-value').split(',');
+						for (var j = 0; j < deleIdArray.length; j++) {
+							for (var i = 0; i < checkedValues.length; i++) {
+								var arr = checkedValues[i];
+								if (arr.UserId == deleIdArray[j]) {
+									checkedValues.remove(arr);
+									break;
+								}
+							}
+						}
+					} else {
+						var user;
+						var userIdArray = this.getAttribute('data-value').split(',');
+						var userNameArray = this.getAttribute('data-name').split(',');
+						for (var i = 0; i < userIdArray.length; i++) {
+							user = new Object();
+							user.UserId = userIdArray[i];
+							user.UserName = userNameArray[i];
+							//checkedValues.push(user);
+							var flag = true;
+							for (var j = 0; j < checkedValues.length; j++) {
+								//现有数组已包含
+								if (checkedValues[j].UserId == user.UserId) {
+									flag = false;
+									break;
+								}
+							}
+							if (flag) {
+								checkedValues.push(user);
+							}
+						}
+					}
+					checkPersonInit();
+				});
+
+				function checkPersonInit() {
+					document.getElementById("checkPerson").value = '';
+					for (var i = 0; i < checkedValues.length; i++) {
+						var arr = checkedValues[i];
+						document.getElementById("checkPerson").value += arr.UserName + ',';
+					}
+					document.getElementById("checkPerson").value = document.getElementById("checkPerson").value.substring(0, document.getElementById("checkPerson").value.length - 1);
+				}
+				mui('.mui-indexed-list-inner').on('change', 'input', function() {
+					doneShow();
+				});
+				//控制done显示内容
+				function doneShow() {
+					var count = list.querySelectorAll('input[type="checkbox"]:checked').length;
+					//var value = count ? "完成(" + count + ")" : "关闭";
+					var value = "完成(" + count + ")";
+					done.innerHTML = value;
+					if (count) {
+						if (done.classList.contains("mui-disabled")) {
+							done.classList.remove("mui-disabled");
+						}
+					}
+				}
+				//监听userListInit事件
+				window.addEventListener("userListInit", function(event) {
+					var userList = event.detail.userList;
+					//alert(JSON.stringify(userList));
+					var objs = document.getElementsByTagName("input");
+					//所有checkbox设为false
+					for (var i = 0; i < objs.length; i++) {
+						if (objs[i].type == "checkbox") {
+							objs[i].checked = false;
+						}
+					}
+					checkedValues = new Array();
+					if (userList) {
+						//选中传过来的userid
+						var lis = document.getElementsByClassName("mui-indexed-list-item");
+						for (var i = 0; i < lis.length; i++) {
+							var li = lis[i];
+							//为人员(不筛选常用群组)并且包含此userid
+							if (li.getAttribute("data-type") == '1' && userList.indexOf(li.getAttribute("data-value")) >= 0) {
+								//数组userid包含了当前li的userid
+								li.firstChild.checked = true;
+								var user = new Object();
+								user.UserId = li.getAttribute('data-value');
+								user.UserName = li.innerText;
+								checkedValues.push(user);
+							}
+						}
+					}
+					doneShow();
+					checkPersonInit();
+				});
+				//重写back方法 调用父页面的关闭层方法
+				mui.back = function(event) {
+					var webViewC = plus.webview.currentWebview().opener(); //父页面
+					//closeMenu 是C页面自定义事件的名称
+					mui.fire(webViewC, 'closeMenu', {});
+				};
+			});
+		</script>
+	</body>
+
+</html>

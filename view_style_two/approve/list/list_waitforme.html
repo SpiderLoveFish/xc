@@ -1,0 +1,75 @@
+  <!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../../css/list.css" />
+		<link rel="stylesheet" href="../../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../../css/reset.css" />
+		<title>该我审批</title>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">该我审批</h1>
+		</header>
+		<div class="mui-content">
+			<div class="container">
+				<div class="list_news">
+					<div class="news_title">
+						<ul>
+							<li class="unread read_active">待审批<i class="news_hint h"></i></li>
+							<li class="alread">已审批</li>
+						</ul>
+						<div class="filtrate_btn">筛选
+							<i class="pulldown_menu">全部</i>
+							<ul class="drop_menu" id="drop_menu" style="">
+								<div class="triangle-up"></div>
+								<li listtype='all'>全部</li>
+								<li listtype='work'>加班</li>
+								<li listtype='leave'>请假</li>
+								<li listtype='projecthour'>工时</li>
+								<li listtype='generalapprove'>其他</li>
+							</ul>
+						</div>
+					</div>
+					<div id="pullrefresh" class="tab mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<div id="listApprove" class="sc_cells sc_cells_access approve_overtime">
+								<!--<a href="javascript:;" class="sc_cell mb10">
+								<div class="sc_cell_hd"><img src="../../../images/ScApp/general/headimg/headimg_01.png"></div>
+								<div class="sc_cell_bd sc_cell_primary">
+									<p><i class="overtime_name">张如松</i>的加班</p>
+									<p class="label_describe">大营养家3.0/GoMobile</p>
+								</div>
+								<div class="sc_cell_data">
+									2015-10-2 星期五
+								</div>
+							</a>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+				<div class="mui-scroll">
+					
+					<ul id="list" class="mui-table-view mui-table-view-chevron">
+					</ul>
+				</div>
+			</div>-->
+		</div>
+		<script src="../../../js_style_two/common/zepto.min.js"></script>
+		<script src="../../../js_style_two/common/app_gqe.js"></script>
+		<script type="text/javascript" src="../../../js_style_two/mui/mui.js"></script>
+		<script type="text/javascript" src="../../../js_style_two/controllers/common.js"></script>
+		<script type="text/javascript" src="../../../js_style_two/controllers/approve/list/list_waitforme.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/list.css" />
+		<link rel="stylesheet" href="../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<title>审批</title>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">审批</h1>
+		</header>
+		<div class="mui-content">
+			<div class="container">
+				<div class="approve_nav">
+					<div class="approve_lists">
+						<a>
+							<div id="gai" class="approve_list approve_list0">
+								<p>该我审批</p>
+							</div>
+							<i class="posi_hint h"></i>
+						</a>
+						<a>
+							<div id="chao" class="approve_list approve_list1">
+								<p>抄送我的</p>
+							</div>
+						</a>
+						<a>
+							<div id="my" class="approve_list approve_list2">
+								<p>我发起的</p>
+							</div>
+						</a>
+					</div>
+					<div class="approve_module">
+						<a>
+							<div id="gongshi" class="approve_list approve_list3">
+								<p>工时填报</p>
+							</div>
+						</a>
+						<a>
+							<div id="jiaban" class="approve_list approve_list4">
+								<p>加班申请</p>
+							</div>
+						</a>
+						<a>
+							<div id="qingjia" class="approve_list approve_list5">
+								<p>请假申请</p>
+							</div>
+						</a>
+						<a>
+							<div id="tongyong" class="approve_list approve_list6">
+								<p>通用审批</p>
+							</div>
+						</a>
+						<a>
+							<div id="more" class="approve_list approve_list7">
+								<p class="approve_addmore">添加更多</p>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js_style_two/mui/mui.min.js"></script>
+		<script type="text/javascript" src="../../js_style_two/controllers/common.js"></script>
+		<script type="text/javascript" src="../../js_style_two/common/zepto.min.js"></script>
+		<script type="text/javascript">
+			//动态设置高度
+			var width = document.getElementById("gongshi").offsetWidth;
+			var list = document.getElementsByClassName('approve_module')[0].getElementsByClassName('approve_list');
+			for (var i = 0; i < list.length; i++) {
+				var obj = list[i];
+				obj.style.height = width + 'px';
+			}
+			var data = {
+				ID: "",
+				type: 'getMyApproveList_No'
+			};
+			common.postApi('GetApprove', data, function(response) {
+				var s = eval(response.data);
+				var dataArray = s[0];
+				if (dataArray.length > 0) {
+					$('.posi_hint').text(dataArray.length); //数字角标
+					$('.posi_hint').show();
+				} else {
+					$('.posi_hint').hide();
+				}
+			}, 'json');
+			//该我审批
+			common.click('gai', function() {
+				var webview = common.getTemplate('page2', 'list/list_waitforme.html'); //第二层webview
+			});
+			//抄送我的
+			common.click('chao', function() {
+				var webview = common.getTemplate('page2', 'list/list_sendme.html'); //第二层webview
+			});
+			//我发起的
+			common.click('my', function() {
+				var webview = common.getTemplate('page2', 'list/list_launched.html'); //第二层webview
+			});
+			//请假
+			common.click('qingjia', function() {
+				var webview = common.getTemplate('page2', 'leave/leave_apply.html'); //第二层webview
+			});
+			//加班
+			common.click('jiaban', function() {
+				var webview = common.getTemplate('page2', 'work/work_apply.html'); //第二层webview
+			});
+			//工时
+			common.click('gongshi', function() {
+				var webview = common.getTemplate('page2', 'projecthour/projecthour_apply.html'); //第二层webview
+			});
+			//通用
+			common.click('tongyong', function() {
+				var webview = common.getTemplate('page2', 'generalapprove/generalapprove_apply.html'); //第二层webview
+			});
+			//更多
+			common.click('more', function() {
+				common.toast('更多应用请联系提供商..');
+			});
+			common.backOfHideCurrentWebview();
+		</script>
+	</body>
+
+</html>

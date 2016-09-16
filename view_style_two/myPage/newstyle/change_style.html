@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.css" />
+		<link rel="stylesheet" href="../../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../../css/reset.css" />
+	</head>
+	<style>
+		.approve_module .approve_list {
+			/*color: #575757;
+			font-size: 1.4rem;
+			padding-top: 33%;
+			background-size: 60px;*/
+		}
+		
+		.approve_list {
+			/*width: 50%;
+			height: 50%;
+			float: left;
+			text-align: center;*/
+		}
+		.change_style a{
+			width: 50%;
+			height: auto;
+			display: inline-block;
+			float: left;
+			padding: 20px 20px;
+		}
+		.change_style div{
+			width: 100%;
+			/*background-size: 100%;*/
+		}
+		.change_style div>img{
+			width: 100%;
+			height: auto;
+		}
+		.img1>img {
+			/*background: url(http://7xl0ae.com2.z0.glb.qiniucdn.com/appstyle543257846060464430.jpg) no-repeat center top;*/
+			
+		}
+		
+		.img2 {
+			
+		}
+		.change_style>a>p{
+			margin: 10px 0;
+			text-align: center;
+		}
+	</style>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">更改风格</h1>
+		</header>
+		<div class="mui-content">
+			<div class="change_style">
+				<a>
+					<div id="btn1" class=" img1">
+						<img src="http://7xl0ae.com2.z0.glb.qiniucdn.com/appstyle543257846060464430.jpg" alt="" />
+					</div>
+					<p>热点标题式</p>
+				</a>
+				<a>
+					<div id="btn2" class="img2">
+						<img src="http://7xl0ae.com2.z0.glb.qiniucdn.com/appstyle841616154686344216.jpg" alt="" />
+					</div>
+					<p>侧滑导航式</p>
+				</a>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../../js_style_two/mui/mui.min.js"></script>
+	<script type="text/javascript" src="../../../js_style_two/controllers/common.js"></script>
+	<script>
+		mui.plusReady(function() {
+			common.backOfHideCurrentWebview();
+			var btnArray = ['是', '否'];
+			document.getElementById("btn1").addEventListener('tap', function() {
+				mui.confirm('热点标题式?', '确认切换风格', btnArray, function(e) {
+					if (e.index == 0) {
+						localStorage.setItem('$style', 'style1');
+						plus.runtime.restart();
+					} else {
+						return;
+					}
+				});
+			});
+			document.getElementById("btn2").addEventListener('tap', function() {
+				mui.confirm('侧滑导航式?', '确认切换风格', btnArray, function(e) {
+					if (e.index == 0) {
+						localStorage.setItem('$style', 'style2');
+						plus.runtime.restart();
+					} else {
+						return;
+					}
+				});
+			});
+		});
+	</script>
+
+</html>

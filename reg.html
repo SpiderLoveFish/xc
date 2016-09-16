@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title></title>
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<!--<link rel="stylesheet" href="css/my.css" />-->
+		<style>
+			.area {
+				margin: 20px auto 0px auto;
+			}
+			
+			.mui-input-group:first-child {
+				margin-top: 20px;
+			}
+			
+			.mui-input-group label {
+				width: 22%;
+			}
+			
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 78%;
+			}
+			
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				top: 6px;
+			}
+			
+			.mui-content-padded {
+				margin-top: 25px;
+			}
+			
+			.mui-btn {
+				padding: 10px;
+			}
+			
+			.mui-action-back {
+				color: #55c9c3;
+			}
+			
+			.mui-action-back:active {
+				color: #55c9c3;
+			}
+			
+			.mui-bar .mui-icon {
+				font-size: 32px !important;
+				position: relative;
+				z-index: 20;
+				padding: 6px 10px !important;
+			}
+			
+			.mui-content-padded button {
+				background-color: #8fc31f;
+				border: 1px solid #8fc31f;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">注册</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label>账号</label>
+					<input id='account' type="text" maxlength="20" class="mui-input" placeholder="请输入登录账号">
+				</div>
+				<div class="mui-input-row ">
+					<label>密码</label>
+					<input id='password' type="password" class="mui-input" placeholder="请输入登录密码">
+				</div>
+				<div class="mui-input-row">
+					<label>确认</label>
+					<input id='password_confirm' type="password" class="mui-input" placeholder="请确认密码">
+				</div>
+				<div class="mui-input-row">
+					<label>姓名</label>
+					<input id='name' type="text" maxlength="5" class="mui-input" placeholder="请输入真实姓名">
+				</div>
+				<div class="mui-input-row">
+					<label>手机</label>
+					<input id='phone' type="number" maxlength="11" class="mui-input" placeholder="请输入手机号">
+				</div>
+			</form>
+			<div class="mui-content-padded">
+				<button id='reg' class="mui-btn mui-btn-block mui-btn-primary">注册</button>
+			</div>
+		</div>
+		<script src="js/mui/mui.min.js"></script>
+		<script type="text/javascript" src="js/controllers/common.js"></script>
+		<script>
+			mui.init();
+			common.backOfHideCurrentWebview();
+			mui.plusReady(function() {
+				var regButton = document.getElementById('reg');
+				var accountBox = document.getElementById('account');
+				var passwordBox = document.getElementById('password');
+				var passwordConfirmBox = document.getElementById('password_confirm');
+				var name = document.getElementById('name');
+				var phone = document.getElementById('phone');
+				regButton.addEventListener('tap', function(event) {
+					if (!accountBox.value) {
+						common.alert('登录账号不能为空');
+						return;
+					}
+					if (!passwordBox.value) {
+						common.alert('登录密码不能为空');
+						return;
+					}
+					if (!passwordConfirmBox.value) {
+						common.alert('确认密码不能为空');
+						return;
+					}
+					if (!name.value) {
+						common.alert('姓名不能为空');
+						return;
+					}
+					if (!phone.value) {
+						common.alert('手机号不能为空');
+						return;
+					}
+					var regex = /^1[3|4|5|8][0-9]\d{4,8}$/;
+					if (!(regex.test(phone.value))) {
+						common.alert('手机号格式不正确');
+						return;
+					}
+					var passwordConfirm = passwordConfirmBox.value;
+					if (passwordConfirm != passwordBox.value) {
+						common.alert('密码两次输入不一致');
+						return;
+					}
+					var data = {
+						LoginId: accountBox.value,
+						Password: passwordBox.value,
+						UserName: name.value,
+						Mobile: phone.value
+					};
+					commitLock = false;
+					common.showWaiting();
+					common.postApi("Register", data, function(response) {
+						if (response.data == "success") {
+							common.toast("注册成功");
+							common.currentWebviewHide();
+						} else {
+							common.toast("服务器异常，请稍候重试..");
+						}
+						commitLock = true;
+						common.closeWaiting();
+					}, 'json');
+				});
+			});
+		</script>
+	</body>
+
+</html>

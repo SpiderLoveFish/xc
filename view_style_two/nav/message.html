@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/list.css" />
+		<link rel="stylesheet" href="../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<style>
+		html,
+			body {
+				background-color: #f4f6f9;
+			}
+			
+			p {
+				text-indent: 22px;
+			}
+			
+			span.mui-icon {
+				font-size: 14px;
+				color: #007aff;
+				margin-left: -15px;
+				padding-right: 10px;
+			}
+			
+			.mui-off-canvas-left {
+				color: #fff;
+			}
+			
+			.title {
+				margin: 35px 15px 10px;
+			}
+			
+			.title+.content {
+				margin: 10px 15px 35px;
+				color: #bbb;
+				text-indent: 1em;
+				font-size: 14px;
+				line-height: 24px;
+			}
+			
+			input {
+				color: #000;
+			}
+			
+			.mui-navigate-right {
+				background-color: #f4f6f9;
+			}
+			
+			.row {
+				background-color: #f4f6f9;
+			}
+			
+			.mui-table-view-inverted .mui-table-view-cell>a:not(.mui-btn).mui-active {
+				background: #eee;
+			}
+			
+			.mui-table-view-cell>a:not(.mui-btn) {
+				position: relative;
+				display: block;
+				font-size: 1.6rem;
+				overflow: hidden;
+				margin: 0;
+				padding: 0;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				color: inherit;
+			}
+			
+			.mui-table-view-cell {
+				padding: 11px 44px;
+			}
+			
+			.row [class*="col-"] {
+				cursor: pointer;
+				opacity: 0;
+				-webkit-transition: opacity 1s ease-in-out;
+				-moz-transition: opacity 1s ease-in-out;
+				-o-transition: opacity 1s ease-in-out;
+				transition: opacity 1s ease-in-out;
+			}
+			
+			.row [class*="col-"].shown {
+				opacity: 1;
+				-webkit-animation-duration: .6s;
+				animation-duration: .6s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+				-webkit-animation-name: bounceInLeft;
+				animation-name: bounceInLeft;
+			}
+			
+			@-webkit-keyframes bounceInLeft {
+				0% {
+					opacity: 1;
+					-webkit-transform: translate3d(-100px, 0, 0);
+					transform: translate3d(-100px, 0, 0)
+				}
+				40% {
+					-webkit-transform: translate3d(8px, 0, 0);
+					transform: translate3d(8px, 0, 0)
+				}
+				75% {
+					-webkit-transform: translate3d(2px, 0, 0);
+					transform: translate3d(-2px, 0, 0)
+				}
+				100% {
+					transform: translate3d(0px, 0, 0) -webkit-transform: none;
+					transform: none
+				}
+			}
+		}
+		.bounceInLeft {
+			-webkit-animation-name: bounceInLeft;
+			animation-name: bounceInLeft;
+		}
+		.mui-navigate-right:after,
+		.mui-push-right:after {
+			content: "";
+		}
+		.mui-scroll-wrapper {
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			overflow: hidden;
+			width: 100%;
+			background-color: #f4f6f9;
+		}
+		.mui-table-view-inverted {
+			color: #333;
+			background: #f4f6f9;
+		}
+		.mui-table-view-inverted .mui-table-view-cell:after {
+			content: "";
+			height: 0;
+		}
+		.mui-table-view-inverted:after {
+			content: "";
+			height: 0;
+		}
+		.mui-navigate-right.mui-active {
+			background-color: #eee;
+		}
+		.mui-off-canvas-wrap .mui-bar {
+			border-bottom: 1px solid #eee;
+		}
+		.sideslip_nav>ul>li {
+			height: 44px;
+			padding: 11px 44px;
+			font-size: 1.6rem;
+			color: #333;
+		}
+		.sideslip_nav>ul>li>a {
+			display: block;
+		}
+		.sideslip_nav>ul>li.shown.mui-active {
+			background-color: #eee;
+		}
+		.sideslip_nav>ul>li:before {
+			content: "";
+			height: 18px;
+			width: 4px;
+			position: absolute;
+			left: 30px;
+			top: 13px;
+			z-index: 1;
+		}
+		.sideslip_nav>ul>li:nth-child(1):before {
+			background-color: #0000FF;
+		}
+		.sideslip_nav>ul>li:nth-child(2):before {
+			background-color: red;
+		}
+		.sideslip_nav>ul>li:nth-child(3):before {
+			background-color: hotpink;
+		}
+		.sideslip_nav>ul>li:nth-child(4):before {
+			background-color: palevioletred;
+		}
+		.sideslip_nav>ul>li:nth-child(5):before {
+			background-color: plum;
+		}
+		.sideslip_nav>ul>li:nth-child(6):before {
+			background-color: paleturquoise;
+		}
+		.sideslip_nav>ul>li:nth-child(7):before {
+			height: 18px;
+			background-color: powderblue;
+		}
+		.mui-off-canvas-wrap .mui-inner-wrap {
+			position: relative;
+			z-index: 6;
+			width: 100%;
+			height: 100%;
+			background-color: #f4f6f9;
+		}
+		.mui-table-view-inverted:before {
+			height: 0;
+		}
+		.sideslip_nav {
+			padding-top: 20px;
+		}
+		.departColor {
+			color: #55c9c3;
+		}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			<!--侧滑菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll  sideslip_nav">
+
+						<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted row">
+							<li id="shenpi" class="mui-table-view-cell col-xs-4">
+								审批
+							</li>
+							<li id="news" class="mui-table-view-cell col-xs-4">
+								企业公告
+							</li>
+							<li id="questionnaire" class="mui-table-view-cell col-xs-4">
+								调查问卷
+							</li>
+							<li id="act" class="mui-table-view-cell col-xs-4">
+								活动报名
+							</li>
+							<li id="payment" class="mui-table-view-cell col-xs-4">
+								爱心捐赠
+							</li>
+							<li class="mui-table-view-cell col-xs-4">
+
+							</li>
+							<!--<li class="mui-table-view-cell col-xs-4">
+								已读
+							</li>-->
+						</ul>
+					</div>
+				</div>
+			</aside>
+			<!--主界面部分-->
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav">
+					<a id="offCanvasShow" href="javascript:;" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left departColor"></a>
+					<h1 class="mui-title">首页</h1>
+				</header>
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<div class="container">
+						<div class="mui-content nav_message">
+							<div class="index_mess_list" style="display:none;">
+								<ul>
+									<li id="approve" class="flexbox index_right mui-table-view-cell">
+										<div class="index_mess_appr index_mess_1">
+											<i id="approveCount" class="newsremind_badge h"></i>
+											<lable class="index_mess_label">审批</lable>
+											<span class="index_mess_span">包含工时、请假、加班以及通用审批</span>
+										</div>
+									</li>
+									<li id="new" class="flexbox index_right mui-table-view-cell">
+										<div class="index_mess_appr index_mess_2">
+											<i id="newCount" class="newsremind_badge h"></i>
+											<lable class="index_mess_label">企业公告</lable>
+											<span class="index_mess_span">企业动态、通知公告、员工动态</span>
+										</div>
+									</li>
+									<li id="survey" class="flexbox index_right  mui-table-view-cell">
+										<div class="index_mess_appr index_mess_3">
+											<i id="surveyCount" class="newsremind_badge h"></i>
+											<lable class="index_mess_label">调查问卷</lable>
+											<span class="index_mess_span">在线参与企业问卷</span>
+										</div>
+									</li>
+									<li id="activity" class="flexbox index_right  mui-table-view-cell">
+										<div class="index_mess_appr index_mess_4">
+											<i id="activityCount" class="newsremind_badge h"></i>
+											<lable class="index_mess_label">活动报名</lable>
+											<span class="index_mess_span">随时随地发布、参与活动</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+
+						<!--<div class="menu_icon" id="btnShortcuts" style="display:none;">
+							<div data-role="widget" data-widget="menu_4" class="menu_4">
+								<div class="widget_wrap">
+									<a class="menu_4_menu" href="javascript:;"><span>&nbsp;</span></a>
+								</div>
+								<div class="menu_4_con">
+									<div class="message-box" id="btnToUrl">
+
+									</div>
+								</div>
+							</div>
+						</div>-->
+
+					</div>
+				</div>
+				<!-- off-canvas backdrop -->
+				<div class="mui-off-canvas-backdrop" id="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="../../js_style_two/mui/mui.min.js"></script>
+	<script type="text/javascript" src="../../js_style_two/common/zepto.min.js"></script>
+	<script src="../../js_style_two/nav/message.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js_style_two/controllers/common.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		document.getElementById("shenpi").addEventListener('tap', function() {
+			common.loadUrl('../approve/approve_nav.html');
+		});
+		document.getElementById("news").addEventListener('tap', function() {
+			common.loadUrl('../news/newlist.html');
+		});
+		document.getElementById("questionnaire").addEventListener('tap', function() {
+			common.loadUrl('../questionnaire/questionnairelist.html');
+		});
+		document.getElementById("act").addEventListener('tap', function() {
+			common.loadUrl('../activity/activity_list.html');
+		});
+		document.getElementById("payment").addEventListener('tap', function() {
+			common.loadUrl('../payment/payment.html');
+		});
+
+		function getData() {
+			//开始：zjl 2016-02-25 修改代码
+			if (plus.networkinfo.getCurrentType() == 1) {
+				document.getElementsByClassName("index_mess_list")[0].style.display = "";
+				return;
+			}
+			//结束：zjl 2016-02-25 修改代码
+			var data = {
+				SelectType: 'IndexMsg',
+				startIndex: '0',
+				endIndex: '5'
+			};
+			//获取数据
+			common.postApi('GetMessage', data, function(response) {
+				var s = eval(response.data);
+				//审批
+				setBadgeNumber('approveCount', s[1].length);
+				//document.getElementById("approveCount").innerText = s[1].length;
+				//新闻
+				setBadgeNumber('newCount', s[2].length);
+				//document.getElementById("newCount").innerText = s[2].length;
+				//调查问卷
+				setBadgeNumber('surveyCount', s[3].length);
+				//document.getElementById("surveyCount").innerText = s[3].length;
+				//活动
+				setBadgeNumber('activityCount', s[4].length);
+				//document.getElementById("activityCount").innerText = s[4].length;
+				document.getElementsByClassName("index_mess_list")[0].style.display = "";
+			}, 'json');
+		}
+		/**
+		 * 
+		 * @param {保存名称} setName
+		 */
+		function getShortcuts(setName) {
+			//获取快捷键
+			var shortcuts = JSON.parse(localStorage.getItem(setName) || "[]");
+			return shortcuts;
+		}
+		/**
+		 * 
+		 * @param {名称} setName
+		 * @param {对象} shortcuts_Name
+		 */
+		function setShortcuts(setName, shortcuts_Name) {
+			//设置快捷键
+			localStorage.setItem(setName, JSON.stringify(shortcuts_Name));
+		}
+
+		function showButton() {
+			var isShortcuts = localStorage.getItem('$shortcuts_switch');
+			if (isShortcuts == "true") {
+				$("#btnShortcuts").show();
+			} else {
+				$("#btnShortcuts").hide();
+			}
+			$('#btnToUrl').html('');
+			var shortcuts_one = getShortcuts("$shortcuts_one");
+			var shortcuts_two = getShortcuts("$shortcuts_two");
+			var shortcuts_three = getShortcuts("$shortcuts_three");
+			var shortcuts_four = getShortcuts("$shortcuts_four");
+			var shortcutsCount = 0;
+			if (shortcuts_one == '[]' || shortcuts_one == '' || shortcuts_one == null || shortcuts_one == undefined) {
+				shortcutsCount++;
+			} else {
+				var tmp = '<div class="shortcut11" id="@id"><a href="javascript:;" ><img src="@imgUrl" alt="" /></a><input type="hidden" value="@url"/></div>';
+				tmp = tmp.replace('@id', 'shortcuts1').replace('@imgUrl', shortcuts_one.imgUrl).replace('@url', shortcuts_one.openUrl);
+				$('#btnToUrl').append(tmp);
+				common.click("shortcuts1", function() {
+					var openUrl = document.getElementById("shortcuts1").querySelector("input").value;
+					//alert(openUrl);
+					$(".menu_4_menu span").click();
+					common.getTemplate('page2', openUrl);
+				});
+			}
+			if (shortcuts_two == '[]' || shortcuts_two == '' || shortcuts_two == null || shortcuts_two == undefined) {
+				shortcutsCount++;
+			} else {
+				var tmp = '<div class="shortcut12" id="@id"><a href="javascript:;"><img src="@imgUrl" alt="" /></a><input type="hidden" value="@url"/></div>';
+				tmp = tmp.replace('@id', 'shortcuts2').replace('@imgUrl', shortcuts_two.imgUrl).replace('@url', shortcuts_two.openUrl);
+				$('#btnToUrl').append(tmp);
+				common.click("shortcuts2", function() {
+					var openUrl = document.getElementById("shortcuts2").querySelector("input").value;
+					//alert(openUrl);
+					$(".menu_4_menu span").click();
+					common.getTemplate('page2', openUrl);
+					//common.loadUrl(openUrl);
+				});
+			}
+			if (shortcuts_three == '[]' || shortcuts_three == '' || shortcuts_three == null || shortcuts_three == undefined) {
+				shortcutsCount++;
+			} else {
+				var tmp = '<div class="shortcut13" id="@id"><a href="javascript:;"><img src="@imgUrl" alt="" /></a><input type="hidden" value="@url"/></div>';
+				tmp = tmp.replace('@id', 'shortcuts3').replace('@imgUrl', shortcuts_three.imgUrl).replace('@url', shortcuts_three.openUrl);
+				$('#btnToUrl').append(tmp);
+				common.click("shortcuts3", function() {
+					var openUrl = document.getElementById("shortcuts3").querySelector("input").value;
+					//alert(openUrl);
+					$(".menu_4_menu span").click();
+					common.getTemplate('page2', openUrl);
+					//common.loadUrl(openUrl);
+				});
+			}
+			if (shortcuts_four == '[]' || shortcuts_four == '' || shortcuts_four == null || shortcuts_four == undefined) {
+				shortcutsCount++;
+			} else {
+				var tmp = '<div class="shortcut14" id="@id"><a href="javascript:;"><img src="@imgUrl" alt="" /></a><input type="hidden" value="@url"/></div>';
+				tmp = tmp.replace('@id', 'shortcuts4').replace('@imgUrl', shortcuts_four.imgUrl).replace('@url', shortcuts_four.openUrl);
+				$('#btnToUrl').append(tmp);
+				common.click("shortcuts4", function() {
+					var openUrl = document.getElementById("shortcuts4").querySelector("input").value;
+					//alert(openUrl);
+					$(".menu_4_menu span").click();
+					common.getTemplate('page2', openUrl);
+					//common.loadUrl(openUrl);
+				});
+			}
+			if (shortcutsCount == 4) {
+				$("#btnShortcuts").hide();
+			}
+		}
+
+		function setBadgeNumber(id, num) {
+			if (!num || num <= 0) {
+				$('#' + id).hide();
+			} else {
+				$('#' + id).show();
+				$('#' + id).text(num);
+			}
+		}
+		mui.plusReady(function() {
+			common.click('approve', function() {
+				common.getTemplate('page2', '../approve/list/list_waitforme.html');
+			});
+			common.click('new', function() {
+				common.loadUrl('../news/newlist.html');
+			});
+			common.click('survey', function() {
+				common.loadUrl('../questionnaire/questionnairelist.html');
+			});
+			common.click('activity', function() {
+				common.loadUrl('../activity/activity_list.html');
+			});
+			getData();
+			//showButton();
+			//热点点击事件
+			mui('#bannerList').on('tap', '.mui-slider-item', function() {
+				var id = this.getAttribute("id");
+				var type = this.getAttribute('listtype');
+				if (type == "news") {
+					common.loadUrl("../news/newdetail.html?id=" + id);
+				} else if (type == "activity") {
+					common.loadUrl("../activity/activity_detail.html?id=" + id);
+				} else if (type == "surveys") {
+					common.loadUrl("../questionnaire/questionnairedetail.html?id=" + id);
+				}
+				//如果点击未读的热点 更新BadgeNumber
+				setTimeout(function() {
+					getData(); //延迟500是避免点击之后立即刷新热点图片 
+				}, 500);
+			});
+			var type = common.getQueryString("type"); //获取用户ID
+			$(".menu_4_menu span").click(function() {
+				$(".menu_4_menu").toggleClass("btn-rotate");
+				$(".menu_4_con").toggleClass("a2");
+			});
+		});
+		$(".menu_4_menu span").click(function() {
+			$(".widget_wrap").toggleClass("btn-rotate");
+			$(".message-box>.shortcut11").toggleClass("shortcuts_01");
+			$(".message-box>.shortcut12").toggleClass("shortcuts_02");
+			$(".message-box>.shortcut13").toggleClass("shortcuts_03");
+			$(".message-box>.shortcut14").toggleClass("shortcuts_04");
+		});
+		//************************************侧滑导航************************************
+		//侧滑容器父节点
+		var offCanvasWrapper = mui('#offCanvasWrapper');
+		//主界面容器
+		var offCanvasInner = offCanvasWrapper[0].querySelector('.mui-inner-wrap');
+		//菜单容器
+		var offCanvasSide = document.getElementById("offCanvasSide");
+		//移动效果是否为整体移动
+		var moveTogether = false;
+		//侧滑容器的class列表，增加.mui-slide-in即可实现菜单移动、主界面不动的效果；
+		var classList = offCanvasWrapper[0].classList;
+		//主界面‘显示侧滑菜单’按钮的点击事件
+		document.getElementById('offCanvasShow').addEventListener('tap', function() {
+			offCanvasWrapper.offCanvas('show');
+			var elems = document.getElementsByClassName('col-xs-4');
+			var i = 0;
+			x = true;
+			var animate = function() {
+				setTimeout(function() {
+					$(elems[i]).addClass('shown');
+					//setHeight(elems[i]);
+					x ? i++ : i--;
+					//console.log(i);
+					if (i < elems.length && i >= 0) {
+						animate();
+					};
+				}, 80);
+			};
+			animate();
+		});
+		document.getElementById('mui-off-canvas-backdrop').addEventListener('tap', function() {
+				$('.row li').removeClass('shown')
+			})
+			//主界面和侧滑菜单界面均支持区域滚动；
+		mui('#offCanvasSideScroll').scroll();
+		mui('#offCanvasContentScroll').scroll();
+		//实现ios平台原生侧滑关闭页面；
+		if (mui.os.plus && mui.os.ios) {
+			mui.plusReady(function() { //5+ iOS暂时无法屏蔽popGesture时传递touch事件，故该demo直接屏蔽popGesture功能
+				plus.webview.currentWebview().setStyle({
+					'popGesture': 'none'
+				});
+			});
+		}
+	</script>
+
+</html>

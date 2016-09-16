@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/list.css" />
+		<link rel="stylesheet" href="../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<title>我的</title>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+			<h1 class="mui-title">我的</h1>
+		</header>
+		<div class="mui-content container">
+			<div class="mine_container">
+				<div id="userinfo" class="mine_container_title">
+					<div class="sc_cells sc_cells_access approve_overtime">
+						<a href="javascript:;" class="sc_cell flexbox">
+							<div class="">
+								<div class="sc_cell_hd"><img id="avatar" src="../../images/ScApp/general/placeholdimg/UploadImage.png"></div>
+								<div class="sc_cell_bd sc_cell_primary" style="float: left;padding-left: 0;">
+									<p id="username">姓名</p>
+									<p id="mobile" class="mine_telnumber">手机号</p>
+								</div>
+							</div>
+							<div class="mine_right">
+								<div class="">查看个人信息</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="mine_container_body mine_i">
+					<ul>
+						<!--<li class="mine_list_right">
+							<i class="mine_list_1">我的收藏</i>
+						</li>-->
+						<li id="usergroup" class="mine_list_right">
+							<i class="mine_list_2">常用群组</i>
+						</li>
+						<!--<li id="shortcuts" class="mine_list_right">
+							<i class="mine_list_3">快捷键</i>
+						</li>-->
+						<li id="feedback" class="mine_list_right">
+							<i class="mine_list_4">提交反馈</i>
+						</li>
+						<li id="changeStyle" class="mine_list_right">
+							<i class="mine_list_13">更换app风格</i>
+						</li>
+					</ul>
+				</div>
+				<div id="loginQuit" class="log_out">退出登录</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../js_style_two/mui/mui.min.js"></script>
+	<script type="text/javascript" src="../../js_style_two/controllers/common.js"></script>
+	<script type="text/javascript" src="../../js_style_two/controllers/app.js"></script>
+	<script>
+		mui.init();
+
+		function getuser() {
+			var userid = getUserInfo().UserId;
+			var data = {
+				selectkey: userid,
+				uType: 'GetUserDetialByString',
+				statrCount: '',
+				showCount: ''
+			};
+			var avatar = document.getElementById("avatar");
+			var username = document.getElementById("username");
+			var mobile = document.getElementById("mobile");
+			common.postApi('GetUsersBySelectKey', data, function(response) {
+				dataArray = eval(response.data);
+				//alert(dataArray.length)
+				for (var i = 0; i < dataArray.length; i++) {
+					var obj = dataArray[i];
+					avatar.src = obj.Avatar;
+					username.innerText = obj.UserName;
+					mobile.innerText = obj.Mobile;
+				}
+			}, 'json');
+		}
+		mui.plusReady(function() {
+			getuser();
+			common.click("userinfo", function() {
+				common.loadUrl('../myPage/userinfo/userinfo.html');
+			});
+			common.click("usergroup", function() {
+				common.loadUrl('../myPage/usergroup/usergroup.html');
+			});
+//			common.click("shortcuts", function() {
+//				common.loadUrl('../myPage/shortcuts/shortcuts.html');
+//			});
+			common.click("feedback", function() {
+				common.loadUrl('../myPage/feedback/feedbackadd.html');
+			});
+			common.click("changeStyle", function() {
+				common.loadUrl('../myPage/newstyle/change_style.html');
+			});
+			common.click("loginQuit", function() {
+				var btnArray = ['是', '否'];
+				mui.confirm('确认退出当前账号?', '确认操作', btnArray, function(e) {
+					if (e.index == 0) {
+						app.setUserInfo(new Object());
+						//确认
+						plus.runtime.restart();
+					} else {
+						return;
+					}
+				});
+			});
+		});
+	</script>
+
+</html>

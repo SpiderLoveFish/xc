@@ -1,0 +1,2526 @@
+html,body{
+	height: 100%;
+    background-color: #f4f6f9 !important;
+}
+html * {
+    outline: 0;
+    -webkit-text-size-adjust: none;
+    tap-highlight-color: rgba(0,0,0,.05);
+    -webkit-tap-highlight-color: rgba(0,0,0,.05);
+    -ms-tap-highlight-color: rgba(0,0,0,.05);
+}
+.bs{
+	/*box-shadow:#ccc 0px 1px 2px;*/
+}
+i{
+	font-style: normal;
+}
+li{
+	list-style: none;
+}
+input,textarea{
+	font-family: "微软雅黑";
+	border-radius: 0px;
+	border: none;
+}
+.hide{
+	display: none;
+}
+.container{
+	/*margin-top: 44px;*/
+	padding: 0;
+}
+.mui-table-view-cell:after{
+	height: 0;
+}
+.ques_result_list .mui-table-view-cell.mui-active{
+	background-color: #eee;
+}
+.mui-content {
+    background-color: inherit !important;
+}
+.mui-table-view:after{
+	background-color: #eee!important;
+}
+.mui-bar .mui-icon{
+    font-size: 32px !important;
+    position: relative;
+    z-index: 20;
+    padding: 6px 10px !important;
+}
+.mui-bar-tab .mui-tab-item .mui-icon{
+	padding: 0 !important;
+}
+.right{
+	float: right;
+}
+.left{
+	float: left;
+}
+.mui-action-back:active {
+    color: #55c9c3; 
+}
+.index_mess_list .mui-table-view-cell{
+	position: static;
+}
+header{
+	background-color: #fff !important;
+	height: 44px;
+}
+.mui-action-back{
+	color: #55c9c3;
+}
+.clear_float{
+	clear: both;
+}
+.p{ padding:10px}
+.pb15{
+	padding-bottom: 15px;
+}
+.br{ border-radius:5px;}
+/*********************快捷键样式   Begin********************/
+.menu_icon {
+	position: absolute;
+	bottom: 35px;
+    right: 20px;
+	background: rgba(0,0, 0,0.1)!important;
+	filter: Alpha(opacity=30);
+	background: #000;
+	border-radius: 50%;
+	z-index: 1000;
+	height: auto;
+	color: #fff;
+	padding: 5px 5px;
+}
+.menu_4 {
+	height: 65px;
+	width: 65px;
+}
+.menu_4 .widget_wrap {
+	position: relative;
+	height: 65px;
+	width: 65px;
+	border-radius: 50%;
+	background: #42d5c8;
+	z-index: 999;
+}
+.menu_4 .widget_wrap .menu_4_menu span {
+	display: block;
+	margin: 0;
+	padding: 0;
+	height: 65px;
+	width: 65px;
+	-webkit-transition: .4s ease;
+	-moz-transition: .4s ease;
+	-ms-transition: .4s ease;
+	-o-transition: .4s ease;
+	transition: .4s ease;
+	background: url(../images/ScApp/shortcutsicon/kuaijiejian_15.png) center no-repeat;
+	background-size: 30px;
+	z-index: 999;
+}
+.menu_4 .menu_4_con {
+	position: absolute;
+	right: 0;
+	z-index: 0;
+	-webkit-transition: .1s ease-out;
+	-moz-transition: .1s ease-out;
+	-ms-transition: .1s ease-out;
+	-o-transition: .1s ease-out;
+	transition: .1s ease-out;
+}
+.menu_4 .btn-rotate{
+}
+.menu_4 .btn-rotate span {
+	-webkit-transform: rotate(-135deg);
+	-moz-transform: rotate(-135deg);
+	-ms-transform: rotate(-135deg);
+	-o-transform: rotate(-135deg);
+	transform: rotate(-135deg);
+	background-color: #f5762e;
+}
+.message-box div{
+	position: absolute;
+	border-radius: 50%;
+	/*box-shadow: 0px 0px 4px #999;*/
+	bottom: 3px;
+    right: 2px;
+    opacity: 0;
+    z-index: 0;
+	-webkit-transition: .2s ease-in;
+	-moz-transition: .2s ease-in;
+	-ms-transition: .2s ease-in;
+	-o-transition: .2s ease-in;
+	transition: .2s ease-in;
+}
+.message-box .shortcuts_01{
+	opacity: 1;
+	bottom: 106px;
+    right: -2px;
+}
+.message-box .shortcuts_02{
+	opacity: 1;
+	bottom: 91px;
+    right: 65px;
+}
+.message-box .shortcuts_03{
+	opacity: 1;
+	bottom: 37px;
+    right: 108px;
+}
+.message-box .shortcuts_04{
+	opacity: 1;
+	bottom: -32px;
+    right: 106px;
+}
+.menu_4 .menu_4_con .message-box div a img{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+.menu_4 .menu_4_con .triangle-border {
+	position: absolute;
+	right: 12px;
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	border-width: 10px;
+	border-style: solid dashed dashed dashed;
+}
+.menu_4 .menu_4_con .tb-border {
+	bottom: -20px;
+	border-color: #000 transparent transparent transparent;
+	opacity: 0.35;
+}
+.menu_4 .menu_4_con .tb-background {
+	bottom: -20px;
+	border-color: #000 transparent transparent transparent;
+	opacity: 0.35;
+}
+.a1{
+	display: none!important;
+}
+.a2{
+	display: block!important;
+	z-index: 999;
+}
+
+/***********************快捷键样式   End*********************/
+
+
+/***********************news_index Begin*********************/
+.news_index_title {
+	/*height: 47px;*/
+	width: 100%;
+	background-color: #fff;
+	padding: 10px 10px 0 15px;
+	border-bottom: 1px solid #eee;
+	z-index: 10;
+	/*overflow: hidden;*/
+}
+.news_index_title>ul{
+	/*display: inline-block;*/
+	height: 32px;
+	margin-top: 6px;
+	overflow: hidden;
+}
+.news_index_title>ul>li{
+	margin-right: 5%;
+    height: 32px;
+    line-height: 20px;
+    float: left;
+    font-size: 1.6rem;
+    line-height: 24px;
+    color: #b5b5b5;
+    position: relative;
+}
+.news_index_title>ul>.read_active{
+    background-position: 0 -26px;
+    background-size: 20px;
+    color: #55c9c3;
+}
+.news_index_title>ul>.read_active:after{
+	content: "";
+	height: 2px;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background-color:#55c9c3;
+}
+.news_index_title>ul>.tab_pulldown{
+	display: block;
+	float: right;
+	width: 20px;
+	height: 26px;
+	background: url(../images/ScApp/icon/icon_down.png) no-repeat center;
+	background-size: 18px;
+	position: relative;
+}
+.news_index_title>ul>.tab_pulldown_active{
+	background: url(../images/ScApp/icon/icon_down_active.png) no-repeat center;
+	background-size: 18px;
+}
+.news_index_title>.children_news_ul{
+	display: none;
+}
+
+/***********************news_index End*********************/	
+
+/*****************newlist style    Begin*****************/
+
+.news_title{
+	height:47px;
+	width: 100%;
+	background-color: #fff;
+	padding: 14px 15px 0 15px;
+	border-bottom: 1px solid #eee;
+	z-index: 10;
+	/*overflow: hidden;*/
+}
+.news_title>ul{
+}
+.news_title>ul>li{
+	padding-left: 22px;
+	margin-right: 12px;
+	height:26px;
+	line-height: 20px;
+	float: left;
+	font-size: 1.6rem;
+	color: #b5b5b5;
+}
+.news_title>ul>.unread{
+	margin-right: 20px;
+}
+.news_title ul .read_active{
+	background-position: 0 -26px;
+	background-size: 20px;
+	color: #55c9c3;
+}
+.unread{
+	position: relative;
+	background: url(../images/ScApp/icon/unread.png) no-repeat;
+	background-position: 0 0px;
+	background-size: 20px;
+}
+.alread{
+	background: url(../images/ScApp/icon/read.png) 0 0px no-repeat;
+	background-size: 20px;
+}
+.news_hint{
+	position: absolute;
+	top: -5px;
+    right: -15px;
+	height: 16px;
+    min-width: 16px;
+    border-radius: 8px;
+    color: #fff;
+    background-color: #ea5514;
+    font-size: 1.2rem;
+    line-height: 16px;
+    padding: 0 4px;
+    text-align: center;
+}
+.text_hint{
+	margin: 10px 0 10px 0;
+	font-size: 1.3rem;
+	color: #9e9e9e;
+	text-align: center;
+}
+/*****************newlist style    End*****************/
+
+/*****************newdetail style    Begin*****************/
+.news_container{
+	padding: 15px;
+	margin-bottom: 50px;
+}
+.news_container_1{
+	background-color: #fff;
+	border-radius: 5px;
+	padding-bottom: 10px;
+}
+.news_container_detial{
+	padding: 10px 18px;
+	background-color: #fff;
+	border-radius: 5px;
+}
+.head_top{
+	font-size: 1.2rem;
+	color:#9e9e9e;
+	height:20px;
+}
+.icon_book{
+	background: url(../images/ScApp/icon/reader.png) 0px 1px  no-repeat;
+	background-size: 20px;
+	padding-left: 24px;
+}
+.news_container_detial .news_detial h4{
+	font-size: 1.6rem;
+	padding: 14px 0 5px 0;
+	text-align: center;
+}
+.news_detial{
+	min-height:64px;
+	width: 100%;
+	position: relative;
+}
+.news_detial .apply_deadline{
+	display: inline-block;
+	/*width: 140px;*/
+	float: left;
+	color: #f5762e;
+	font-size: 1.2rem;
+	background: url(../images/ScApp/icon/deadline.png) -1px 4px no-repeat;
+	padding-left: 16px;
+	background-size: 15px;
+	line-height: 24px;
+}
+.news_detial .apply_deadline span{
+	display: block;
+}
+.news_detial p{
+	float: right;
+	height:24px;
+	padding-left: 22px;
+	font-size: 1.5rem;
+	color: #b5b5b5;
+	background: url(../images/ScApp/icon/issuer-01.png) 4px center no-repeat;
+	background-size: 14px;
+}
+.news_detial p label{
+	color: #777;
+	font-size: 1.5rem;
+}
+.news_body{
+	color:#777;
+	font-size: 1.4rem;
+	line-height: 22px;
+	margin-bottom: 10px;
+}
+.news_body img{
+	width: 100%;
+	height: auto;
+	margin: 6px 0;
+}
+/*****************comment style  Begin*****************/
+.pub_comment{
+	margin: 15px 0 20px 0;
+	background-color: #fff;
+	border-radius: 5px;
+}
+.comment_title{
+	padding: 5px 13px;
+	font-size: 1.2rem;
+	line-height: 16px;
+	color: #ffb864;
+	border-bottom: 1px solid #eee;
+}
+.comment_list{
+	padding: 8px 15px;
+	position: relative;
+	border-bottom: 1px solid #eee;
+}
+.comment_head{
+	height:30px;
+	width: 30px;
+	float:left;
+	border-radius: 5px;
+}
+.comment_name{
+	padding-left: 38px;
+	font-size: 1.4rem;
+	color: #000;
+	line-height:14px;
+	margin-bottom: 5px;
+}
+.comment_list .comment_time{
+	color: #B5B5B5;
+	padding-left: 38px;
+	font-size: 1.2rem;
+	line-height: 12px;
+	margin-bottom: 10px;
+}
+.comment_reply{
+	position: absolute;
+	top:11px;
+	right: 18px;
+	color: #9e9e9e;
+	font-size: 1.1rem;
+	background: url(../images/ScApp/icon/reply.png) 0 center no-repeat;
+	background-size:18px;
+	padding-left: 21px;
+}
+.comment_container{
+	font-size: 1.4rem;
+	line-height: 20px;
+	color: #777;
+
+}
+.comment_hint{
+	font-size: 1.2rem;
+	color: #b5b5b5;
+	padding: 11px 0;
+	text-align: center;
+}
+.comment_hint i{
+	color:#000;
+	padding-left: 4px;
+}
+/*****************comment style    End*****************/
+/*****************inputbox style  Begin*****************/
+.pub_inputbox{
+	width: 100%;
+	/*margin-top: 52px;*/
+	position:fixed;
+	width: 100%;
+	height:auto;
+	bottom:0;
+	z-index: 999;
+}
+.inputbox_foot{
+	
+	background-color: #fff;
+	padding: 9px 10px 9px 10px;
+	/*box-shadow: 0px 0px 3px #666;*/
+}
+.inputbox_append{
+	width:34px;
+	height:34px;
+	background: url(../images/ScApp/icon/option.png) center no-repeat;
+	background-size:27px;
+	margin-right: 8px;
+}
+.inputbox_input{
+	height: 34px;
+	padding-right: 8px;
+	border-radius: 17px;
+}
+.inputbox_input textarea{
+	height: 34px;
+    min-height: 24px;
+    max-height: 90px;
+	border-radius: 17px;
+	background-color: #efefef;
+	outline: none;
+	border: none;
+	overflow-x: hidden;
+    overflow-y: visible;
+    padding: 6px 12px;
+    line-height: 22px;
+    font-size: 14px;
+}
+.inputbox_send{
+	width: 60px;
+	height:32px;
+	margin-top: 1px;
+	background:#55c9c3 url(../images/ScApp/icon/airplane.png) center no-repeat;
+	background-size:20px;
+	border-radius: 16px;
+	color:#000;
+}
+.flexbox{
+	display: -webkit-box;
+	display: box;
+	display: -ms-flexbox;
+	-ms-flex-align: center;
+ 	 -webkit-align-items: center;
+  	-webkit-box-align: center;
+ 	 align-items: center;
+}
+.flexItem{
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    -moz-box-flex: 1;
+}
+
+/*****************inputbox style    End*****************/
+/*****************newdetail style    End*****************/
+
+/*****************approve_nav style    Begin*****************/
+.approve_nav{
+	background-color: #fff;
+	height: inherit;
+	display: table;
+	width: 100%;
+}
+.approve_lists{
+	/*box-shadow: 0px -1px 3px #ccc;*/
+	padding: 10px 0;
+	background-color: #42d5c8;
+	height: 104px;
+}
+.approve_list{
+	width: 33.333333333%;
+	float: left;
+	text-align: center;
+}
+.approve_lists .approve_list{
+	color:#fff;
+	padding-top: 55px;
+	font-size: 1.2rem;
+	height:84px;
+}
+.approve_lists .approve_list:active{
+	background-color: #3cc2b7;
+}
+.approve_lists .approve_list p{
+	font-size: 1.2rem;
+	color:#fff;
+}
+.approve_module .approve_list {
+    color: #575757;
+    font-size: 1.4rem;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    background-size: 60px;
+    width: 33.33%;
+    display: inline-block;
+    float: left;
+    position: relative;
+}
+.approve_module .approve_list:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}	
+.approve_module .approve_list:active{
+	background-color: #eee;
+}
+.approve_module .approve_list p {
+    color: #555;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.approve_module .approve_list .approve_addmore{
+	color: #b5b5b5;
+}
+.approve_module .approve_list7{
+	color: #b5b5b5;
+}
+.approve_list0{
+	background:url(../images/ScApp/approve/toMe.png) no-repeat center 10px;
+	background-size: 40px;
+	border-right: 1px solid #fff;
+}
+.approve_list1{
+	background:url(../images/ScApp/approve/showMe.png) no-repeat center 10px;
+	background-size: 40px;
+	border-right: 1px solid #fff;
+}
+.approve_list2{
+	background:url(../images/ScApp/approve/mine.png) no-repeat center 10px;
+	background-size: 40px;
+}
+.approve_list3{
+	background:url(../images/ScApp/approve/aprvTime.png) no-repeat center 28%;
+}
+.approve_list4{
+	background:url(../images/ScApp/approve/aprvOvertime.png) no-repeat center 28%;
+}
+.approve_list5{
+	background:url(../images/ScApp/approve/aprvLeave.png) no-repeat center 28%;
+}
+.approve_list6{
+	background:url(../images/ScApp/approve/aprvUniversal.png) no-repeat center 28%;
+}
+.approve_list7{
+	background:url(../images/ScApp/approve/add.png) no-repeat center 38%;
+	background-size: 38px!important;
+}
+.workstand_list1{
+	background:url(../images/ScApp/nav/appsSp.png) no-repeat center 28%;
+}
+.workstand_list2{
+	background:url(../images/ScApp/nav/appsGg.png) no-repeat center 28%;
+}
+.workstand_list3{
+	background:url(../images/ScApp/nav/appsWj.png) no-repeat center 28%;
+}
+.workstand_list4{
+	background:url(../images/ScApp/nav/appsHd.png) no-repeat center 28%;
+}
+.workstand_list5{
+	background:url(../images/ScApp/nav/RichengGuanli.png) no-repeat center 28%;
+}
+.workstand_list6{
+	background:url(../images/ScApp/nav/aixinjuanzu.png) no-repeat center 28%;
+}
+.approve_lists a{
+	position:relative;
+}
+.approve_lists a .posi_hint{
+	position:absolute;
+	top: 6px;
+    right: 26px;
+	height: 16px;
+    border-radius: 8px;
+    color: #fff;
+    background-color: #ea5514;
+    font-size: 1.2rem;
+    padding: 0 5px;
+    line-height: 16px;
+}
+.approve_overtime .sc_cell {
+	padding: 16px 10px 16px 15px;
+	height: 76px;
+}
+.approve_overtime .sc_cell:active{
+	/*background-color: #eee;*/
+}
+.approve_overtime .sc_cell_hd img{
+	border-radius: 6px;
+	width: 40px;
+	height: 40px;
+}
+.approve_overtime .sc_cell_bd p{
+	font-size: 1.5rem;
+}
+.approve_overtime .sc_cell_bd p:first-child{
+	font-size: 1.6rem;
+	margin-bottom: 0px;
+	color: #000;
+}
+.approve_overtime .sc_cell_bd p i{
+	margin-right: 6px;
+}
+.filtrate_btn{
+	/*width: 80px;*/
+	float: right;
+	color:#ff815d;
+	background: url(../images/ScApp/icon/filter.png) 0px center no-repeat ;
+	background-size: 18px;
+	padding-left: 20px;
+	font-size: 1.4rem;
+	position: relative;
+}
+.filtrate_btn i{
+	color: #B5B5B5;
+	background: url(../images/ScApp/icon/pull.png) right 7px no-repeat;
+	background-size: 10px;
+	padding-right: 15px;
+	margin-left: 3px;
+}
+.list_launched .filtrate_btn{
+	float: left;
+	position: relative;
+}
+.news_title .filtrate_btn .drop_menu li{
+	color: #fff;
+	margin: 0;
+	text-align: center;
+	line-height: 27px;
+	font-size: 1.7rem;
+	letter-spacing: 1.2px;
+}
+.filtrate_btn .drop_menu{
+	background-color: rgba(153,153,153,.9);
+    width: 120px;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    position: absolute;
+    border: none;
+    top: 10px;
+    right: -9px;
+    display: none;
+    margin-top: 20px;
+    padding: 10px 0;
+    z-index: 999;
+}
+.filtrate_btn .triangle-up{
+	width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid rgba(153,153,153,.9);
+    position: absolute;
+    right: 6px;
+    top: -7px;
+}
+.approve_left{
+	float: left;
+	width: 80%;
+	position: relative;
+}
+.approve_left:after{
+	content: "";
+	position: absolute;
+	height: 55px;
+	top: -7px;
+    right: 0px;
+	border-right: 1px solid #eee;
+}
+.approve_left .sc_cell_data{
+	position: absolute;
+	top:2px;
+	right: 0;
+}
+.approve_right{
+	width: 20%;
+	float: right;
+	font-size: 1.2rem;
+	color: #b5b5b5;
+	text-align: center;
+}
+.approve_right div{
+	background-size:20px !important;
+	padding-top: 24px;
+}
+.approve_right .approve_pass{
+	
+	background: url(../images/ScApp/icon/StatePassed.png) center 0px no-repeat;
+}
+.approve_right .approve_notpass{
+	background: url(../images/ScApp/icon/StateFailed.png) center 0px no-repeat;
+}
+.approve_right .approve_wait{
+	background: url(../images/ScApp/icon/StateWaiting.png) center 0px no-repeat;
+}
+.approve_left .sc_cell_primary .label_describe{
+	font-size: 1.2rem;
+	margin-top: 5px;
+}
+/*****************approve_nav style    End*****************/
+/*****************work_detail style    Begin*****************/
+.work_details{
+	padding: 10px;
+}
+.work_details_title{
+	border-radius: 6px;
+}
+.work_details_title .approve_left:after{
+	content: "";
+	border-right: none;
+}
+.work_details_content{
+	padding: 10px;
+	background-color: #fff;
+	line-height: 22px;
+}
+.work_details_content label{
+	font-size: 1.4rem;
+	color: #9E9E9E;
+	float: left;
+	width: 90px;
+	text-align: right;
+	
+}
+.work_details_title .approve_overtime{
+	border-radius: 6px 6px 0 0;
+}
+.work_details_title .work_details_content{
+	border-radius: 0 0 6px 6px;
+}
+.work_details_content p{
+	font-size: 1.4rem;
+	color: #000;
+	padding-left: 95px;
+}
+.work_details_content p img{
+	height: 30px;
+	width: 40px;
+	display: inline-block;
+	margin-right: 2px;
+}
+.work_details_content .related{
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top:1px solid #eee;
+}
+.approve_process{
+	margin-bottom: 100px;
+	margin-top: 10px;
+	background-color: #fff;
+	border-radius: 6px;
+	padding: 10px 10px 0 10px;
+}
+.approve_process .approve_process_title{
+	color: #ffb864;
+	font-size: 1.4rem;
+	padding-left: 5px;
+	padding-bottom: 5px;
+}
+.approve_process .approve_process_content{
+	border-top: 1px solid #eee;
+	padding: 20px 0 10px 0;
+}
+.approve_footer{
+	position: fixed;
+	bottom:0;
+	/*box-shadow: 1px 1px 2px #ccc;*/
+	height:52px;
+	width: 100%;
+	background-color: #fff;
+	display:-moz-box;
+    display:-webkit-box;
+    display:flex;
+	padding: 8px 0;
+	line-height: 36px;
+	font-size: 1.6rem;
+	text-align: center;
+}
+.btn_appr_agree{
+	-webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    -moz-box-flex: 1;
+    color: #55C9C3;
+    padding-left: 24px;
+   	background: url(../images/ScApp/icon/StatePassed.png) 35% center no-repeat;
+   	background-size: 20px;
+   	border-right: 1px solid #eee;
+}
+.btn_appr_refuse{
+	-webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    -moz-box-flex: 1;
+    color: #f46b3b;
+    padding-left: 24px;
+    background: url(../images/ScApp/icon/StateFailed.png) 35% center no-repeat;
+   	background-size: 20px;
+}
+.btn_appr_resubmit{
+	-webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    color: #55C9C3;
+    padding-left: 24px;
+    background: url(../images/ScApp/icon/Resubmit.png) 35% center no-repeat;
+   	background-size: 20px;
+}
+.btn_appr_revoke{
+	-webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    color: #f46b3b;
+    padding-left: 24px;
+    background: url(../images/ScApp/icon/cancle.png) 30% center no-repeat;
+   	background-size: 20px;
+}
+.approve_state{
+	padding: 0 5px;
+}
+.approve_state ul li{
+	height: 54px;
+	position: relative;
+	margin-bottom: 10px;
+	background-size: 18px!important;
+}
+.approve_state ul .state_icon_pass{
+	background: url(../images/ScApp/icon/StatePassed.png) 15px center no-repeat;
+}
+.approve_state ul .state_icon_notpass{
+	background: url(../images/ScApp/icon/StateFailed.png) 15px center no-repeat;
+}
+.approve_state ul .state_icon_wait{
+	background: url(../images/ScApp/icon/StateWaiting.png) 15px center no-repeat;
+}
+.approve_state>ul>li:before{
+	content: "";
+	height:35px;
+	width: 10px;
+	background: url(../images/ScApp/icon/overLine.png) center no-repeat;
+	background-size: contain;
+	position: absolute;
+	top: 42px;
+    left: 18px;
+}
+.approve_state>ul>li:last-child:before{
+	content: "";
+	background: none;
+	height: 0;	
+}
+.approve_state_list{
+	height:52px;
+	width: 84%;
+	float: right;
+	background-color: #f7f7f7;
+	padding: 9px;
+	border-radius: 6px;
+	position: relative;
+}
+.approve_state_list .sc_cell_data{
+	top:9px;
+	right: 10px;
+}
+.approve_state_list .sc_cell_hd img{
+	width: 34px;
+	height: 34px;
+	border-radius: 6px;
+}
+.approve_state_list .sc_cell_primary p:first-child{
+	font-size: 1.4rem;
+	color: #000;
+	line-height: 16px;
+}
+.list_news{
+	padding-top: 10px;
+}
+.list_news .activ_content .sc_cell:active{
+	background-color: #eee;
+}
+/*****************work_detail style    End*****************/
+/*****************activity style    Begin*****************/
+.btn_post_activ{
+	position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.6rem;
+    color: #f46b3b;
+    background-color: #fff;
+    background: url(../images/ScApp/icon/ActivityPublish.png) no-repeat left center;
+    background-size: 15px;
+    padding-left: 18px;
+}
+.btn_post_activ:active{
+    color: #db652a;
+    /*background-color: #000;*/
+}
+.activ_title>ul>.unread{
+	background: url(../images/ScApp/icon/ActivityUnread.png) no-repeat;
+	background-position: 0 2px;
+	background-size: 20px;
+}
+.activ_title>ul>.all_acti{
+	background: url(../images/ScApp/icon/Activity.png) no-repeat;
+	background-position: 0 2px;
+	background-size: 20px;
+}
+.activ_title>ul>.mine_acti{
+	background: url(../images/ScApp/icon/ActivityMine.png) no-repeat;
+	background-position: 0 2px;
+	background-size: 20px;
+}
+.activ_title>ul>.read_active{
+	color: #55c9c3;
+	background-position: 0 -23px;
+	background-size: 20px;
+}
+.activ_title>ul>li {
+    padding-left: 22px;
+    margin-right: 12px;
+    height: 27px;
+    font-size: 1.6rem;
+    line-height: 20px;
+    float: left;
+    color: #b5b5b5;
+}
+.activ_content .sc_cell_data{
+	position: absolute;
+	top:13px;
+	color: #b5b5b5;
+}
+.activ_lable{
+	font-size: 1.4rem;
+	color: #99acd5;
+	display:-moz-box;
+    display:-webkit-box;
+    display:flex;
+	/*padding-right: 50px;*/
+}
+.activ_lable span{
+	-webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+	/*padding-left: 50px;*/
+}
+.activ_apply_title{
+	font-size: 1.2rem;
+	color: #ffb864;
+	padding-left: 13px;
+	padding-bottom: 4px;
+}
+.activ_apply_list{
+	height:auto;
+	min-height: 76px;
+	padding: 0 0px 10px 10px;
+	border-bottom: 1px solid #eee;
+	border-top:1px solid #eee;
+	margin-bottom: 10px;
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+}
+.activ_apply_list ul{
+	/*display: flex;*/
+	/*width: 75%;*/
+	float: left;
+	height: inherit;
+}
+.activ_apply_list ul li{
+	/*-webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;*/
+}
+.alapply_name{
+	max-width: 38px;
+	margin:0 12px 0 0;
+	padding: 15px 0 0 0;
+	float: left;
+}
+.alapply_name img{
+	margin: 0 auto;
+	height: 30px;
+	width: 30px;
+	border-radius: 4px;
+
+}
+.alapply_name label{
+	color: #B5B5B5;
+	font-size: 1.2rem;
+	text-align: center;
+	line-height: 12px;
+	padding-top: 3px;
+	width: 38px;
+	display: block;
+}
+.showall_name{
+	width: 100px;
+	float: right;
+	color: #55c9c3;
+	font-size: 1.2rem;
+	padding: 20px 14px 20px 0px;
+	line-height: 34px;
+	text-align: right;
+	/*background: url(../images/ScApp/icon/right.png) center right no-repeat;*/
+	/*background-size: 10px;*/
+}
+
+.activ_apply_edit{
+	padding: 10px;
+}
+.activ_theme{
+	
+}
+.activ_theme input,.activ_content_edit textarea{
+	border: none;
+	border-bottom: 1px solid #eee;
+	padding: 11px 5px 4px 5px;
+	font-size: 1.6rem;
+	font-family: "微软雅黑";
+	outline: 0;
+	color: #555;
+}
+.uploadimg_list{
+	padding: 6px 10px 0 10px;
+	overflow: hidden;
+}
+.uploadimg_list img{
+	height: 40px;
+	width: 40px;
+	margin-right: 10px;
+	margin-top: 10px;
+	border-radius: 5px;
+	float: left;
+}
+.activ_uploadimg{
+	height:93px;
+	margin: 15px 0 10px 0;
+	background:#f7f7f7 url(../images/ScApp/icon/UploadImage.png) center 15px  no-repeat;
+	background-size: 50px;
+	padding-top: 55px;
+	text-align: center;
+	font-size: 1.5rem;
+	color: #9e9e9e;
+}
+.activ_theme input{
+	width: 75%;
+}
+.activ_content_edit textarea{
+	width: 100%;
+	min-height: 30px;
+	word-wrap: break-word;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.activ_content_edit textarea:focus{
+	border-bottom: 1px solid #eee;
+}
+.activ_input_edit{
+	border-bottom: 1px solid #eee;
+	border-top:1px solid #eee;
+}
+.activ_input_edit>ul>li{
+	border-bottom: 1px solid #eee;
+	line-height: 44px;
+	height: 44px;
+	margin: 0 6px;
+	padding: 0 4px;
+	font-size: 1.4rem;
+	color: #555;
+}
+.activ_input_edit>ul>li:last-child{
+	border-bottom: none;
+	display: flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+}
+.activ_input_edit>ul>li>span{
+	padding-left: 20px;
+	display: block;
+	color: #555;
+	background-size: 18px;
+}
+.activ_input_edit>ul>li p{
+	padding-left: 6px;
+	padding-right: 18px;
+	overflow: hidden;
+}
+.activ_input_edit>ul>li .leave_num input{
+	text-align: right;
+	padding-right: 0;
+	color: #8f8f94;
+}
+.activ_input_edit>ul>li p input{
+	border: none;
+	font-size: 1.4rem;
+	width: 100%;
+	padding: 10px 0;
+}
+.activ_time{
+	color: #ffb864;
+}
+.activ_time span{
+	color: #8f8f94;
+}
+.activ_input_label1{
+	background: url(../images/ScApp/icon/deadline.png) no-repeat left center;
+}
+.activ_input_label2{
+	background: url(../images/ScApp/icon/date.png) no-repeat left center;
+}
+.activ_input_label3{
+	background: url(../images/ScApp/icon/address.png) no-repeat left center;
+}
+.activ_input_label4{
+	background: url(../images/ScApp/icon/number.png) no-repeat left center;
+}
+.activ_input_label5{
+	background: url(../images/ScApp/icon/crowds.png) no-repeat left center;
+}
+.join_object{
+	background: url(../images/ScApp/icon/right.png) right center no-repeat;
+	background-size: 9px;
+	color: #555;
+}
+.active_apply_btn{
+	height:50px;
+	padding: 0 10px;
+	display: flex;
+	display: -webkit-flex;
+}
+.active_apply_btn div{
+	-webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    margin:0 auto 5px auto;
+    max-width: 45%;
+    height: 44px;
+    border-radius: 22px;
+    color: #fff;
+    text-align: center;
+    line-height: 44px;
+    /*margin: 15px auto 5px auto;*/
+    font-size: 18px;
+    letter-spacing: 1.1px;
+}
+
+.btn_cnacelpub{
+    background-color: #99acd5;
+}
+.btn_cnacelpub:active{
+	background-color: #889bba;
+}
+.active_apply_btn .btn_woapply{
+	background-color: #f5762e;
+}
+.btn_woapply{
+	background-color: #f5762e;
+	margin:15px auto 5px auto;
+    max-width: 45%;
+    height: 44px;
+    border-radius: 22px;
+    color: #fff;
+    text-align: center;
+    line-height: 44px;
+    font-size: 1.8rem;
+    letter-spacing: 1.1px;
+}
+.btn_woapply:active{
+	background-color: #db652a;
+}
+.active_apply_btn .btn_large{
+	max-width: 56%;
+}
+.btn_activend{
+	background-color: #b5b5b5;
+}
+
+
+/*****************activity style    End*****************/
+
+.leave_apply_edit{
+	/*padding: 10px 0;*/
+}
+.activ_input_label6{
+	background: url(../images/ScApp/icon/TypeLeave.png) left center no-repeat;
+	color: #555;
+}
+.activ_input_label7{
+	background: url(../images/ScApp/icon/list-21.png) left center no-repeat;
+	color: #555;
+}
+.activ_input_label8{
+	background: url(../images/ScApp/icon/date.png) left center no-repeat;
+	color: #555;
+}
+.activ_input_label9{
+	background: url(../images/ScApp/icon/duration.png) left center no-repeat;
+	color: #555;
+}
+.activ_input_label10{
+	background: url(../images/ScApp/icon/Fuze.png) left center no-repeat;
+	color: #555;
+}
+.activ_input_label11{
+	background: url(../images/ScApp/icon/Xiangguan.png) left center no-repeat;
+	color: #555;
+}
+.text_right{
+	text-align: right;
+}
+select{
+	font-family: "微软雅黑";
+}
+.leave_type{
+	color: #555;
+	text-align: right;
+}
+.leave_type select {
+    direction: rtl;
+    padding: 0;
+}
+select option {
+    direction: rtr;
+}
+.leave_reason{
+	height:auto;
+	width: 100%;
+	padding: 10px;
+	border-bottom: 1px solid #eee;
+}
+.leave_reason textarea{
+	height: 70px;
+	font-size: 1.4rem;
+}
+.leave_uploadimg{
+	height: auto;
+	overflow: hidden;
+	border-top: 1px solid #eee;
+}
+.leave_uploadimg img{
+	width: 40px;
+	height: 40px;
+	float: left;
+	margin: 10px 10px;
+}
+.leave_uploadimg .btn_uploadimg{
+	font-size: 1.2rem;
+	float: left;
+	height: 60px;
+	width: 60px;
+	color: #9e9e9e;
+	background: url(../images/ScApp/general/placeholdimg/UploadImage.png) no-repeat center 10px;
+	background-size: 40px;
+	text-align: center;
+	padding-top: 42px;
+}
+.activ_input_label12{
+	background: url(../images/ScApp/icon/TypeProject.png) left center no-repeat;
+	color: #555;
+}
+.activ_input_label13{
+	background: url(../images/ScApp/icon/time.png) left center no-repeat;
+	color: #555;
+}
+.activ_input_label14{
+	background: url(../images/ScApp/icon/TypeUniversal.png) left center no-repeat;
+	color: #555;
+}
+.approve_general .btn_woapply{
+	margin: 25px auto 25px auto;
+}
+.app_general_label input{
+	border: none;
+	padding-left: 20px;
+	font-size: 1.4rem;
+	background-size:18px;
+}
+.activ_input_label15{
+	background: url(../images/ScApp/icon/TypeOvertime.png) left center no-repeat;
+	color: #555;
+}
+.activ_input_label16{
+	background: url(../images/ScApp/icon/allowance.png) left center no-repeat;
+	color: #555;
+}
+.activ_input_label17{
+	background: url(../images/ScApp/icon/ShowSwitch-13.png) left center no-repeat;
+	color: #555;
+}
+.overtime_allowance {
+    margin: 0 6px;
+    padding: 0 4px;
+    height: 100px;
+    border-bottom: 1px #eee solid;
+}
+.overtime_allowance div:first-child {
+    float: left;
+    width: 30%;
+    margin-left: 0;
+    background-size: 18px;
+}
+.overtime_allowance div {
+    float: left;
+    width: 35%;
+    text-align: center;
+}
+.overtime_allowance .eat_allo p {
+    background: url(../images/ScApp/icon/AlwcCatering.png) no-repeat center 15px;
+    background-size: 25px;
+}
+.overtime_allowance div i.selective {
+    display: inline-block;
+    font-style: normal;
+    width: 20px;
+    height: 20px;
+    line-height: 18px;
+    margin-top: 6px;
+    color: #fff !important;
+    border: 1px solid #99acd5;
+    background-color: #99acd5;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.overtime_allowance .traffic_allo p {
+    background: url(../images/ScApp/icon/AlwcVhicle.png) no-repeat center 19px;
+    background-size: 25px;
+}
+.overtime_allowance .other_allo p {
+    background: url(../images/ScApp/icon/AlwcOther.png) no-repeat center 19px;
+    background-size: 25px;
+}
+.overtime_allowance div p {
+    padding-top: 46px;
+    text-align: center;
+    color: #888;
+    font-size: 1.2rem;
+}
+.overtime_allowance .overtime_allowance1 {
+    line-height: 100px;
+    float: left;
+    font-size: 1.4rem;
+    padding-left: 20px;
+    text-align: left;
+}
+.fz16 {
+    font-size: 1.6rem;
+}
+.cblack1 {
+    color: #3c3c3c;
+}
+.overtime_allowance div i {
+    display: inline-block;
+    font-style: normal;
+    width: 20px;
+    height: 20px;
+    line-height: 18px;
+    margin-top: 6px;
+    color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.overtime_sum{
+	color: #555 !important;
+	float: right;
+}
+.overtime_sum i{
+	color: #8f8f94;
+}
+.activ_input_edit>ul>li .overtime_sum input{
+	width: 30px;
+	height: 24px;
+	display: inline-block;
+	padding: 0;
+    margin: 0;
+    text-align: center;
+}
+.activ_input_edit>ul>li .overtime_p{
+	padding-right: 0;
+}
+.activ_input_edit>ul>li .leave_sum input{
+	width: 20px;
+	height: 24px;
+	/*display: inline-block;*/
+	padding: 0;
+    margin: 0;
+    text-align: center;
+    vertical-align: inherit;
+}
+.activ_input_edit>ul>li .leave_p{
+	padding-right: 0;
+}
+
+.eat_allowance_diolog{
+	position: relative;
+}
+.eat_allowance_diolog h4{
+	font-size: 1.8rem;
+	text-align: center;
+	margin: 15px 0 20px 0;
+	color: #000000;
+}
+.eat_close{
+	width: 30px;
+	height:30px;
+	background: url(../images/ScApp/icon/jiaban-16.png) no-repeat center;
+	background-size: 26px;
+	position: absolute;
+	right: 5px;
+	top:-14px;
+}
+.eat_allowance_diolog p{
+	height:50px;
+	width: 100%;
+	font-size: 1.6rem;
+	color: #000;
+	padding-left: 20px;
+	border-top:1px solid #ddd;
+	background: url(../images/ScApp/icon/Option_01.png) no-repeat  95% center;
+	background-size: 20px;
+	line-height: 50px;
+}
+.eat_allowance_diolog .choose_eattime{
+	background: url(../images/ScApp/icon/approve_1.png) no-repeat  95% center;
+	background-size: 20px;
+}
+.other_allowance_diolog h4{
+	font-size: 1.8rem;
+	text-align: center;
+	margin: 5px 0 10px 0;
+	color: #000000;
+}
+.other_allowance_diolog p{
+	height:35px;
+	background: url(../images/ScApp/icon/allowance.png) 20px 10px no-repeat;
+	background-size: 22px;
+	font-size: 1.6rem;
+	color: #000000;
+}
+.other_allowance_diolog input{
+	width: 100px;
+	height:35px;
+	font-size: 1.6rem;
+	line-height: 16px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	margin-left: 45px;
+	padding:10px 5px 0 5px;
+	color:#3C3C3C;
+}
+.other_allowance_diolog textarea{
+	height:35px;
+	width:70%;
+	margin-top: 12px;
+	margin-left: 45px;
+	margin-bottom: 12px!important;
+	padding:10px 5px 0 5px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	font-size: 1.6rem;
+	color:#3C3C3C;
+}
+.diolog_shade {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    opacity: 0.4;
+    z-index: 99;
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    height: 100%;
+}
+.diolog_agree {
+    height: auto;
+    margin-left: 7%;
+    width: 86%;
+    background-color: #fff;
+    color: #3c3c3c;
+    font-size: 1.8rem;
+    position: fixed;
+    top: 30%;
+    z-index: 100;
+}
+.diolog_btn-refuse{
+    display: inline-block;
+    height: 44px;
+    border-radius: 22px;
+    width: 41%;
+    background-color: #99acd5;
+    font-size: 1.8rem;
+    color: #fff;
+    line-height: 44px;
+    cursor: pointer;
+    margin-left: 6%;
+}
+.diolog_btn-agree{
+    display: inline-block;
+    height: 44px;
+    width: 41%;
+    border-radius: 22px;
+    background-color: #f5762e;
+    font-size: 1.8rem;
+    color: #fff;
+    line-height: 44px;
+    cursor: pointer;
+    margin-left: 6%;
+    margin-right: 6%;
+    letter-spacing: 1.1px;
+}
+.diolog_btn-agree:active{
+	background-color: #db652a;
+}
+.diolog_btn-refuse:active{
+	background-color: #889bba;
+}
+.proj_sum i{
+	color: #555;
+}
+
+/*****************questionnaire style    Begin*****************/
+.ques_title>ul>.unread_ques {
+	position: relative;
+    background: url(../images/ScApp/icon/QustionUnread.png) no-repeat;
+    background-position: 0 2px;
+    background-size: 19px;
+    margin-right: 20px;
+}
+.ques_title>ul>.all_ques {
+    background: url(../images/ScApp/icon/QustionRead.png) no-repeat;
+    background-position: 0 2px;
+    background-size: 19px;
+}
+.ques_title>ul>.read_active{
+	color: #55c9c3;
+	background-position: 0 -23px;
+	background-size: 19px;
+}
+.approve_per i{
+	padding:0px 0 0px 6px;
+	line-height: 20px;
+	/*float: right;*/
+	-webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    -moz-box-flex: 1;
+}
+.activ_input_edit>ul>li .approve_per{
+    padding-left: 6px;
+    padding-right: 18px;
+    overflow: visible;
+}
+.approve_pri{
+	width: 70px;
+}
+.activ_input_edit>ul>.approve_pri_li {
+    border-bottom: 1px solid #eee;
+    line-height: 24px;
+    height: auto; 
+    margin: 0 6px;
+    padding: 10px 4px;
+    font-size: 1.4rem;
+    color: #555;
+    -ms-flex-align: center;
+  	-webkit-align-items: center;
+  	-webkit-box-align: center;
+  	align-items: center;
+}
+.ques_info{
+	
+}
+.ques_info:last-child{
+	margin-bottom: 10px;
+}
+.ques_info label{
+	color: #b5b5b5;
+	font-size: 1.4rem;
+	padding-left: 20px;
+}
+.ques_info_label1{
+	background: url(../images/ScApp/icon/Qnumber.png) no-repeat left center;
+	background-size:15px;
+}
+.ques_info_label2{
+	background: url(../images/ScApp/icon/Qtype.png) no-repeat -2px center;
+	background-size:18px;
+}
+.ques_info_label3{
+	background: url(../images/ScApp/icon/crowds.png) no-repeat -2px center;
+	background-size:18px;
+}
+.ques_info_label4{
+	background: url(../images/ScApp/icon/Qright.png) no-repeat left center;
+	background-size:15px;
+}
+.ques_info i{
+	font-size: 1.4rem;
+	color: #777;
+}
+.ques_detail{
+	background-color: #fff;
+	margin: 10px 0;
+	border-radius: 5px;
+	padding: 10px 0;
+}
+.ques_detail_wenda,.ques_detail_radio,.ques_detail_checkbox{
+	padding: 10px 10px;
+	border-bottom: 1px solid #eee;
+}
+.ques_tag{
+	display: inline-block;
+	background-color: #99acd5;
+	color: #fff;
+	font-size: 1.2rem;
+	border-radius: 3px;
+	width: 44px;
+	height: 16px;
+	text-align: center;
+	line-height: 16px;
+	margin:0 4px 0 6px;
+}
+.ques_detail_wenda>p,.ques_detail_radio>p,.ques_detail_checkbox>p{
+	margin-bottom: 16px;
+	line-height: 24px;
+	color: #555;
+}
+.ques_detail_wenda textarea{
+	height: 32px;
+	border-bottom: 1px solid #eee;
+	font-size: 1.4rem;
+	padding: 5px;
+}
+.ques_detail_wenda textarea:focus{
+	border-bottom: 1px solid #eee;
+}
+.ques_detail_wenda p img,.ques_detail_radio p img,.ques_detail_checkbox p img{
+	width: 40px;
+	height: 30px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before{
+	color: #8dce66 !important;
+}
+.ques_detail_checkbox .mui-checkbox.mui-left label,.ques_detail_radio .mui-radio.mui-left label{
+	padding-right: 10px;
+    padding-left: 44px;
+    color: #555;
+    line-height: 24px;
+}
+.ques_detail_checkbox .mui-input-row label,.ques_detail_radio .mui-input-row label{
+	font-family: "微软雅黑";
+	font-size: 1.4rem;
+	padding:5px 10px;
+}
+.ques_detail_checkbox .mui-checkbox.mui-left input[type=checkbox],.ques_detail_radio .mui-radio.mui-left input[type=radio]{
+	left:10px;
+}
+.ques_detail_checkbox .mui-input-row img,.ques_detail_radio .mui-input-row img{
+	width: 40px;
+	height: 30px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 5px;
+}
+.ques_result_list>li{
+	padding: 10px 10px;
+	font-size: 1.4rem;
+	background-color: #fff;
+	margin-bottom: 6px;
+	color: #555;
+	line-height: 24px;
+}
+.ques_result_list .join_object {
+	padding-right: 7%;
+    background: #fff url(../images/ScApp/icon/right.png) 96% center no-repeat;
+    background-size: 9px;
+}
+.activ_input_list .mui-switch{
+	margin: 6px 0;
+	float: right;
+}
+.activ_input_list .mui-switch.mui-active {
+    border-color: #55c9c3;
+    background-color: #55c9c3;
+}
+.ques_result_list img,.ques_option img{
+	height: 30px;
+	width: 40px;
+	display: inline-block;
+	vertical-align: middle;
+	margin:0 5px;
+}
+.ques_result_lists{
+	padding-top: 10px;
+}
+.ques_result_title{
+	border-bottom: 1px solid #eee;
+}
+.ques_result_lists .comment_lists{
+	background-color: #fff;
+}
+.ques_list_detail .ques_result_list>li{
+	margin-bottom: 0px;
+}
+.ques_result_answer{
+	padding: 10px;
+	background-color: #fff;
+	border-bottom: 1px solid #eee;
+}
+.ques_option{
+	font-size: 1.4rem;
+	color: #555;
+}
+.choose_peop_num{
+	color: #b5b5b5;
+}
+.theMore{
+	display: inline-block;
+    background-color: #F5762E;
+    color: #fff;
+    font-size: 1.2rem;
+    border-radius: 3px;
+    width: 38px;
+    height: 16px;
+    text-align: center;
+    line-height: 16px;
+    margin: 0 4px 0 6px;
+}
+
+.ques_option_per{
+	margin-top: 10px;
+	padding: 10px 0 0 0;
+	background-color: #fff;
+	overflow: hidden;
+	border-top: 1px solid #eee;
+}
+.ques_option_per .alapply_name{
+	padding: 5px 0 5px 0;
+}
+
+/*****************questionnaire style    End*****************/
+
+/*****************homepage style    Begin*****************/
+.nav_message .mui-slider{
+	height:180px;
+}
+.nav_message .mui-slider .mui-slider-group .mui-slider-item>a:not(.mui-control-item){
+	height: 180px;
+}
+.nav_message .mui-slider-indicator{
+	bottom:4px;
+}
+.nav_message .mui-slider-indicator .mui-indicator{
+	margin: 1px 4px 0 0;
+}
+.nav_message .mui-slider-title {
+    line-height: 30px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    margin: 0;
+    text-align: left;
+    text-indent: 12px;
+    opacity: .6;
+    background: -webkit-linear-gradient(top,rgba(0,0,0,0), #000 70%);
+    color: #fff;
+}
+.index_mess_list{
+	background-color: #fff;
+	margin-top: 10px;
+}
+.index_mess_list ul li{
+	height:64px;
+	width: 100%;
+	padding: 10px;
+	border-bottom: 1px solid #eee;
+	
+}
+.index_mess_list ul li{
+	height:64px;
+	width: 100%;
+	padding: 14px;
+}
+.index_right{
+	background: url(../images/ScApp/icon/right.png) no-repeat 97% center;
+	background-size: 11px;
+}
+.index_mess_appr{
+	width: 96%;
+	padding-left: 50px;
+	position: relative;
+}
+.index_mess_label{
+	font-size: 1.6rem;
+	line-height: 16px;
+	display: block;
+	margin-bottom: 5px;
+	color: #555;
+}
+.index_mess_span{
+	font-size: 1.4rem;
+	color:#b5b5b5;
+	display: block;
+	line-height: 16px;
+	height: 16px;
+	white-space:normal;
+	text-overflow : ellipsis; 
+	overflow: hidden;
+}
+.index_mess_list ul li>div{
+	background-size: 40px!important;
+}
+.index_mess_1{
+	background: url(../images/ScApp/icon/HomeSp.png) no-repeat left center;
+}
+.index_mess_2{
+	background: url(../images/ScApp/icon/HomeGg.png) no-repeat left center;
+}
+.index_mess_3{
+	background: url(../images/ScApp/icon/HomeWj.png) no-repeat left center;
+}
+.index_mess_4{
+	background: url(../images/ScApp/icon/HomeHd.png) no-repeat left center;
+}
+.newsremind_badge{
+    background-color: #ea5514;
+    color: #fff;
+    position: absolute;
+    left: 27px;
+    top: -3px;
+    font-size: 1.2rem;
+    line-height: 1;
+    display: inline-block;
+    padding: 1px 4px;
+    border-radius: 100px;
+}
+.mine_container{
+	padding-top: 10px;
+}
+.approve_overtime .sc_cell_bd .mine_telnumber{
+	font-size: 1.4rem;
+	color: #b5b5b5;
+}
+.mine_right {
+   height: 38px;
+   line-height: 38px;
+   vertical-align: middle;
+    font-size: 1.4rem;
+    color: #b5b5b5;
+    text-align: right;
+    padding-right: 18px;
+    background: url(../images/ScApp/icon/right.png) no-repeat right center;
+    background-size:12px;
+}
+.mine_container_title{
+	margin-bottom: 10px;
+}
+.mine_container_body{
+	background-color: #fff;
+	line-height: 44px;
+	padding:0;
+	font-size: 1.6rem;
+	color: #555;
+}
+.mine_container_body>ul>li>i{
+	padding-left: 27px;
+	display: inline-block;
+	width: 80px;
+	background-size:20px;
+}
+.mine_i>ul>li>i{
+	width: 120px;
+}
+.mine_list_right{
+	background: url(../images/ScApp/icon/right.png) no-repeat 97% center;
+	background-size: 11px;
+}
+.mine_list_right:last-child{
+	border-bottom: none;
+}
+.mine_list_1{
+	background: url(../images/ScApp/icon/ProfileSc.png) left center no-repeat;
+}
+.mine_list_2{
+	background: url(../images/ScApp/icon/ProfileQz.png) left center no-repeat;
+}
+.mine_list_3{
+	background: url(../images/ScApp/icon/ProfileKjj.png) left center no-repeat;
+}
+.mine_list_4{
+	background: url(../images/ScApp/icon/ProfileBz.png) left center no-repeat;
+}
+.mine_list_5{
+	background: url(../images/ScApp/mypage/InfmName.png) left center no-repeat;
+}
+.mine_list_6{
+	background: url(../images/ScApp/mypage/InfmPhonenumber.png) left center no-repeat;
+}
+.mine_list_7{
+	background: url(../images/ScApp/mypage/InfmDepartment.png) left center no-repeat;
+}
+.mine_list_8{
+	background: url(../images/ScApp/mypage/InfmPosition.png) left center no-repeat;
+}
+.mine_list_9{
+	background: url(../images/ScApp/mypage/InfmEmail.png) left center no-repeat;
+}
+.mine_list_10{
+	background: url(../images/ScApp/mypage/InfmAddress.png) left center no-repeat;
+}
+.mine_list_11{
+	background: url(../images/ScApp/icon/InfmBorthday.png) left center no-repeat;
+}
+.mine_list_12{
+	background: url(../images/ScApp/icon/InfmWeiChat.png) left center no-repeat;
+}
+.mine_list_13{
+	background: url(../images/ScApp/mypage/style.png) left center no-repeat;
+}
+.mine_container_title .sc_cell{
+	margin-bottom: 0;
+}
+.log_out{
+	margin-top: 10px;
+	height:44px;
+	padding: 0 10px;
+	line-height: 44px;
+	font-size: 1.6rem;
+	padding-left: 40px;
+	background: #fff url(../images/ScApp/icon/ProfileOut.png) 10px center no-repeat;
+	background-size: 20px;
+}
+.log_out:active{
+	background-color: #eee;
+}
+
+.mine_container_title .approve_overtime a:active{
+	background-color: #eee;
+}
+
+
+
+.work_stand{
+	/*padding-top: 10px;*/
+}
+.approve_module{
+	width: 100%;
+	height: inherit;
+	overflow: hidden;
+}
+.approve_module a{
+	display: block;
+}
+.nav_workstand{
+	/*height: 100%;*/
+	/*margin-bottom: 44px;*/
+	background: url(../images/ScApp/nav/appsBackImage.png) center bottom no-repeat;
+	background-size: contain;
+}
+.ScFamily_tab .mui-icon-home:before{
+	content: "";
+	background: url(../images/ScApp/nav/Home_02.png) no-repeat center;
+	background-size:24px;
+	height:24px;
+	width: 24px;
+	display: block;
+}
+.ScFamily_tab .mui-icon-email:before{
+    content: "";
+	background: url(../images/ScApp/nav/Telphone_02.png) no-repeat center;
+	background-size:24px;
+	height:24px;
+	width: 24px;
+	display: block;
+}
+.ScFamily_tab .mui-icon-contact:before{
+	content: "";
+	background: url(../images/ScApp/nav/Apps_02.png) no-repeat center;
+	background-size:24px;
+	height:24px;
+	width: 24px;
+	display: block;
+}
+.ScFamily_tab .mui-icon-gear:before{
+    content: "";
+	background: url(../images/ScApp/nav/Profile_02.png) no-repeat center;
+	background-size:24px;
+	height:24px;
+	width: 24px;
+	display: block;
+}
+.ScFamily_tab  .mui-tab-item.mui-active .mui-icon-home:before{
+	content: "";
+	background: url(../images/ScApp/nav/Home_01.png) no-repeat center;
+	background-size:24px;
+	height:24px;
+	width: 24px;
+	display: block;
+}
+.ScFamily_tab .mui-tab-item.mui-active .mui-icon-email:before{
+	content: "";
+	background: url(../images/ScApp/nav/Telphone_01.png) no-repeat center;
+	background-size:24px;
+	height:24px;
+	width: 24px;
+	display: block;
+}
+.ScFamily_tab .mui-tab-item.mui-active .mui-icon-contact:before{
+	content: "";
+	background: url(../images/ScApp/nav/Apps_01.png) no-repeat center;
+	background-size:26px;
+	height:24px;
+	width: 24px;
+	display: block;
+}
+.ScFamily_tab .mui-tab-item.mui-active .mui-icon-gear:before{
+	content: "";
+	background: url(../images/ScApp/nav/Profile_01.png) no-repeat center;
+	background-size:18px;
+	height:24px;
+	width: 24px;
+	display: block;
+}
+.ScFamily_tab{
+	background-color: #fff;
+	/*box-shadow: 0 -1px 2px #ccc;*/
+}
+.ScFamily_tab .mui-icon .mui-badge{
+	background-color: #ea5514;
+}
+.address_list .mui-bar {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.address_list .addlist_stafflist {
+    height: 56px;
+    padding: 10px 25px 10px 15px;
+}
+.address_list .addlist_stafflist img {
+    border-radius: 5px;
+    height: 36px;
+    width: 36px;
+    margin-right: 10px;
+    float: left;
+}
+.address_list .addlist_staffname {
+    float: left;
+    width: 50%;
+}
+.address_list .addlist_name {
+    font-size: 1.6rem;
+    line-height: 18px;
+}
+.address_list .addlist_num, .addlist_post {
+    color: #888;
+    font-size: 1.4rem;
+}
+.address_list .addlist_makemass,.addlist_makecall{
+    display: inline-block;
+    float: right;
+    height: 36px;
+    width: 44px;
+    background: url(../images/ScApp/nav/msg.png) center no-repeat;
+    background-size: 26px 26px;
+}
+.address_list .addlist_makecall {
+    background: url(../images/ScApp/nav/call.png) center no-repeat;
+    background-size: 26px 26px;
+    border-right: 1px solid #eee;
+}
+.address_list .mui-table-view-cell:after{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0px;
+	height: 1px;
+	content: '';
+	-webkit-transform: scaleY(.5);
+	transform: scaleY(.5);
+	background-color: #eee;
+}
+.address_list .mui-table-view-divider:before,.mui-table-view-divider:after{
+	content: "";
+	height: 0;
+}
+.address_list .mui-indexed-list-bar{
+	background-color: #ddd;
+}
+.address_list .mui-indexed-list-bar.active a.active {
+	color: #55c9c3;
+}
+.address_list .mui-icon-search:before{
+	content: "";
+	background: url(../images/ScApp/nav/search.png) 0px  5px  no-repeat;
+	background-size: 18px;
+	height: 24px;
+	width: 20px;
+	display: inline-block;
+}
+.address_list .mui-ios .mui-indexed-list-group, .mui-ios .mui-indexed-list-item, .mui-ios .mui-indexed-list-empty-alert{
+	padding-right: 30px;
+}
+.address_list .mui-placeholder span{
+	vertical-align: middle;
+}
+/*****************homepage style    End*****************/
+
+/*****************mypage style    Begin*****************/
+.user_info  .sc_cell_hd img{
+	width: 40px;
+	height: 40px;
+	border-radius: 5px;
+    margin-right: 10px;
+    display: block;
+}
+.mine_container_body>ul>li>span{
+	display: block;
+	width: 68%;
+	width: calc(100%-80px);
+	color: #b5b5b5;
+	/*padding-right: 18px;*/
+	text-align: right;
+	line-height: 18px;
+	font-size: 1.5rem;
+}
+.addlist_detail_body>ul>li>span{
+	padding-right: 5px;
+}
+.mine_container_body>ul>li{
+	line-height:20px;
+	overflow: hidden;
+	padding: 13px 10px;
+	border-bottom: 1px solid #eee;
+}
+.mine_container_body>ul>li:active{
+	background-color: #eee;
+}
+.shortcuts_switch>ul>li{
+	padding: 10px;
+	height: 44px;
+	font-size: 1.6rem;
+	padding-left: 15px;
+}
+.shortcuts_switch>ul{
+	background-color: #fff;
+}
+.shortcuts_switch .mui-switch.mui-active{
+	border-color: #55c9c3;
+    background-color: #55c9c3;
+}
+.switch_state{
+	position: absolute;
+	right: 70px;
+	font-size: 1.2rem;
+	line-height: 24px;
+	color: #B5B5B5;
+	/*display: inline-block;*/
+}
+.shortcuts_switch .mui-table-view-cell{
+	color: #555;
+}
+.shortcuts_switch{
+	margin-bottom: 5px;
+}
+.set_switches{
+	line-height: 29px;
+	height: 29px;
+	font-size: 1.4rem;
+	padding-left: 5px;
+	color: #B5B5B5;
+	border-bottom: 1px solid #eee;
+}
+.set_switches_text{
+	margin: 10px 20px;
+	font-size: 1.2rem;
+	line-height: 16px;
+	color: #9e9e9e;
+}
+.set_switches_list>ul>li>i{
+	padding-left: 0px;
+}
+.set_switches_list>ul>.mine_list_right{
+	padding-left: 25px;
+}
+.set_switches_list>ul>.mine_list_right:active{
+	/*background-color: #eee;*/
+}
+
+input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], select, textarea{
+	margin-bottom: 0 !important;
+}
+.feedback_textarea{
+	padding:20px 10px 10px 10px;
+	border-bottom: 1px solid #eee;
+	color: #555;
+	width: 100%;
+}
+.feedback_textarea textarea{
+	height:125px;
+	padding: 10px;
+	font-size: 1.4rem;
+}
+.submit_feedback{
+	height:74px;
+}
+.feedback_textarea input{
+	width: 140px;
+	outline: none;
+	border: none;
+	border-bottom: 1px solid #eee;
+	font-size: 1.4rem;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	color: #555;
+	border-radius: 0px;
+}
+.group_person{
+	padding: 10px 0;
+}
+.group_person .ques_option_per{
+ 	padding: 0px 20px ;
+}
+.group_person .ques_option_per ul{
+	height: inherit;
+    display: table;
+    overflow: hidden;
+    margin: 0 auto;
+    
+}
+.group_person .alapply_name img{
+	height: 38px;
+	width: 38px;
+	position: relative;
+}
+.group_person .ques_option_per .alapply_name {
+    padding: 15px 0px 5px 0;
+    margin-right: 25px;
+    position: relative;
+}
+.commongroup_person .ques_option_per .alapply_name{
+	padding: 10px 0px 5px 0;
+}
+.group_person .ques_option_per .alapply_name:last-child{
+    margin-right: 0px;
+}
+.group_person .alapply_name label{
+	color: #555;
+}
+.group_person .alapply_name .add_usergroup{
+    color: #55c9c3;
+}
+.userperson_delete{
+	height: 20px;
+	width: 20px;
+	background: url(../images/ScApp/mypage/trash.png) center no-repeat;
+	background-size: 20px;
+	position: absolute;
+	top: 4px;
+	right: -9px;
+}
+.common_usergroup{
+	padding: 13px 0 0 0;
+	background-color: #fff;
+	margin-bottom: 10px;
+}
+.common_usergroup_title{
+	position: relative;
+}
+.common_usergroup_title label{
+	font-size: 1.2rem;
+	color: #B5B5B5;
+	text-align: center;
+	display: block;
+	height: 20px;
+}
+.usergroup_edit{
+	position: absolute;
+	top:0;
+	right: 40px;
+	background: url(../images/ScApp/mypage/GroupEdit.png) no-repeat center;
+	background-size: 20px;
+	height: 20px;
+	width: 30px;
+	border-right: 1px solid #eee;
+}
+.usergroup_delete{
+	position: absolute;
+	top:0;
+	right: 10px;
+	background: url(../images/ScApp/mypage/GroupCancle.png) no-repeat center;
+	background-size: 20px;
+	height: 20px;
+	width: 30px;
+}
+.commongroup_person{
+	padding: 0 0 10px 0;
+}
+.add_commongroup{
+	height: 97px;
+	text-align: center;
+	padding-top: 60px;
+	color: #b5b5b5;
+	background:#fff url(../images/ScApp/mypage/GroupAdd.png) no-repeat center 20px ;
+	background-size: 37px;
+	font-size: 1.4rem;
+}
+.add_commongroup:active{
+	background-color: #eee;
+}
+
+
+
+/*****************mypage style    End*****************/
+.addlist_detail_bg{
+	background-color: #fff!important;
+}
+.addlist_detail_title{
+	padding: 6px 15px;
+    font-size: 1.4rem;
+    line-height: 18px;
+    color: #ffb864;
+    background-color: #f4f7f9;
+}
+.addlist_detail_title span:last-child{
+	 color: #b5b5b5;
+	 float: right;
+}
+.addlist_detail_body{
+    background-color: #fff;
+    line-height: 44px;
+    padding: 0;
+    font-size: 1.6rem;
+    color: #555;
+}
+.addlist_detail_body>ul>li{
+	padding: 13px 10px;
+}
+.btn_make_call{	
+    background: url(../images/ScApp/icon/call.png) 24% center no-repeat;
+    background-size: 25px;
+}
+.btn_send_sms{
+    background: url(../images/ScApp/icon/msg.png) 24% center no-repeat;
+    background-size: 25px;
+}
+.addlist_detail_btn{
+    height: 37px;
+    width: 100%;
+    background-color: #fff;
+    display: -moz-box;
+    display: -webkit-box;
+    display: flex;
+    line-height: 37px;
+    font-size: 1.6rem;
+    text-align: center;
+    -ms-flex-align: center;
+ 	 -webkit-align-items: center;
+  	-webkit-box-align: center;
+ 	 align-items: center;
+ 	 margin-bottom: 20px;
+}
+.addlist_detail_btn div{
+	-webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    -moz-box-flex: 1;
+    color: #555;
+    padding-left: 24px;
+    cursor: pointer;
+}
+.addlist_detail_header{
+	text-align: center;
+	padding: 34px 15%;
+}
+.addlist_detail_header img{
+	height: 70px;
+	width: 70px;
+	border-radius: 6px;
+	margin: 0 auto;	
+}
+.addlist_detail_header h4{
+	color: #555;
+	font-size: 1.7rem;
+	margin: 10px 0 6px 0;
+}
+.addlist_detail_header span{
+	font-size: 1.4rem;
+	color: #b2b2b2;
+}
+
+/*****************shortcuts_apply style    Begin*****************/
+.shortcuts_lists .mui-table-view-cell.mui-active{
+	background-color: #eee;
+}
+.shortcuts_lists .mui-table-view-cell{
+	height: 52px;
+	background-color: #fff;
+}
+.shortcuts_lists .mui-table-view-cell img{
+	display: inline-block;
+	float: left;
+}
+.shortcuts_lists .mui-table-view-cell span{
+	display: inline-block;
+    font-size: 1.6rem;
+    line-height: 30px;
+    padding-left: 6px;
+}
+.shortcuts_lists .mui-table-view:before {
+    height: 0;
+    content: '';
+}
+.shortcuts_lists > .mui-table-view:first-child {
+    margin-top: 10px;
+}
+
+/*****************shortcuts_apply style    End*****************/
+
+
+.addlist_detail_sendmessage{
+	background-color: #f5762e;
+    margin: 15px auto 5px auto;
+    max-width: 40%;
+    height: 34px;
+    border-radius: 6px;
+    color: #fff;
+    text-align: center;
+    line-height: 34px;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+	
+
+

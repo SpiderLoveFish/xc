@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.css" />
+		<link rel="stylesheet" href="../../../css/reset.css" />
+		<link rel="stylesheet" href="../../../css/list.css" />
+		<link rel="stylesheet" href="../../../css/style_sc.css" />
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">快捷键</h1>
+		</header>
+		<div class="mui-content container">
+			<div class="mine_container">
+				<div class="shortcuts_switch">
+					<ul>
+						<li class="mui-table-view-cell">
+							<span>快捷键开关</span>
+							<span class="switch_state" id="isSwitch">已关闭</span>
+							<div class="mui-switch mui-switch-mini ">
+								<div class="mui-switch-handle"></div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="mine_container_body bs set_switches_list">
+					<div class="set_switches">设置快捷键</div>
+					<ul class="ullist">
+						<li id="shortcuts1"  class="mine_list_right mui-table-view-cell flexbox">
+							<i class=" ">快捷键1</i>
+							<span class="" id="shortcutsText1">无</span>
+						</li>
+						<li id="shortcuts2" class="mine_list_right mui-table-view-cell flexbox">
+							<i class="">快捷键2</i>
+							<span class="" id="shortcutsText2">无</span>
+						</li>
+						<li id="shortcuts3" class="mine_list_right mui-table-view-cell flexbox">
+							<i class="">快捷键3</i>
+							<span class="" id="shortcutsText3">无</span>
+						</li>
+						<li id="shortcuts4" class="mine_list_right mui-table-view-cell flexbox">
+							<i class="">快捷键4</i>
+							<span class="" id="shortcutsText4">无</span>
+						</li>
+						
+					</ul>
+				</div>
+				<div class="set_switches_text">
+					设置的快捷键将在首页显示，可以将我使用频率较高的应用设置在首页快捷键处，方便我们随时使用
+				</div>
+			</div>
+			
+		</div>
+	</body>
+	<script type="text/javascript" src="../../../js/mui/mui.min.js"></script>
+	<script type="text/javascript" src="../../../js/controllers/common.js"></script>
+	<script type="text/javascript" src="../../../js/controllers/myPage/shortcuts/shortcuts.js"></script>
+
+</html>

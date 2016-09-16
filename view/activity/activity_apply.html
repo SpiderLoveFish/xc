@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>活动报名</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css" />
+		<link rel="stylesheet" href="../../css/list.css" />
+		<link rel="stylesheet" href="../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/preview_image.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">活动报名</h1>
+		</header>
+		<div class="mui-content">
+			<div class="container">
+				<div class="news_container">
+					<div class="news_container_1 bs">
+						<div class="activ_apply_edit">
+							<div class="activ_theme">
+								<input type="text" class="" name="" id="ATheme" value="" placeholder="请填写活动的标题(主题)" />
+							</div>
+							<div class="uploadimg_list" id="imglist">
+							</div>
+							<div class="activ_uploadimg" id="uploadFile">上传图片</div>
+							<div class="activ_content_edit">
+								<textarea type="" class="" name="" id="AContext" value="" placeholder="请输入活动的内容"></textarea>
+							</div>
+						</div>
+						<div class="activ_input_edit">
+							<ul>
+								<li class="activ_input_list flexbox">
+									<span class="activ_input_label17">显示到首页热点</span>
+									<div class="flexItem">
+										<div class="mui-switch mui-switch-mini ">
+											<div class="mui-switch-handle"></div>
+										</div>
+									</div>
+								</li>
+								<li class="activ_input_list  flexbox">
+									<span class="activ_input_label1">报名截至</span>
+									<p class="flexItem">
+										<span id="pickDateBtn" type="button">请选择日期时间</span>
+									</p>
+								</li>
+								<li class="activ_input_list flexbox">
+									<span class="activ_input_label2">活动时间</span>
+									<p class="activ_time flexItem">
+										<span id="starDate" type="button">开始时间</span>~<span id="endDate" type="button">结束时间</span>
+									</p>
+								</li>
+								<li class="activ_input_list flexbox">
+									<span class="activ_input_label3">活动地址</span>
+									<p class="flexItem">
+										<input type="text" name="" id="Address" value="" placeholder="这里填写活动的具体地址" />
+									</p>
+								</li>
+								<li class="activ_input_list flexbox">
+									<span class="activ_input_label4">人数限制</span>
+									<p class="flexItem">
+										<input type="number" name="" id="userCount" value="0" placeholder="0为不限制人数" />
+									</p>
+								</li>
+								<!--<li class="activ_input_list flexbox">
+								<span class="activ_input_label5">参与对象</span>
+								<p class="flexItem join_object">公司全体人员</p>
+							</li>-->
+							</ul>
+						</div>
+						<div class="btn_woapply" id="btnSubmit">立即发布</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../js/mui/mui.min.js"></script>
+	<script type="text/javascript" src="../../js/mui/mui.zoom.js"></script>
+	<script type="text/javascript" src="../../js/mui/mui.previewimage.js"></script>
+	<script type="text/javascript" src="../../js/common/zepto.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="../../js/controllers/common.js"></script>
+	<script type="text/javascript" src="../../js/common/canvasResize.js"></script>
+	<script type="text/javascript" src="../../js/common/binaryajax.js"></script>
+	<script type="text/javascript" src="../../js/common/exif.js"></script>
+	<script type="text/javascript" src="../../js/controllers/activity/activity_apply.js"></script>
+
+</html>

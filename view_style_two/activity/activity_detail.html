@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<title>活动报名</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css" />
+		<link rel="stylesheet" href="../../css/list.css" />
+		<link rel="stylesheet" href="../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" href="../../css/preview_image.css" />
+		<link rel="stylesheet" href="../../css/font-awesome.min.css" />
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">活动报名</h1>
+		</header>
+
+		<div class="mui-content ">
+			<div class="mui-scroll">
+				<div class="container">
+					<div class="news_container">
+						<div class="news_container_1 bs">
+							<div class="news_container_detial">
+								<div class="head_top">
+									<span class="left" id="ReleaseDateTime"></span>
+									<span class="icon_book right" id="ReadCount"></span>
+								</div>
+								<div class="news_detial">
+									<h4 id="ATheme"> </h4>
+									<div class="apply_deadline" id="SignUpEndTime"></div>
+									<p>发布人：
+										<label id="ReleaseName"> </label>
+									</p>
+									<div class="clear_float"></div>
+								</div>
+								<div class="news_body" id="AContext">
+								</div>
+								<div class="activ_lable">
+									<i>活动时间：</i><span id="Start_end_Time"></span>
+								</div>
+								<div class="activ_lable">
+									<i>活动地点：</i><span id="AAdress"></span>
+								</div>
+
+							</div>
+							<div class="activ_apply">
+								<div class="activ_apply_alr">
+									<div class="activ_apply_title" id="userCount"></div>
+									<div class="activ_apply_list" id="UserHeight">
+										<ul id="UserList">
+										</ul>
+										<!--<div class="showall_name">查看所有</div>-->
+									</div>
+									<div class="active_apply_btn">
+										<div class="btn_cnacelpub h" id="cancel">结束活动</div>
+										<div class="btn_woapply h" id="signUp">我要报名</div>
+										<div class="btn_activend h" id="gameOver">活动已结束</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="pub_comment bs">
+							<div class="comment_title" id="comment_title">
+								回复 (0条)
+							</div>
+							<div class="comment_lists">
+								<ul id="comments">
+
+								</ul>
+							</div>
+							<p class="comment_hint" id="comment_hint">已没有更多</i>
+							</p>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<div class="pub_inputbox">
+			<div class="inputbox_foot flexbox" style="z-index:19;">
+				<!--<div class="inputbox_append">
+
+				</div>-->
+				<div class="inputbox_input flexItem">
+					<textarea type="text" id="CommentText" data-selected="true" name="" rows="" cols="" placeholder="发表你的意见或者建议"></textarea>
+				</div>
+				<div class="inputbox_send" id="fabiao"></div>
+			</div>
+		</div>
+		</div>
+		
+	</body>
+
+	<script type="text/javascript" src="../../js_style_two/mui/mui.min.js"></script>
+	<script type="text/javascript" src="../../js_style_two/controllers/extension.js" ></script>
+	<script type="text/javascript" src="../../js_style_two/mui/mui.zoom.js"></script>
+	<script type="text/javascript" src="../../js_style_two/mui/mui.previewimage.js"></script>
+	<script type="text/javascript" src="../../js_style_two/controllers/common.js"></script>
+	<script type="text/javascript" src="../../js_style_two/common/zepto.min.js"></script>
+	<script type="text/javascript" src="../../js_style_two/controllers/activity/activity_detail.js"></script>
+	</body>
+
+</html>

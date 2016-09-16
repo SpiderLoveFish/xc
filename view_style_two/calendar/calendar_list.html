@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>考勤日历</title>
+		<meta name="description" content="" />
+		<meta name="HandheldFriendly" content="True" />
+		<meta name="MobileOptimized" content="320" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="format-detection" content="telephone=no" />
+		<script src="../../js_style_two/common/jquery-1.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.css" />
+		<link rel="stylesheet" href="../../css/list.css" />
+		<link rel="stylesheet" href="../../css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/style_sc.css" />
+		<style>
+			.calender {
+				width: 100%;
+				margin: 5px auto;
+				top: 0;
+				left: 0;
+				border-bottom: 1px #D6D6D6 solid;
+				background: #fff;
+				/*display: none;*/
+			}
+			
+			.calendertb {
+				width: 100%;
+			}
+			
+			.calendertb td {
+				width: 40px;
+				height: 40px;
+				text-align: center;
+				vertical-align: middle;
+				cursor: pointer;
+				font-size: 16px;
+				font-weight: normal;
+				font-family: 'Microsoft YaHei';
+			}
+			
+			.calendertb td.hover,
+			.calendertb td.weekendhover {
+				background: #D6D6D6;
+				border-radius: 999px;
+				transition:background-color 2s, transform .4s;
+				-moz-transition:background-color 2s, -moz-transform .4s; /* Firefox 4 */
+				-webkit-transition:background-color 2s, -webkit-transform .4s; /* Safari and Chrome */
+				-o-transition:background-color 2s,-o-transform .4s;/* Opera */
+				
+				
+			}
+			
+			.calendertb th {
+				width: 35px;
+				/*height: 30px;*/
+				text-align: center;
+				vertical-align: middle;
+				cursor: pointer;
+				color: #979797;
+			}
+			
+			.calendertb .tdtoday{
+				/*background: #55c9c3;*/
+				color: #55c9c3;
+				width: 35px;
+				height: 35px;
+				text-align: center;
+				font-weight: bold;
+				vertical-align: middle;
+				cursor: pointer;
+				font-size: 16px;
+				border-radius: 25px;
+				transform:scale(1,1);
+			}
+			.calendertb td.tdtoday.clickcss{
+				background-color: #55c9c3;
+				color: #fff;
+				transform:scale(1.15,1.15);
+			}
+			
+			
+			.getyear {
+				height: 35px;
+				line-height: 35px;
+				width: 100%;
+				text-align: center;
+				font-family: '';
+			}
+			
+			.preMonth {
+				font-size: 18px;
+				font-weight: bold;
+				cursor: pointer;
+				margin-right: 18px;
+				float: left;
+				margin-left: 10px;
+				width: 30px;
+				color: #000000;
+				font-family: '';
+			}
+			
+			.nextMonth {
+				font-size: 18px;
+				font-weight: bold;
+				cursor: pointer;
+				margin-left: 18px;
+				float: right;
+				margin-right: 10px;
+				width: 30px;
+				color: #000000;
+				font-family: '';
+			}
+			
+			.mh_date {
+				width: 249px;
+				height: 20px;
+				line-height: 20px;
+				padding: 5px;
+				border: 2px #AA9FFF solid;
+				cursor: pointer;
+				background: url(dateIco.png) no-repeat right center;
+			}
+			
+			.zhezhao {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				z-index: 998;
+				background: #fff;
+				filter: alpha(opacity=10);
+				opacity: 0.1;
+				display: none;
+			}
+			.calendertb tr th{
+				/*padding: 0;*/
+				/*margin: 10px !important;*/
+			}
+			.headcss{
+				/*padding: 10px 0;
+				margin: 10px 10px;*/
+			}
+			tbody tr:nth-child(2){
+				margin-top: 10px;
+			}
+			tr.headcss  {
+				color: #55c9c3;
+				height: 30px;
+				margin:10px 10px;
+				border-bottom: 1px #55c9c3 solid;
+				border-left: 0px;
+				border-right: 0px;
+				font-weight: bold;
+			}
+			.headcss th {
+				color: #55c9c3;
+				margin:10px 10px;
+				border-left: 0px;
+				border-right: 0px;
+				font-weight: bold;
+			}
+			.clickcss{
+				 background: #fafafa; 
+    				border-radius: 32px;
+    				transition:background-color 2s;
+					-moz-transition:background-color 2s; /* Firefox 4 */
+					-webkit-transition:background-color 2s; /* Safari and Chrome */
+					-o-transition:background-color 2s; /* Opera */
+			}
+			
+			.calendertb td {
+				height: 14.2vw;
+			}
+			tbody tr:nth-child(2){
+				/*margin-top: 1px;*/
+				/*border-top: 10px solid #fff;*/
+			}
+			.event {
+				padding: 5px 0;
+				cursor: pointer;
+				position: relative;
+			}
+			
+			.tdtoday span,
+			.event span {
+				display: block;
+				height: 16px;
+			}
+			
+			.event ul,
+			.tdtoday ul {
+				display: block;
+				padding: 0;
+				margin: 0;
+				/*height: 19px;*/
+			}
+			
+			.event ul li,
+			.tdtoday ul li {
+				border-radius: 50%;
+				display: inline-block;
+				height: 4px;
+				/*margin-left: 1px;*/
+				width: 4px;
+			}
+			
+			.event ul li.firstpoint,
+			.tdtoday ul li.firstpoint {
+				background: #6D6D6D;
+			}
+			
+			.event ul li.secondpoint,
+			.tdtoday ul li.secondpoint {
+				background: #F1F111;
+			}
+			
+			.event ul li.thirdpoint,
+			.tdtoday ul li.thirdpoint {
+				background: #FF6F6F;
+			}
+			
+			.event ul li.fourpoint,
+			.tdtoday ul li.fourpoint {
+				background: #4CD964;
+			}
+			
+			.displaynone{
+				color: #D1C7B7;
+			}
+			
+			
+			.addschedule{
+				position: absolute;
+				top:10px;
+				right: 12px;
+				height: 24px;
+				width: 24px;
+			}
+			
+			
+			/*日程详情*/
+			a.sc_cell.sc_cal_event{
+				height: auto;
+				color: #000;
+    			display: block;
+			}
+			
+			a.sc_cell.sc_cal_event .label_describe_2{
+				height: auto;
+				font-size: 1.5rem;
+			}
+			.sc_calevent_p{
+				padding-left: 0;
+			}
+			.sc_cal_state{
+				font-size: 12px;
+			    display: block;
+			    color: #b5b5b5;
+			    text-align: right;
+			}
+			
+			
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">日程管理</h1>
+			<a id='done' href="javascript:;" style="color: #55c9c3;" class="mui-btn-link mui-pull-right">
+				<img class='addschedule' src="../../images/ScApp/mypage/GroupAdd.png" alt="" />
+			</a>
+		</header>
+		<div class="mui-content">
+			<div class="mui-scroll">
+				<div class="container">
+					<div class='calender'>
+						<div class='calenderContent'>
+							<div class='calenderTable'>
+								<div class='getyear'  style="color: #55c9c3;font-size: 15px;" >
+									<a class='preMonth' id='preMonth'  style="color: #55c9c3;" >
+										<</a>
+											<label id="year"></label>
+											年
+											<label id="month"></label>
+											月
+											<a class='nextMonth' id='nextMonth' style="color: #55c9c3;" >></a>
+								</div>
+								<div class='tablebg'>
+									<table id='calender' class='calendertb' cellpadding='0' cellspacing='1'>
+										<tr class='headcss' style="">
+											<th>日</th>
+											<th>一</th>
+											<th>二</th>
+											<th>三</th>
+											<th>四</th>
+											<th>五</th>
+											<th>六</th>
+										</tr>
+										<!--<hr style="height: 10px;"/>-->
+										<tr>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+										</tr>
+										<tr>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+										</tr>
+										<tr>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+										</tr>
+										<tr>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+										</tr>
+										<tr>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+										</tr>
+										<tr>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+											<td data-date=""></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="mui-scroll">
+					<div class="sc_cells sc_cells_access" id="list">
+					
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</body>
+	<script src="../../js_style_two/mui/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js_style_two/controllers/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js_style_two/calendar/calendar_list.js"></script>
+
+</html>

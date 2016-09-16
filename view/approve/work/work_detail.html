@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../../css/list.css" />
+		<link rel="stylesheet" href="../../../css/style_sc.css" />
+		<link rel="stylesheet" href="../../../css/reset.css" />
+		<title>加班详情</title>
+	</head>
+
+	<body>
+		<div class="mui-content container">
+			<div class="work_details">
+				<div class="work_details_title bs">
+					<div class="sc_cells sc_cells_access approve_overtime">
+						<a href="javascript:;" class="sc_cell">
+							<div class="approve_left">
+								<div class="sc_cell_hd"><img id="avatar" src=""></div>
+								<div class="sc_cell_bd sc_cell_primary">
+									<p id="userName">姓名</p>
+									<p id="ReleaseTime" class="label_describe">时间</p>
+								</div>
+							</div>
+							<div class="approve_right">
+								<div id="approveState" class=""></div>
+							</div>
+						</a>
+					</div>
+					<div style="padding-left: 0px;" class="work_details_content">
+						<label>加班项目：</label>
+						<p id="project">加班项目</p>
+						<label>加班类型：</label>
+						<p id="wookType">加班类型</p>
+						<label>加班时间：</label>
+						<p id="WorkDate">加班时间</p>
+						<label>加班时长：</label>
+						<p id="WorkSumHour">加班时长</p>
+						<label>加班内容：</label>
+						<p id="WorkContent">加班内容</p>
+						<label>用餐补助：</label>
+						<p id="IsFeed">用餐补助</p>
+						<label>交通补助：</label>
+						<p id="IsTraffic">交通补助</p>
+						<label>备注：</label>
+						<p id="Mark">备注</p>
+						<div class="related">
+							<label class="">相关人：</label>
+							<p id="workCcUser">无</p>
+						</div>
+					</div>
+				</div>
+				<div class="approve_process bs">
+					<div class="approve_process_title">审批过程</div>
+					<div class="approve_process_content">
+						<div class="approve_state">
+							<ul id="approveProcess">
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="approve_footer h">
+				<div id="btnState" class="btn_appr_agree h">同意</div>
+				<div id="btnNopass" class="btn_appr_refuse h">拒绝</div>
+				<div id="btnBreak" class="btn_appr_revoke h">作废单据</div>
+			</div>
+		</div>
+	</body>
+	<script src="../../../js/common/zepto.min.js"></script>
+	<script src="../../../js/common/app_gqe.js"></script>
+	<script type="text/javascript" src="../../../js/mui/mui.min.js"></script>
+	<script type="text/javascript" src="../../../js/controllers/common.js"></script>
+	<script src="../../../js/controllers/approve/work/work_detail.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

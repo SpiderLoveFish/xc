@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>登陆页面</title>
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/my.css" />
+		<style>
+			.area {
+				margin: 20px auto 0px auto;
+			}
+			
+			.mui-input-group {
+				margin-top: 10px;
+			}
+			
+			.mui-input-group:first-child {
+				margin-top: 20px;
+			}
+			
+			.mui-input-group label {
+				width: 22%;
+			}
+			
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 78%;
+			}
+			
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				top: 6px;
+			}
+			
+			.mui-content-padded {
+				margin-top: 25px;
+			}
+			
+			.mui-btn {
+				padding: 10px;
+			}
+			
+			.link-area {
+				display: block;
+				margin-top: 25px;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body style="background-color:white;">
+		<DIV class="container_login">
+			<div class="login_logo">
+				<div class="login_logo_img">
+					<img src="images/ScApp/login/s-cloud-15.png" style="">
+				</div>
+			</div>
+			<div class="mui-content" style="background-color:white;">
+				<div id='login-form' class="mui-input-group" style="  width: 90%; margin-left: 5%; border-left: 1px solid #eee; border-right: 1px solid #eee;">
+					<div class="mui-input-row" style="  border-bottom: 1px solid #eee; margin-left: 10px;background:url(images/ScApp/login/sign-16.png) no-repeat; background-size: 25px 25px; background-position:10px 8px ;">
+						<label style="width:29%">账号</label>
+						<input id='account' type="text" class="mui-input-clear mui-input" value="" placeholder="请输入账号" style="width:70%">
+					</div>
+					<div class="mui-input-row" style="margin-left: 10px;background:url(images/ScApp/login/sign-17.png) no-repeat;background-size: 25px 25px; background-position:10px 8px ;">
+						<label style="width:29%">密码</label>
+						<input id='password' type="password" class="mui-input-clear mui-input" value="" placeholder="请输入密码" style="width:70%">
+					</div>
+				</div>
+				<div class="mui-content-padded" style="margin-top: 40px;">
+					<button id='login' class="mui-btn mui-btn-block mui-btn-primary">登录</button>
+					<div class="link-area"><a id='reg'>注册账号</a>
+					</div>
+				</div>
+				<div class="login_footer login_footer_add">
+					<p>www.go-mobile.cn</p>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/mui/mui.min.js"></script>
+		<script type="text/javascript" src="js/controllers/common.js"></script>
+		<script type="text/javascript" src="js/controllers/app.js"></script>
+		<script>
+			(function($, doc) {
+				$.init();
+				$.plusReady(function() {
+					var internetType = plus.networkinfo.getCurrentType();
+					if (internetType == 1) {
+						common.toast('检测到您尚未联网,请联网后重试..');
+					}
+					//common.alert('如果您还没有登录账号,请联系客服 手机号:18512260364 微信号:go_mobile');
+					//登录
+					common.click("login", function() {
+						var clientid = plus.push.getClientInfo().clientid;
+						var version = "android";
+						if (mui.os.ios) {
+							version = "ios";
+							clientid = plus.push.getClientInfo().token;
+						}
+						var loginname = common.textValiAlert(document.getElementById("account").value, "用户名不能为空..");
+						if (!loginname) {
+							return;
+						}
+						var pwd = common.textValiAlert(document.getElementById("password").value, "密码不能为空..");
+						if (!pwd) {
+							return;
+						}
+						if (!clientid) {
+							version=version+'/Don`t Found Clientid';
+							clientid = 'Don`t Found Clientid';
+						}
+						common.showWaiting(true);
+						app.login(loginname, pwd, clientid, version, function(result) {
+							if (result) {
+								common.closeWaiting();
+								plus.webview.currentWebview().loadURL("index.html");
+							} else {
+								common.closeWaiting();
+								common.alert("用户名或密码错误..");
+							}
+						})
+					});
+					//自动登录切换
+					var settings = app.getSettings();
+					settings.autoLogin = true;
+					app.setSettings(settings);
+					//双击后退退出登录
+					appQuit();
+					common.click('reg', function() {
+						common.loadUrl('reg.html');
+					});
+					//开启快捷键
+					localStorage.setItem('$shortcuts_switch', true);
+					var shortcuts = new Object();
+					shortcuts.Name = '请假填报';
+					shortcuts.imgUrl = '../../images/ScApp/shortcutsicon/kuaijiejian_14.png';
+					shortcuts.openUrl = '../approve/leave/leave_apply.html';
+					setShortcuts("$shortcuts_one", shortcuts);
+					shortcuts.Name = '加班填报';
+					shortcuts.imgUrl = '../../images/ScApp/shortcutsicon/kuaijiejian_08.png';
+					shortcuts.openUrl = '../approve/work/work_apply.html';
+					setShortcuts("$shortcuts_two", shortcuts);
+					shortcuts.Name = '待我审批';
+					shortcuts.imgUrl = '../../images/ScApp/shortcutsicon/kuaijiejian_10.png';
+					shortcuts.openUrl = '../approve/list/list_waitforme.html';
+					setShortcuts("$shortcuts_three", shortcuts);
+					shortcuts.Name = '日程管理';
+					shortcuts.imgUrl = '../../images/ScApp/shortcutsicon/KjjRicheng.png';
+					shortcuts.openUrl = '../calendar/calendar_list.html';
+					setShortcuts("$shortcuts_four", shortcuts);
+				});
+				//设置快捷键
+				function getShortcuts(setName) {
+					//获取快捷键
+					var shortcuts = JSON.parse(localStorage.getItem(setName) || "[]");
+					return shortcuts;
+				}
+
+				function setShortcuts(setName, shortcuts_Name) {
+					//设置快捷键
+					localStorage.setItem(setName, JSON.stringify(shortcuts_Name));
+				}
+			}(mui, document));
+		</script>
+	</body>
+
+</html>
