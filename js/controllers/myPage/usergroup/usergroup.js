@@ -26,6 +26,7 @@ mui.plusReady(function() {
 				};
 				common.showWaiting();
 				common.postApi("UsergroupManage", data, function(response) {
+						 alert(JSON.stringify(response.data))
 					if (response.data == "success") {
 						common.toast("删除成功");
 						common.initUserList();
@@ -64,6 +65,7 @@ mui.plusReady(function() {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 	 alert(JSON.stringify(response.data))
 			for (var i = 0; i < dataArray[0].length; i++) {
 				var obj = dataArray[0][i];
 				document.getElementById("divTem").innerHTML += templet.replace('@id', obj.ID).replace('@GroupName', obj.GroupName);

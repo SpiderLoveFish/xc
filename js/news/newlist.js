@@ -74,6 +74,7 @@ function getnewlist() {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		  alert(JSON.stringify(response.data))
 		for (var i = 0; i < dataArray[0].length; i++) {
 			var obj = dataArray[0][i];
 			list.innerHTML += html.replace('@id', obj.ID).replace('@IsHostPic', obj.PicUrl).replace('@Title', substringAddPoint(obj.Title)).replace('@Description', obj.Description).replace('@uTime', obj.U_Time.substring(0, 10));

@@ -35,6 +35,7 @@ mui.plusReady(function() {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 	 alert(JSON.stringify(response.data))
 		for (var i = 0; i < dataArray.length; i++) {
 			var obj = dataArray[i];
 			document.getElementById("Avatar").src = obj.Avatar;

@@ -350,6 +350,15 @@
 			//获取数据
 			common.postApi('GetMessage', data, function(response) {
 				var s = eval(response.data);
+				
+					var trace={
+			"html":'message',
+			"js":'',
+			"url":'GetMessage',
+			"urldata":JSON.stringify(data),
+			"returndata":JSON.stringify(response.data)
+		}
+		 common.postTraceApi(trace);
 				//审批
 				setBadgeNumber('approveCount', s[1].length);
 				//document.getElementById("approveCount").innerText = s[1].length;

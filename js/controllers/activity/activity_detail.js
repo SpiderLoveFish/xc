@@ -23,6 +23,7 @@ function deleteComment(id) {
 				type: "delete"
 			};
 			common.postApi(url, param, function(msg) {
+				 alert(JSON.stringify(response.data))
 				if (msg.data == "success") {
 					$("#P" + id).html("该条评论已删除");
 					$("#delete" + id).remove();
@@ -74,6 +75,7 @@ mui.plusReady(function() {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		  alert(JSON.stringify(response.data))
 			var isEnd = false; //是否结束活动
 			var isMe = false; //是否自己发布
 			var issign = false; //是否报名
@@ -317,6 +319,7 @@ mui.plusReady(function() {
 		commitPinglunLock = false;
 		common.showWaiting(true);
 		common.postApi('InsertAComment', param, function(msg) {
+			 alert(JSON.stringify(msg.data))
 			if (msg.data == "success") {
 				commitPinglunLock = true;
 				CommstartIndex = 0;
@@ -353,6 +356,7 @@ mui.plusReady(function() {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 	 alert(JSON.stringify(response.data))
 			if (data[0]) {
 				//document.getElementsByClassName('pub_comment')[0].style.display = 'block';
 				allCount = data[0].TotalCount;
@@ -419,6 +423,7 @@ mui.plusReady(function() {
 		};
 		signUpLock = false;
 		common.postApi('ActivityManage', data, function(response) {
+				 alert(JSON.stringify(response.data))
 			if (response.data == "success") {
 				showMsg();
 				signUpLock = true;

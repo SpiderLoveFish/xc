@@ -108,6 +108,7 @@ function uploadimg(imgurl) {
 		imgurl: imgurl
 	};
 	common.postApi('UpdateUserAvatar', data, function(response) {
+			 alert(JSON.stringify(response.data))
 		if (response.data == "success") {
 			common.closeWaiting();
 			Avatar.src = imgurl;
@@ -145,6 +146,7 @@ function getuser() {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 	 alert(JSON.stringify(response.data))
 		//alert(dataArray.length)
 		for (var i = 0; i < dataArray.length; i++) {
 			var obj = dataArray[i];

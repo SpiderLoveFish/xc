@@ -8,6 +8,7 @@ mui.plusReady(function() {
 			version: wgtinfo.version
 		}, function(response) {
 			var updateUrl = response.data; 
+				 alert(JSON.stringify(response.data))
 			if (updateUrl != 'no') {
 				//获取到更新地址  
 				var btnArray = ['是', '否'];

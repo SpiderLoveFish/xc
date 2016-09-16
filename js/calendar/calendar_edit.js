@@ -20,6 +20,7 @@ mui.plusReady(function() {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 alert(JSON.stringify(response.data))
 			var dataArray = s[0];
 			for (var i = 0; i < dataArray.length; i++) {
 				var obj = dataArray[i];
@@ -414,6 +415,7 @@ mui.plusReady(function() {
 		commitLock = false;
 		common.showWaiting();
 		common.postApi("ScheduleManage", data, function(response) {
+			alert(JSON.stringify(response.data))
 			if (response.data == "success") {
 				common.toast("保存成功");
 				go();

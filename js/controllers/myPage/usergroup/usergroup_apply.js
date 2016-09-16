@@ -49,6 +49,7 @@ mui.plusReady(function() {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 	 alert(JSON.stringify(response.data))
 			var User = document.getElementById("toUser");
 			User.innerHTML = '';
 			document.getElementById("txtGroupName").value = dataArray[0][0].GroupName;
@@ -92,6 +93,7 @@ mui.plusReady(function() {
 			};
 			common.showWaiting();
 			common.postApi('UsergroupManage', data, function(response) {
+					 alert(JSON.stringify(response.data))
 				if (response.data == "success") {
 					common.toast("提交成功..");
 					mui.back();

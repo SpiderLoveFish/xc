@@ -35,6 +35,7 @@ mui.plusReady(function() {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 	 alert(JSON.stringify(response.data))
 		var dataArray = s[0];
 		var obj = leaveObj = dataArray[0];
 		var pic = s[3];
@@ -197,6 +198,7 @@ mui.plusReady(function() {
 		commitLock = false;
 		common.showWaiting();
 		common.postApi('GeneralApproveManage', data, function(response) {
+				 alert(JSON.stringify(response.data))
 			if (response.data == "success") {
 				//currentViewHide();
 				common.toast("提交成功");

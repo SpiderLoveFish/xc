@@ -224,6 +224,7 @@ mui.plusReady(function() {
 		common.showWaiting();
 		//						alert(JSON.stringify(data));
 		common.postApi("ActivityManage", data, function(response) {
+			 alert(JSON.stringify(response.data))
 			if (response.data == "success") {
 				mui.toast("提交成功，自动跳转到列表界面..");
 				go();

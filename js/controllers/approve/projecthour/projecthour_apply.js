@@ -236,6 +236,7 @@ mui.plusReady(function() {
 		commitLock = false;
 		common.showWaiting();
 		common.postApi("ProjectHourManage", data, function(response) {
+				 alert(JSON.stringify(response.data))
 			if (response.data == "success") {
 				common.toast("提交成功，自动跳转到列表界面..");
 				go();

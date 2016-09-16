@@ -252,6 +252,7 @@ var CommonTop = '101px';
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 	 alert(JSON.stringify(response.data))
 			for (var i = 0; i < dataArray.length; i++) {
 				var obj = dataArray[i];
 				document.getElementById(id).options.add(new Option(obj.DictionaryName, obj.ID));
@@ -286,6 +287,7 @@ var CommonTop = '101px';
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 	 alert(JSON.stringify(response.data))
 			//列表右侧字母列表
 			if (dataArray[0].length > 0) {
 				document.getElementById("headerList").innerHTML += "<a>常</a>";
@@ -324,6 +326,7 @@ var CommonTop = '101px';
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 	 alert(JSON.stringify(response.data))
 				for (var i = 0; i < dataArray.length; i++) {
 					var temp; //临时变量
 					var obj = dataArray[i];
@@ -436,6 +439,7 @@ var CommonTop = '101px';
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 	 alert(JSON.stringify(response.data))
 			for (var i = 0; i < dataArray.length; i++) {
 				var obj = dataArray[i];
 				//alert(obj.MasterID + obj.Avatar)
@@ -464,6 +468,7 @@ var CommonTop = '101px';
 		common.postApi(interfaceUrl + 'EnterpriseApp/v1.0/InsertAComment', data, function(response) {
 			//dataArray = response.data;
 			//alert(response.data);
+				 alert(JSON.stringify(response.data))
 		}, 'json');
 	};
 	/**

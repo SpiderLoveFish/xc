@@ -34,6 +34,7 @@ mui.plusReady(function() {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 	 alert(JSON.stringify(response.data))
 		var dataArray = s[0];
 		var obj = leaveObj = dataArray[0];
 		//业务数据
@@ -192,6 +193,7 @@ mui.plusReady(function() {
 		commitLock = false;
 		common.showWaiting();
 		common.postApi('ProjectHourManage', data, function(response) {
+				 alert(JSON.stringify(response.data))
 			if (response.data == "success") {
 				//currentViewHide();
 				common.toast("提交成功");

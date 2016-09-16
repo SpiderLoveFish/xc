@@ -43,6 +43,7 @@ function GetUserList(selectType, departmentId) {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 	 alert(JSON.stringify(response.data))
 			createTable(db);
 			deleteTable(db);
 			for (var i = 0; i < dataArray.length; i++) {

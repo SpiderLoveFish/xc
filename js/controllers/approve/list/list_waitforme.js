@@ -149,6 +149,7 @@ function getData(type) {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 	 alert(JSON.stringify(response.data))
 		var dataArray = s[0];
 		if (dataArray.length > 0) {
 			$('.news_hint').text(dataArray.length); //数字角标
@@ -194,6 +195,7 @@ function getDataApprove() {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 	 alert(JSON.stringify(response.data))
 			var dataArray = s[0];
 			for (var i = 0; i < dataArray.length; i++) {
 				var obj = dataArray[i];
@@ -221,6 +223,7 @@ function getDataApprove() {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 	 alert(JSON.stringify(response.data))
 			var dataArray = s[0];
 			if (dataArray.length > 0) {
 				$('.news_hint').text(dataArray.length); //数字角标

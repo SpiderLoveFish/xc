@@ -74,6 +74,15 @@ function getquestionnairelist() {
 	};
 	common.postApi('GetSurveys', data, function(response) {
 		dataArray = eval(response.data);
+		var trace={
+			"html":'',
+			"js":'questionnairedetail',
+			"url":'GetSurveys',
+			"urldata":JSON.stringify(data),
+			"returndata":JSON.stringify(response.data)
+		}
+		 common.postTraceApi(trace);
+		  alert(JSON.stringify(response.data))
 		for (var i = 0; i < dataArray[0].length; i++) {
 			var obj = dataArray[0][i];
 			if (obj.Flag == '3') {

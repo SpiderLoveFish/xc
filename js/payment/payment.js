@@ -48,6 +48,7 @@ mui.plusReady(function() {
 		common.showWaiting(true);
 		common.postApi('GetAlipayInfo', data, function(response) {
 			var order = response.data;
+			 alert(JSON.stringify(response.data))
 			plus.payment.request(pays[id], order, function(result) {
 				common.closeWaiting();
 				common.alert("捐赠成功,谢谢您~");

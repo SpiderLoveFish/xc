@@ -45,6 +45,7 @@
 			"returndata":JSON.stringify(res.data)
 		}
 		 common.postTraceApi(trace);
+		  alert(JSON.stringify(response.data))
 				for (var i = 0; i < dataArray.length; i++) {
 					var obj = dataArray[i];
 					ul.innerHTML += temp.replace("@id", obj.DepartmentId).replace("@name", obj.DepartmentName);

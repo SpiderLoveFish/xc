@@ -41,6 +41,7 @@ common.postApi('GetUsersBySelectKey', userData, function(response) {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 	 alert(JSON.stringify(response.data))
 	for (var i = 0; i < dataArray.length; i++) {
 		var obj = dataArray[i];
 		userName = obj.UserName;
@@ -243,6 +244,7 @@ sendMessage = function(msgType) {
 	});
 	addHistoryMessages(content.getMessage(), 'my');
 	common.postApi("CheckUserOnline", userData, function(response) {
+			 alert(JSON.stringify(response.data))
 		if (response.data.status == '0') {
 			common.toast("用户不在线 --执行推送服务！");
 		}

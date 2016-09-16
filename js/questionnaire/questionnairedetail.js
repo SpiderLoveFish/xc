@@ -91,6 +91,15 @@ mui.plusReady(function() {
 		type: 'getSurveysDetital',
 	}, function(response) {
 		resultData = eval(response.data);
+			var trace={
+			"html":'',
+			"js":'questionnairedetail',
+			"url":'getSurveysDetital',
+			"urldata":'GetSurveys',
+			"returndata":JSON.stringify(response.data)
+		}
+		 common.postTraceApi(trace);
+		  alert(JSON.stringify(response.data))
 		dataArray = resultData[0];
 		for (var i = 0; i < dataArray.length; i++) {
 			var obj = dataArray[i];
@@ -174,6 +183,15 @@ function getsurveysquestion_master() {
 	}, function(response) {
 
 		resultData = eval(response.data);
+			var trace={
+			"html":'',
+			"js":'questionnairedetail',
+			"url":'GetSurveys',
+			"urldata":'getSurveysQuestion_List',
+			"returndata":JSON.stringify(response.data)
+		}
+		 common.postTraceApi(trace);
+		  alert(JSON.stringify(response.data))
 		dataArray = resultData[0];
 		for (var i = 0; i < dataArray.length; i++) {
 			var obj = dataArray[i];

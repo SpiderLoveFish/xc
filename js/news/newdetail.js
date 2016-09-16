@@ -48,6 +48,7 @@ mui.plusReady(function() {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		  alert(JSON.stringify(response.data))
 		dataArray = resultData[0];
 
 		for (var i = 0; i < dataArray.length; i++) {
@@ -88,6 +89,7 @@ mui.plusReady(function() {
 		};
 		commitPinglunLock = false;
 		common.postApi('InsertAComment', param, function(msg) {
+			 alert(JSON.stringify(msg.data))
 			if (msg.data == "success") {
 				commitPinglunLock = true;
 				CommstartIndex = 0;
@@ -126,6 +128,7 @@ mui.plusReady(function() {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		  alert(JSON.stringify(response.data))
 			if (data[0]) {
 
 				allCount = data[0].TotalCount;

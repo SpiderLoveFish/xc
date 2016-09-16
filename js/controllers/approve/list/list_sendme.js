@@ -75,6 +75,7 @@ function getData(type) {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 	 alert(JSON.stringify(response.data))
 		var dataArray = s[0];
 		for (var i = 0; i < dataArray.length; i++) {
 			var obj = dataArray[i];

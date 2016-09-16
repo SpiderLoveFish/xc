@@ -26,6 +26,7 @@ function GetCheckInDetail(datevalue) {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
+		 alert(JSON.stringify(response.data))
 		for (var i = 0; i < dataArray[0].length; i++) {
 			var obj = dataArray[0][i];
 			var itemobj = Item.replace('@ID', obj.ID).replace('@Remark', (obj.UserName == '' ? '' : obj.UserName + ':') + obj.Remark).replace('@CopyShow', obj.CopyShow);
@@ -187,7 +188,7 @@ mui.plusReady(function() {
 			"returndata":JSON.stringify(response.data)
 		}
 		 common.postTraceApi(trace);
-
+ alert(JSON.stringify(response.data))
 			dataArray0 = resultData[0]; //问题详情
 
 			for (var i = week - 1; i > -1; i--) {

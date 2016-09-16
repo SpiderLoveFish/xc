@@ -33,6 +33,15 @@ mui.plusReady(function() {
 		type: 'getAnwer_Result_XuanZeTi',
 	}, function(response) {
 		resultData = eval(response.data);
+		var trace={
+			"html":'',
+			"js":'answer2',
+			"url":'GetSurveys',
+			"urldata":'getAnwer_Result_XuanZeTi',
+			"returndata":JSON.stringify(response.data)
+		}
+		 common.postTraceApi(trace);
+		  alert(JSON.stringify(response.data))
 		dataArray0 = resultData[0]; //问题详情
 		dataArray1 = resultData[1]; //问题的图片
 		var imglist = '';
